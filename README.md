@@ -1,2 +1,2 @@
 # huiben
-miniprogram
+wechat public
