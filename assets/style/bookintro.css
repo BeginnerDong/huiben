@@ -1,0 +1,130 @@
+.book_search_kk{
+	width: 100%;
+}
+.search_kk{
+	padding: 15px;
+}
+.sear_kk_0{
+	position: relative;
+	background: rgb(255,255,255);
+	padding: 8px 0px;
+}
+.searchiocn_l{
+	position: absolute;
+	width: 14px;
+	height: 14px;
+	display: inline-block;
+	background: url("../../static/images/search.png");
+	background-size:100% ;
+	top: 14px;
+	left: 14px;
+}
+.search_book{
+	float: left;
+	width: 73%;
+}
+.all_book{
+	width: 26%;
+	float: left;
+	font-size: 12px;
+	color: rgb(54,155,145);
+	text-align: center;
+	line-height: 26px;
+}
+.all_book>view{
+	border-left: 1px solid #dcdcdc;
+}
+.search_txt_b{
+	margin-left: 45px;
+	font-size: 12px;
+	color: rgb(216,216,216);
+}
+.book_intro_big{
+	width: 100%;
+	margin-bottom: 28px;
+}
+.book_intro_left,.book_intro_middle,.book_intro_right{
+	float: left;
+	height: 510px;
+	background: #fff;
+}
+.book_intro_left{
+	width: 10%;
+	border-top-right-radius: 8px;
+	border-bottom-right-radius: 8px;
+}
+.book_intro_middle{
+	width: 70%;
+	margin-left: 5%;
+	margin-right: 5%;
+	border-radius: 8px;
+}
+.book_intro_right{
+	width: 10%;
+	border-top-left-radius: 8px;
+	border-bottom-left-radius: 8px;
+}
+.foot_book{
+	width: 100%;
+	position:fixed;
+	height: 60px;
+	bottom: 0;
+	background: #fff;
+}
+.foot_book_kk{
+	width: 70%;
+	margin: 8px auto;
+}
+.foot_book_btn{
+	float: left;width: 33.33%;
+	text-align: center;
+}
+ .foot_book_btn .foot_iocn{
+	width: 28px;height: 22px;
+}
+.book_intro_middle{
+	text-align: center;
+}
+.book_intro_img{
+	margin-top: 32px;
+}
+.book_name{
+	margin-top: 21px;
+	font-size: 19px;
+	color: rgb(42,42,42);
+}
+.book_copy{
+	font-size: 12px;
+	color: rgb(42,42,42);
+	margin-top: 5px;
+}
+.book_type{
+	margin-top: 21px;
+}
+.book_type span{
+	font-size: 10px;
+	color: rgb(255,255,255);
+	margin-top: 21px;
+	border-radius: 10px;
+	background: rgb(239,49,111);
+	padding: 2px 12px;
+}
+.book_intro{
+	font-size: 14px;
+	color:rgb(42,42,42);
+	margin-top: 21px;
+	text-align:justify;
+	padding: 0 26px;
+}
+.open_book{
+	margin-top: 24px;
+}
+.open_book button{
+	font-size: 14px;
+	color: rgb(255,255,255);
+	width: 159px;
+	height: 40px;
+	background: linear-gradient(to right,rgb(55,189,241) -40%,rgb(47,200,153) 120%);
+	border-radius: 20px;
+	line-height: 40px;
+}
