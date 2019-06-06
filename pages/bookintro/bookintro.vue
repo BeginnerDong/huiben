@@ -30,7 +30,7 @@
 不可多得的教育绘本。
 					</view>
 					<view class="open_book">
-						<button>开始阅读</button>
+						<button @click="webself.$Router.redirectTo({route:{path:'/pages/bookdetail/bookdetail'}})">开始阅读</button>
 					</view>
 				</view>
 				<view class="book_intro_right"></view>
@@ -42,7 +42,7 @@
 						<img class="foot_iocn" src="../../static/images/index_u.png"/>
 						<view style="font-size: 11px;">今日阅读</view>
 					</view>
-					<view class="foot_book_btn">
+					<view class="foot_book_btn" @click="webself.$Router.redirectTo({route:{path:'/pages/bookintro/bookintro'}})">
 						<img class="foot_iocn" src="../../static/images/book_s.png"/>
 						<view style="font-size: 11px;">所有绘本</view>
 					</view>

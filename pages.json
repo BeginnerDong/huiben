@@ -39,7 +39,50 @@
 			"style":{
 				"navigationBarTitleText":"游戏"
 			}
+		},
+		{
+			"path":"pages/signup/signup",
+			"style":{
+				"navigationBarTitleText":"60天幼儿能力提升计划"
+			}
+		},
+		{
+			"path":"pages/join/join",
+			"style":{
+				"navigationBarTitleText":"关注国青阅读"
+			}
+		},
+		{
+			"path":"pages/openredpack/openredpack",
+			"style":{
+				"navigationBarTitleText":"60天幼儿能力提升计划"
+			}
+		},
+		{
+			"path":"pages/bookdetail/bookdetail",
+			"style":{
+				"navigationBarTitleText":"阅读详情"
+			}
+		},
+		{
+			"path":"pages/bookdetail2/bookdetail2",
+			"style":{
+				"navigationBarTitleText":"阅读详情2"
+			}
+		},
+		{
+			"path":"pages/daka/daka",
+			"style":{
+				"navigationBarTitleText":"打卡的聪明豆"
+			}
+		},
+		{
+			"path":"pages/rewards/rewards",
+			"style":{
+				"navigationBarTitleText":"小黄和小蓝"
+			}
 		}
+		
 
 
 	],

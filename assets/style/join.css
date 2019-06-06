@@ -1,0 +1,47 @@
+.joinsuccess_kk{
+	padding: 15px;
+	width: 100%;
+}
+.joinsuccess_k{
+	background: #fff;
+	text-align: center;
+	padding: 23px 0;
+}
+.join_gx{
+	margin-top: 15px;
+	font-size: 17px;
+	color: rgb(74,74,74);
+}
+.join_day{
+	font-size: 24px;
+	color: rgb(54,155,145);
+	margin-top: 10px;
+}
+.join_huoqu{
+	margin-top: 20px;
+	font-size: 14px;
+	color: rgb(155,155,155);
+}
+.join_wchat{
+	text-align: center;
+}
+.join_ca{
+	font-size: 14px;
+	color: rgb(42,42,42);
+	margin-top: 24px;
+}
+.join_gzh{
+	margin-top: 15px;
+	margin: 15px auto;
+	width: 133px;
+	height: 133px;
+	background: #000000;
+}
+.join_gzh img{
+	width: 100%;
+}
+.join_wb{
+	margin-top: 21px;
+	font-size: 14px;
+	color: rgb(244,0,48);
+}

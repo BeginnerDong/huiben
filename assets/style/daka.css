@@ -1,0 +1,114 @@
+.daka_bg {
+	width: 100%;
+	height: 100%;
+	background: #f4f5f7;
+	padding-bottom: 20px;
+}
+
+.head_dk {
+	width: 100%;
+	padding: 16px;
+	text-align: right;
+}
+
+.head_dk button {
+	float: right;
+	background: linear-gradient(to right, rgb(55, 189, 241) -40%, rgb(47, 200, 153) 120%);
+	width: 159px;
+	height: 40px;
+	line-height: 40px;
+	font-size: 14px;
+	color: #fff;
+	margin-right: 40px;
+}
+
+
+.daka_m_left,
+.daka_m_right {
+	width: 50%;
+	float: left;
+	overflow: hidden;
+}
+
+.daka_m_left img {
+	width: 100%;
+}
+
+.daka_m_right>view {
+	padding: 51px;
+}
+
+.daka_m_right>view .daka_book,
+.daka_m_right>view .daka_fx {
+	font-size: 14px;
+}
+
+.daka_m_right .dabtn {
+	width: 159px;
+	height: 40px;
+	border-radius: 21px;
+	border: 1px solid rgb(54, 155, 144);
+	margin-top: 19px;
+	line-height: 40px;
+	float: left;
+	font-size: 14px;
+	color: rgb(54, 155, 145);
+}
+
+.booklist_k {
+	width: 100%;
+}
+
+.book__tj_name {
+	font-size: 14px;
+	color: rgb(42, 42, 42);
+}
+
+.book_tj {
+	width: 31%;
+	float: left;
+	background: #fff;
+	margin-left: 1.5%;
+}
+
+.book_tj_r {
+	margin-left: 70px;
+	padding-top: 17px;
+}
+
+.book_tj>view {
+	padding: 14px;
+}
+
+.book_tj_img {
+	float: left;
+}
+
+.book_tj_type {
+	width: 51px;
+	height: 17px;
+	border-radius: 100px;
+	background: rgb(239, 49, 111);
+	font-size: 8px;
+	line-height: 17px;
+	color: #fff;
+	float: left;
+	margin-top: 4px;
+
+}
+
+@media screen and (max-width:375px) {
+	.daka_middle {
+		width: 667px;
+	}
+}
+@media screen and (max-width:414px) {
+	.daka_middle {
+		width: 736px;
+	}
+}
+@media screen and (max-width:414px) {
+	.daka_middle {
+		width: 736px;
+	}
+}
