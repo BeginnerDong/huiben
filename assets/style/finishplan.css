@@ -1,0 +1,77 @@
+.wc_p {
+	padding: 21px;
+	text-align: center;
+	margin: 0 auto;
+}
+
+.wc_jh {
+
+	font-size: 26px;
+	color: rgb(54, 155, 145);
+}
+
+.wc_card {
+	width: 100%;
+	text-align: center;
+	background: linear-gradient(to right,rgb(55,189,241) -40%,rgb(47,200,153) 120%);position: relative;
+	height: 120px;
+	margin-top: 56px;
+}
+
+.wc_card_photo {
+	top: -39px;
+	transform: translateX(-50%);
+	left: 50%;
+	width: 78px;
+	height: 78px;
+	overflow: hidden;
+	border-radius: 50%;
+	position: absolute;
+	border: 4px solid #fff;
+}
+.wc_card_photo img{
+	width: 100%;
+	
+}
+.wc_card_ts{
+	font-size: 16px;
+	color: rgb(255,255,255);
+	padding-top: 65px;
+}
+.wc_1{
+	font-size: 14px;
+	color: rgb(42,42,42);
+}
+.wc_2{
+	font-size: 24px;
+	color: rgb(54,155,145);
+	margin-top: 11px;
+}
+.wc_card_2{
+	padding-top: 21px;
+	padding-bottom: 21px;
+	background: #fff;
+	border-radius: 8px;
+	margin-top: -8px;
+}
+.wc_card_left{
+	float: left;
+	width: 50%;
+}
+.wc_card_right{
+float: left;
+width: 50%;
+}
+
+.ljfxbtn{
+	text-align: center;
+	margin-top: 33px;
+}
+.ljfxbtn button{
+	width: 246px;
+	height: 40px;
+	background: linear-gradient(to right,rgb(55,189,241) -40%,rgb(47,200,153) 120%);
+	line-height: 40px;
+	color: rgb(255,255,255);
+	font-size: 14px;
+}

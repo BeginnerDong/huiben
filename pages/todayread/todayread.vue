@@ -18,8 +18,8 @@
 					<view>“孩子的社交启蒙”</view>
 				</view>
 				<view class="clear bookbtn">
-					<button class="ayerbtn">读昨日书</button>
-					<button class="open_book">读昨日书</button>
+					<button class="ayerbtn" @click="webself.$Router.redirectTo({route:{path:'/pages/bookdetail/bookdetail'}})">读昨日书</button>
+					<button class="open_book" @click="webself.$Router.redirectTo({route:{path:'/pages/bookdetail/bookdetail'}})">读昨日书</button>
 				</view>
 			</view>
 			<view style="height: 60px;"></view>

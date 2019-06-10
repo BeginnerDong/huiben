@@ -105,3 +105,61 @@
 	margin-top: 9px;
 	margin-bottom: 20px;
 }
+.daka_s_kk{
+	top:0;
+	bottom: 0;
+	left:0;
+	right: 0;
+	background: #1010108c;
+	position: fixed;
+	
+}
+.daka_s{
+	width: 349px;
+	margin-left: 30px;
+	height: 323px;
+	background: #fff;
+	transform: translateY(-50%);
+	top:50%;
+	position: absolute;
+	text-align: center;
+}
+.finishicon{
+	margin-top: 40px;
+	width: 74px;
+	height: 74px;
+}
+.daka_text{
+	margin-top: 18px;
+	font-size: 17px;
+	color: rgb(42,42,42);
+}
+.dakajl{
+	font-size: 14px;
+	color: rgb(54,155,145);
+	margin-top: 13px;
+}
+.dakajc{
+	font-size: 14px;
+	color: rgb(42,42,42);
+	margin-top: 40px;
+}
+.dakaljfx{
+	background: linear-gradient(to right,rgb(55,189,241) -40%,rgb(47,200,153) 120%);
+	width: 136px;
+	height: 30px;
+	font-size: 12px;
+	line-height: 30px;
+	color: rgb(255,255,255);
+	margin-top: 19px;
+}
+@media screen and (max-width:375px) {
+	.daka_s{
+		width: 317px;
+	}
+}
+@media screen and (max-width:320px) {
+	.daka_s{
+		width: 262px;
+	}
+}

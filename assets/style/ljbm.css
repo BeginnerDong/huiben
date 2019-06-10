@@ -1,0 +1,58 @@
+.ljbm_kk{
+	width: 736px;
+	background: #F4F5F7;
+	height: 414px;
+	padding-top: 78px;
+}
+.ljbm_top{
+	background: #fff;
+}
+.ljbm_top_left{
+	width: 50%;
+	float: left;
+}
+.ljbm_top_right{
+	width: 50%;
+	float: left;
+	text-align: center;
+}
+.ljbm_tt{
+	font-size: 12px;
+	color:rgb(42,42,42);margin-top: 15px;
+}
+.ljbmbtn{
+	width: 189px;
+	height: 51px;
+	background: linear-gradient(to right,rgb(255,44,44) -94%,rgb(255,59,132)101%);
+	border-radius: 25px;
+	text-align: center;
+	margin: 19px auto 0px auto;
+}
+.ljbm_zk{
+	font-size: 10px;
+	color: rgb(255,255,255);
+	padding-top: 3px;
+}
+.ljbm_zk span{
+	font-size: 14px;
+	color: rgb(255,233,95);
+}
+.ljbm_btn{
+	font-size: 16px;
+	color: rgb(255,255,255);
+	background: transparent;
+	line-height: 30px;
+	border: none;
+}
+.lj_price{
+	font-size: 12px;
+	color: rgb(42,42,42);
+	margin-top: 10px;
+}
+.lj_daka{
+	font-size: 12px;
+	background: rgb(255,243,95);
+	color: rgb(42,42,42);
+	width: 189px;
+	margin: 10px auto;
+}

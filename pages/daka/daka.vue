@@ -15,7 +15,7 @@
 					<view class="daka_fx">
 						赶紧点击右下角按钮打卡吧
 					</view>
-					<button class="dabtn">立即分享</button>
+					<button class="dabtn" @click="webself.$Router.redirectTo({route:{path:'/pages/fenxiang/fenxiang'}})">立即分享</button>
 				</view>
 			</view>
 		</view>

@@ -29,19 +29,35 @@
 			</view>
 		</view>
 		<view style="text-align: center;">
-			<button class="ljdakabtn">立即打卡</button>
+			<button class="ljdakabtn" @click="webself.$Router.redirectTo({route:{path:'/pages/finishplan/finishplan'}})">立即打卡</button>
 			<view class="re_num">今日已有244353位家长完成打卡</view>
 		</view>
 		<view class="dakaxvzhi">
 			<view class="">
 				<view class="xvzgi_title">打卡须知</view>
 				<view class="xvzhi_cont">
-					1. 每天读书打卡，即可获得1个聪明豆；聪明豆累计60个，可获得99元奖学金和3本书。<br/>
-2. 如何打卡：每本书阅读完后会出现一个“打卡得聪明豆”按钮，点击后即有打卡成功的提示。<br/>
-3. 打卡不能中断，如某天打卡中断，之前的聪明豆将归0，重新从第一天开始计算。自参加计划起的60天之内重新开始打卡，满60个聪明豆依然可以返还费用且获得书（这时候可能超出了60天，但只要在60天之前开始重新打卡的都算）60天后计划结束，累计聪明豆也不能返还。聪明豆不能兑换现金。但所有书本和内容永久可使用。<br/>
-4. 当天重复打卡不会累计聪明豆。<br/>
-5. 若不打卡也不影响正常学习，打卡是为了鼓励家长坚持。"
+					1. 每天读书打卡，即可获得1个聪明豆；聪明豆累计60个，可获得99元奖学金和3本书。<br />
+					2. 如何打卡：每本书阅读完后会出现一个“打卡得聪明豆”按钮，点击后即有打卡成功的提示。<br />
+					3.
+					打卡不能中断，如某天打卡中断，之前的聪明豆将归0，重新从第一天开始计算。自参加计划起的60天之内重新开始打卡，满60个聪明豆依然可以返还费用且获得书（这时候可能超出了60天，但只要在60天之前开始重新打卡的都算）60天后计划结束，累计聪明豆也不能返还。聪明豆不能兑换现金。但所有书本和内容永久可使用。<br />
+					4. 当天重复打卡不会累计聪明豆。<br />
+					5. 若不打卡也不影响正常学习，打卡是为了鼓励家长坚持。"
 				</view>
+			</view>
+		</view>
+		<view class="daka_s_kk">
+			<view class="daka_s">
+				<img class="finishicon" src="../../static/images/finish.png" />
+				<view class="daka_text">
+					恭喜你打卡成功！
+				</view>
+				<view class="dakajl">
+					获得 1 聪明豆
+				</view>
+				<view class="dakajc">
+					坚持亲子阅读，让孩子赢在起跑线
+				</view>
+				<button class="dakaljfx"  @click="webself.$Router.redirectTo({route:{path:'/pages/fenxiang/fenxiang'}})">立即分享</button>
 			</view>
 		</view>
 	</view>

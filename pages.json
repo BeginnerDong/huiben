@@ -81,6 +81,30 @@
 			"style":{
 				"navigationBarTitleText":"小黄和小蓝"
 			}
+		},
+		{
+			"path":"pages/fenxiang/fenxiang",
+			"style":{
+				"navigationBarTitleText":"小黄和小蓝"
+			}
+		},
+		{
+			"path":"pages/finishplan/finishplan",
+			"style":{
+				"navigationBarTitleText":"完成亲子阅读计划"
+			}
+		},
+		{
+			"path":"pages/gxfinishplan/gxfinishplan",
+			"style":{
+				"navigationBarTitleText":"完成亲子阅读计划"
+			}
+		},
+		{
+			"path":"pages/ljbm/ljbm",
+			"style":{
+				"navigationBarTitleText":"立即报名"
+			}
 		}
 		
 
