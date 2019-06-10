@@ -1,0 +1,157 @@
+.cmd_bg{
+	background: #f4f5f7;
+	width: 100%;
+	height: 100%;
+}
+.cmd_p{
+	padding: 15px;
+}
+.cmd_top{
+	background: #fff;
+}
+.cmdimg{
+	float: left;
+	width: 14px;
+		height: 14px;
+		margin-top: 15px;
+		margin-left: 14px;
+}
+.cmd_txt{
+	font-size: 12px;
+	color: rgb(216,216,216);
+	float: left;
+	height: 42px !important;
+	margin-left: 14px;
+}
+.cmd_txt{
+	color: #101010;
+}
+.cmd_byzs{
+	width: 100%;
+	background: #fff;
+	height: 94px;
+	margin-top: 15px;
+}
+.cmdbyzsimg{
+	background: url(../../static/images/certificate_icon.png);
+	width: 51px;
+	height: 70px;
+	background-size:100%;
+	display: inline-block;
+	vertical-align: middle;
+	margin-right: 20px;
+}
+.cmdjiantou{
+	float: right;
+	margin-top: 22px;
+}
+.cmdbyzs_k{
+	padding: 12px 15px;
+	font-size: 14px;
+	color: rgb(74,74,74);
+	
+}
+.cmd_dq_k{
+	background: #fff;
+	text-align: center;
+	padding: 0px 15px 58px 15px;
+}
+.cmdtitle{
+	font-size: 14px;
+	color: rgb(74,74,74);
+	margin-top: 22px;
+	padding-top: 20px;
+}
+.cmdsum{
+	font-size: 40px;
+	color: rgb(54,155,145);
+	margin-top: 10px;
+}
+.cmdtk{
+	font-size: 12px;
+	color: rgb(155,155,155);
+	margin-top: 10px;
+}
+.cmdjdt{
+	height: 12px;
+	width: 100%;
+	margin-top: 23px;
+	position: relative;
+	background: #e2e2e2;
+}
+.cmdsct{
+	position: absolute;
+	width: 120px;
+	height: 12px;
+	background: linear-gradient(to right,#38bed4 2%,#2fc899 -120%);
+	top:0;
+}
+.cmd0{
+left: 0px;
+bottom: -23px;
+position: absolute;
+}
+.cmdcion{
+	background: url(../../static/images/bean.png);
+	width: 30px;
+	height: 30px;
+	display: block;
+	background-size:100% 100% ;
+}
+.cmd1{
+	left: 120px;
+	bottom: -34px;
+	position: absolute;
+}
+.cmd2{
+	right: 0px;
+	bottom: -23px;
+	position: absolute;
+}
+.cmdlist_k{
+	background: #fff;
+	margin-top: 15px;
+}
+.cmdlist{
+	padding: 17px;
+}
+.cmdlisttitle{
+	font-size: 14px;
+	color: rgb(74,74,74);
+	margin-bottom: 22px;
+}
+.cmd_bookname{
+	font-size: 14px;
+	color: rgb(74,74,74);
+}
+.cmd_time{
+	font-size: 10px;
+	color: rgb(155,155,155);
+	display: block;
+	margin-left: 5px;
+	margin-top: 5px;
+}
+.cmdlistdetail{
+	border-bottom: 1px solid rgb(215,215,215);
+	padding-bottom: 6px;
+	padding-top: 11px;
+}
+.addcmd{
+	float: right;
+	margin-top: -25px;
+	font-size: 14px;
+	color: rgb(54,155,145);
+}
+.cmdtitle{
+	position: relative;
+}
+.cmdgz{
+	font-size: 10px;
+	color: rgb(54,155,145);
+	padding: 2px 10px;
+	border: 1px solid rgb(54,155,145);
+	border-radius: 10px;
+	position: absolute;
+	right: 17px;
+	top: 21px;
+}

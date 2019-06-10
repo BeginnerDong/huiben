@@ -105,6 +105,66 @@
 			"style":{
 				"navigationBarTitleText":"立即报名"
 			}
+		},
+		{
+			"path":"pages/biyezhengshu/biyezhengshu",
+			"style":{
+				"navigationBarTitleText":"毕业证书"
+			}
+		},
+		{
+			"path":"pages/cmdjl/cmdjl",
+			"style":{
+				"navigationBarTitleText":"我的聪明豆"
+			}
+		},
+		{
+			"path":"pages/myhb/myhb",
+			"style":{
+				"navigationBarTitleText":"我的红包"
+			}
+		},
+		{
+			"path":"pages/xxsc/xxsc",
+			"style":{
+				"navigationBarTitleText":"学习手册"
+			}
+		},
+		{
+			"path":"pages/biyezhengshupass/biyezhengshupass",
+			"style":{
+				"navigationBarTitleText":"学习手册"
+			}
+		},
+		{
+			"path":"pages/mycmd/mycmd",
+			"style":{
+				"navigationBarTitleText":"我的聪明豆"
+			}
+		},
+		{
+			"path":"pages/cmdgz/cmdgz",
+			"style":{
+				"navigationBarTitleText":"聪明豆规则"
+			}
+		},
+		{
+			"path":"pages/xszs/xszs",
+			"style":{
+				"navigationBarTitleText":"学业证书"
+			}
+		},
+		{
+			"path":"pages/byzs/byzs",
+			"style":{
+				"navigationBarTitleText":"学业证书"
+			}
+		},
+		{
+			"path":"pages/xxbg/xxbg",
+			"style":{
+				"navigationBarTitleText":"学习报告"
+			}
 		}
 		
 

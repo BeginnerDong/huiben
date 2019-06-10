@@ -1,0 +1,78 @@
+.byzs_bg{
+	height: 100%;
+	width: 100%;
+	background: #f4f5f7;
+	text-align: center;
+	padding-top: 20px;
+}
+.byzs_n{
+	background: url(../../static/images/certificate_card.png);
+	width: 98%;
+	height: 507px;
+	background-size: 100% 100%;
+	margin-left: 1%;
+}
+.byzs_photo img{
+	width: 68px;
+	height: 68px;
+	border-radius: 50%;
+	background: #000000;
+	margin-top: 116px;
+	overflow: hidden;
+}
+.byzs_name{
+	font-size: 18px;
+	color: rgb(42,42,42);
+	margin-top: 5px;
+}
+.bymes{
+	text-align: left;
+	padding: 23px 60px;
+}
+.row_1{
+	font-size: 14px;
+	color: rgb(42,42,42);
+	margin-top: 10px;
+}
+.row_2{
+	font-size: 14px;
+	color: rgb(54,155,145);
+	margin-left: 12px;
+}
+.bytablist{
+	font-size: 14px;
+	color: rgb(54,155,145);
+	margin-top: 10px;
+}
+.bytablist span{
+	margin-right: 12px;
+	display: inline-block;
+}
+.rxtime{
+	color: rgb(54,155,145);
+	font-size: 14px;
+	margin-top: 10px;
+}
+.byfx{
+	width: 90%;
+	height: 41px;
+	border-radius: 20px;
+	line-height: 41px;
+	background: linear-gradient(to right,rgb(55,189,214) -14%,rgb(47,200,153) 77%);
+	color: #fff;
+	margin: 5%;
+	margin-bottom: 55px;
+}
+.bywechat{
+	width: 103px;
+	height: 103px;
+	background: #080808;
+	margin: 0 auto;
+}
+.bysm{
+	font-size: 13px;
+	color: rgb(42,42,42);
+	margin-top: 20px;
+	margin-bottom: 30px;
+	line-height: 25px;
+}

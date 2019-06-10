@@ -1,0 +1,173 @@
+.byzs_kk{
+	background:#f4f5f7;
+	width: 100%;
+	height: 100%;
+}
+.byzs_p{
+	padding: 20px 16px;
+}
+.byzs_pk{
+	width: 100%;
+	height: 237px;
+	border: 4px solid rgb(59,210,194);
+	text-align: center;
+}
+.byzs_left,.byzs_right{
+	width: 50%;
+	float: left;
+	height: 100%;
+}
+.byzs_left_k,.byzs_right_k{
+	padding: 5px;
+	
+}
+.byzs_b{
+	border: 1px solid rgb(59,210,194);
+	
+}
+.xsz{
+	font-size: 16px;
+	color: rgb(54,155,145);
+	margin-top: 11px;
+}
+.xsz_p{
+	width: 68px;
+	height: 68px;
+	border-radius: 50%;
+	background: #aba6a6;
+	overflow: hidden;
+	margin-top: 19px;
+}
+.ndbb{
+	font-size: 12px;
+	color: rgb(42,42,42);
+	margin-top: 11px;
+}
+.fxcion{
+	width: 11px;
+	height: 11px;
+	background: url(../../static/images/share.png);
+	display: inline-block;
+	background-size: 100% 100%;
+}
+.fx{
+	color: rgb(54,155,145);
+	font-size: 12px;
+	margin-top: 30px;
+	margin-left: 4px;
+	margin-bottom: 30px;
+}
+.byzs_right{
+	text-align: left;
+	
+}
+.byxh{
+	padding-left: 23px;
+	font-size: 12px;
+	color: rgb(42,42,42);
+	margin-top: 26px;
+}
+.xhnumber{
+	font-size: 14px;
+	color: rgb(54,155,145);
+	margin-top: 4px;
+	padding-left: 23px;
+}
+.zx{
+	font-size: 12px;
+	color: rgb(42,42,42);
+	margin-top: 12px;
+	padding-left: 23px;
+}
+.dyznyd{
+	font-size: 14px;
+	padding-left: 23px;
+	color: rgb(54,155,145);
+	margin-top: 5px;
+	
+}
+.ljrx{
+	width: 136px;
+	height: 30px;
+	line-height: 30px;
+	margin: 0 auto;
+	color: rgb(255,255,255);
+	font-size: 12px;
+	background: linear-gradient(to right,rgb(55,189,214) 20%,rgb(47,200,153) 128%);
+	text-align: center;
+	border-radius: 6px;
+	margin-top: 47px;
+	margin-bottom: 31px;
+}
+.xsz_middle{
+	margin-top: 15px;
+	text-align: center;
+	background: #fff;
+	padding: 17px 0;
+}
+.xsz_left,.xsz_right{
+	width: 50%;
+	float: left;
+}
+.xsznum{
+	font-size: 26px;
+	color: rgb(54,155,145);
+}
+.xsz_jj{
+	font-size: 11px;
+	color: rgb(42,42,42);
+	margin-top: 13px;
+}
+.xsz_foot{
+	margin-top: 15px;
+	background: #fff;
+}
+.hb_h{
+	border-bottom: 1px solid rgb(215,215,215);
+	padding-bottom: 15px;
+}
+.hbcion{
+	width: 15px;
+	height: 18px;
+	display: inline-block;
+	background: url(../../static/images/coupon.png);
+	background-size:100% 100% ;
+	margin-left: 16px;
+	vertical-align: middle;
+}
+.myhb{
+	font-size: 13px;
+	color: rgb(42,42,42);
+	margin-left: 14px;
+}
+.hbright{
+	float: right;
+	font-size: 13px;
+	color: rgb(250,127,58);
+	margin-top: 9px;
+	margin-right: 16px;
+}
+.hb_h1{
+	margin-top: 10px;
+	border-bottom: 1px solid rgb(215,215,215);
+	padding-bottom: 15px;
+}
+.xxcion{
+	width: 15px;
+	height: 18px;
+	display: inline-block;
+	background: url(../../static/images/note.png);
+	background-size:100% 100% ;
+	margin-left: 16px;
+	vertical-align: middle;
+}
+.xxright{
+	float: right;
+	font-size: 24px;
+	margin-top: 3px;
+	margin-right: 16px;
+}
+.bytime{
+	margin-bottom: 57px;
+	
+}

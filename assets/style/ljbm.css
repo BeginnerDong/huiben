@@ -2,7 +2,27 @@
 	width: 736px;
 	background: #F4F5F7;
 	height: 414px;
-	padding-top: 78px;
+}
+@media screen and (max-width:667px) {
+	.ljbm_kk{
+		width: 667px;
+		background: #F4F5F7;
+		height: 375px;
+	}
+}
+@media screen and (max-width:568px) {
+	.ljbm_kk{
+		width: 568px;
+		background: #F4F5F7;
+		height: 375px;
+	}
+}
+@media screen and (max-width:480px) {
+	.ljbm_kk{
+		width: 480px;
+		background: #F4F5F7;
+		height: 375px;
+	}
 }
 .ljbm_top{
 	background: #fff;
@@ -10,6 +30,9 @@
 .ljbm_top_left{
 	width: 50%;
 	float: left;
+}
+.ljbm_top_left img{
+	width: 100%;
 }
 .ljbm_top_right{
 	width: 50%;
@@ -55,4 +78,39 @@
 	color: rgb(42,42,42);
 	width: 189px;
 	margin: 10px auto;
+}
+.ljbm_foot{
+	margin-top: 50px;
+}
+.ljbm_book{
+	width: 30%;
+	height: 97px;
+	background: #fff;
+	float: left;
+	margin-left: 2.45%;
+}
+.ljbm_book_k{
+	padding: 14px;
+}
+.bookname1{
+	font-size: 14px;
+	color: rgb(42,42,42);
+	margin-top: 10px;
+}
+.booktab{
+	color: rgb(255,255,255);
+	font-size: 8px;
+	background: rgb(239,49,111);
+	border-radius: 100px;
+	padding: 5px 15px;
+	text-align: center;
+	display: table;
+	margin-top: 10px;
+	
+}
+.ljbm_bookimg{
+	float: left;
+}
+.ljbm_bookname{
+	margin-left: 70px;
 }

@@ -1,0 +1,92 @@
+.xxbg_bg{
+	background: #f4f5f7;
+	width: 100%;
+	height: 100%;
+	padding-top: 30px;
+	text-align: center;
+}
+.xxbg_k{
+	width: 90%;
+	margin-left: 5%;
+	height: 300px;
+	background: linear-gradient(to right,rgb(59,210,194) 23%,rgb(48,199,162) 87%);
+	border-radius: 6px;
+}
+.xxbg_head{
+	font-size: 23px;
+	color: rgb(255,255,255);
+	padding-top: 16px;
+}
+.xxbg_mes_k{
+	width: 96%;
+	margin-left: 2%;
+	background: #fff;
+	height: 227px;
+	margin-top: 17px;
+	border-radius: 6px;
+}
+.xxbg_mes_left,.xxbg_mes_right{
+width: 50%;
+	
+	float: left;
+	height: 229px;
+}
+.xxbg_mes{
+	width: 98%;
+	margin-left: 1%;
+	box-sizing: border-box;
+	border: 1px solid rgb(51,195,183);
+	height: 220px;
+	margin-top: 3%;
+	text-align:center;
+}
+.xxbg_left_t{
+	font-size: 13px;
+	color: rgb(54,155,145);
+	margin-top: 22px;
+}
+.xxbgimg{
+	width: 68px;
+	height: 68px;
+	border-radius: 50%;
+	overflow: hidden;
+	background: #000000;
+	margin-top: 23px;
+}
+.xxbgname{
+	font-size: 12px;
+	color: rgb(42,42,42);
+	margin-top: 11px;
+}
+.xxbgtime{
+	font-size: 12px;
+	color: rgb(155,155,155);
+	margin-top: 20px;
+}
+.xxbg_mes1{
+	text-align: left;
+	padding-left: 20px;
+}
+.xxbg_yyd{
+	font-size: 12px;
+	color: rgb(42,42,42);
+	margin-top: 22px;
+}
+.xxbgsum{
+	font-size: 14px;
+	color: rgb(54,155,145);
+	margin-top: 5px;
+	line-height: 27px;
+}
+.xxbgsum psan{
+	margin-right: 5px;
+}
+.fxxxbtn{
+	width: 246px;
+	height: 40px;
+	border-radius: 21px;
+	background: linear-gradient(to right,rgb(55,189,214) 21%,rgb(47,200,153) 95%);
+	margin: 27px auto;
+	color: #fff;
+	line-height: 40px;
+}
