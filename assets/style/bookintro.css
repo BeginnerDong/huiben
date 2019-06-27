@@ -45,22 +45,21 @@
 }
 .book_intro_left,.book_intro_middle,.book_intro_right{
 	float: left;
-	height: 510px;
+	height: 465px;
 	background: #fff;
 }
 .book_intro_left{
-	width: 10%;
+	width: 5%;
 	border-top-right-radius: 8px;
 	border-bottom-right-radius: 8px;
 }
 .book_intro_middle{
-	width: 70%;
-	margin-left: 5%;
-	margin-right: 5%;
+	width: 100%;
 	border-radius: 8px;
+	margin: 0 4%;
 }
 .book_intro_right{
-	width: 10%;
+	width: 5%;
 	border-top-left-radius: 8px;
 	border-bottom-left-radius: 8px;
 }
@@ -72,7 +71,7 @@
 	background: #fff;
 }
 .foot_book_kk{
-	width: 70%;
+	width: 100%;
 	margin: 8px auto;
 }
 .foot_book_btn{
@@ -86,12 +85,16 @@
 	text-align: center;
 }
 .book_intro_img{
-	margin-top: 32px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height:38%
 }
 .book_name{
 	margin-top: 21px;
 	font-size: 19px;
 	color: rgb(42,42,42);
+	font-weight: bold;
 }
 .book_copy{
 	font-size: 12px;

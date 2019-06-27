@@ -33,4 +33,7 @@
 
 <style>
 	@import "../../assets/style/join.css";
+	page{
+		background: #f4f5f7;
+	}
 </style>

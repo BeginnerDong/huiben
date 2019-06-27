@@ -1,18 +1,26 @@
 .book_kk{
 	width: 100%;
 	height: 100%;
+	transform: rotate(90deg);
+	transform-origin:50% 50%;
+	
+	top: 146px;
+	left: -146px;
+	height:100vw;
+	width:100vh;
+	
+	
+	
+	overflow:auto;
 	position: relative;
 }
 .pullup,.pulldown{
+	bottom: 0;
+	
 	position: absolute;
-	left: 50%;
-	transform: translateX(-50%);
-	width: 57px;
-	height: 26px;
+	background: #4C4C4C;
 }
-.pullup{
-	top:0px;
-}
+
 .pulldown{
 	bottom: 0px;
 }
@@ -26,4 +34,266 @@
 	position: absolute;
 	top:0px;
 	right: 0px;
+}
+
+
+.daka_bg {
+	width: 100%;
+	height: 100%;
+	background: #f4f5f7;
+	 transform: rotate(90deg);
+	transform-origin:50% 50%;
+	
+	position:absolute;
+	top: 146px;
+	left: -146px;
+	height:100vw;
+	width:100vh;
+	
+	
+	
+	overflow:auto;
+}
+
+.head_dk {
+	width: 100%;
+	padding: 16px;
+	text-align: right;
+}
+
+.head_dk button {
+	float: right;
+	background: linear-gradient(to right, rgb(55, 189, 241) -40%, rgb(47, 200, 153) 120%);
+	width: 159px;
+	height: 40px;
+	line-height: 40px;
+	font-size: 14px;
+	color: #fff;
+	margin-right: 40px;
+}
+
+
+.daka_m_left,
+.daka_m_right {
+	width: 50%;
+	float: left;
+	overflow: hidden;
+}
+
+.daka_m_left img {
+	width: 100%;
+}
+.daka_middle{
+	background: #fff;
+}
+.daka_m_right>view {
+	padding: 51px;
+}
+
+.daka_m_right>view .daka_book,
+.daka_m_right>view .daka_fx {
+	font-size: 14px;
+}
+
+.daka_m_right .dabtn {
+	width: 159px;
+	height: 40px;
+	border-radius: 21px;
+	border: 1px solid rgb(54, 155, 144);
+	margin-top: 19px;
+	line-height: 40px;
+	float: left;
+	font-size: 14px;
+	color: rgb(54, 155, 145);
+}
+.book_list{
+	margin-top: 20px;
+}
+.booklist_k {
+	width: 100%;
+}
+
+.book__tj_name {
+	font-size: 14px;
+	color: rgb(42, 42, 42);
+}
+
+.book_tj {
+	width: 31%;
+	float: left;
+	background: #fff;
+	margin-left: 1.5%;
+}
+
+.book_tj_r {
+	margin-left: 70px;
+	padding-top: 17px;
+}
+
+.book_tj>view {
+	padding: 14px;
+}
+
+.book_tj_img {
+	float: left;
+	width: 40%;
+	height: 80%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.book_tj_type {
+	width: 51px;
+	height: 17px;
+	border-radius: 100px;
+	background: rgb(239, 49, 111);
+	font-size: 8px;
+	line-height: 17px;
+	color: #fff;
+	float: left;
+	margin-top: 4px;
+
+}
+
+
+.ljbm_kk{
+	width: 736px;
+	background: #F4F5F7;
+	height: 414px;
+	
+    transform: rotate(90deg);
+    transform-origin:50% 50%;
+
+    position:absolute;
+    top: 146px;
+    left: -146px;
+    height:100vw;
+    width:100vh;
+
+
+
+    overflow:auto;
+}
+
+
+@media screen and (max-width:667px) {
+	.ljbm_kk{
+		width: 667px;
+		background: #F4F5F7;
+		height: 375px;
+	}
+}
+@media screen and (max-width:568px) {
+	.ljbm_kk{
+		width: 568px;
+		background: #F4F5F7;
+		height: 375px;
+	}
+}
+@media screen and (max-width:480px) {
+	.ljbm_kk{
+		width: 480px;
+		background: #F4F5F7;
+		height: 375px;
+	}
+}
+.ljbm_top{
+	background: #fff;
+}
+.ljbm_top_left{
+	width: 50%;
+	float: left;
+}
+.ljbm_top_left img{
+	width: 100%;
+}
+.ljbm_top_right{
+	width: 50%;
+	float: left;
+	text-align: center;
+}
+.ljbm_tt{
+	font-size: 12px;
+	color:rgb(42,42,42);margin-top: 15px;
+}
+.ljbmbtn{
+	width: 189px;
+	height: 51px;
+	background: linear-gradient(to right,rgb(255,44,44) -94%,rgb(255,59,132)101%);
+	border-radius: 25px;
+	text-align: center;
+	margin: 19px auto 0px auto;
+}
+.ljbm_zk{
+	font-size: 10px;
+	color: rgb(255,255,255);
+	padding-top: 3px;
+}
+.ljbm_zk span{
+	font-size: 14px;
+	color: rgb(255,233,95);
+}
+.ljbm_btn{
+	font-size: 16px;
+	color: rgb(255,255,255);
+	background: transparent;
+	line-height: 30px;
+	border: none;
+}
+.lj_price{
+	font-size: 12px;
+	color: rgb(42,42,42);
+	margin-top: 10px;
+}
+.lj_daka{
+	font-size: 12px;
+	background: rgb(255,243,95);
+	color: rgb(42,42,42);
+	width: 189px;
+	margin: 10px auto;
+}
+.ljbm_foot{
+	margin-top: 50px;
+}
+.ljbm_book{
+	width: 30%;
+	height: 97px;
+	background: #fff;
+	float: left;
+	margin-left: 2.45%;
+}
+.ljbm_book_k{
+	padding: 14px;
+}
+.bookname1{
+	font-size: 14px;
+	color: rgb(42,42,42);
+	margin-top: 10px;
+}
+.booktab{
+	color: rgb(255,255,255);
+	font-size: 8px;
+	background: rgb(239,49,111);
+	border-radius: 100px;
+	padding: 5px 15px;
+	text-align: center;
+	display: table;
+	margin-top: 10px;
+	
+}
+.ljbm_bookimg{
+	float: left;
+    width: 40%;
+    height: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.ljbm_bookimg img{
+	width:60px;
+	height:70px
+}
+.ljbm_bookname{
+	margin-left: 70px;
 }

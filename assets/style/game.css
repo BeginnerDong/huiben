@@ -16,12 +16,12 @@
 }
 .game_intro{
 	margin-left: 74px;
-	font-size: 17px;
+	font-size: 15px;
 	color: rgb(74,74,74);
 	line-height: 53px;
 }
 .game_yh{
-	font-size: 14px;
+	font-size: 13px;
 	color: rgb(74,74,74);
 }
 .gamebtn{
@@ -43,7 +43,7 @@
 	background: #fff;
 }
 .foot_book_kk{
-	width: 70%;
+	width: 100%;
 	margin: 8px auto;
 }
 .foot_book_btn{

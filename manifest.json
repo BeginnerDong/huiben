@@ -72,6 +72,6 @@
         "router" : {
             "base" : "/wx/"
         },
-        "domain" : "http://www.local-scanner.com"
+        "domain" : "http://qinzi.koaladaka.com"
     }
 }

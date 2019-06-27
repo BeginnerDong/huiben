@@ -37,7 +37,6 @@
 	width: 100%;
 }
 .search_cont_list{
-	margin-top: 14px;
 	padding: 14px 16px;
 }
 .search_deatil{
@@ -68,7 +67,6 @@
 	margin-top: 4px;
 }
 .search_right .cont_tab{
-	width: 58px;
 	height: 17px;
 	border-radius: 4px;
 	background: #0066CC;

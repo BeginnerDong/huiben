@@ -1,14 +1,12 @@
 html{
 	height: 100%;
 	width: 100%;
-	
+	font-size:15px;
 }
 .index_con{
 	width: 100%;
 	height: 100%;
 	background: #f4f5f7;padding-top: 40px;
-	display: flex;
-	position: fixed;
 }
 .head_tab{
 	background: #fff;
@@ -37,6 +35,8 @@ html{
 	position: fixed;
 	bottom: 0;
 }
+
+
 .foot_left,.foot_right{
 	float: left;
 	text-align: center;
@@ -96,4 +96,91 @@ html{
 	100%{
 		transform: scale(1);
 	}
+}
+.foot_left1,.foot_right2{
+	float: left;
+	text-align: center;
+	height: 100%;line-height: 60px;
+	color: #3d3d3d;
+}
+.foot_left1{
+	width: 30%;
+	background: rgb(255,255,255);
+	font-size: 18px;
+	font-weight: 600;
+}
+.foot_right2{
+	width: 70%;
+	background: rgb(37,109,102);
+	
+}
+.foot_right_k{
+	padding: 6px 8px;
+}
+.book_icon{
+	width: 20px;
+	height: 16px;
+	display: inline-block;
+	background: url(../../static/images/book.png) no-repeat center;
+	vertical-align: middle;
+	background-size: 100%;
+	margin-right: 6px;
+}
+.signbtn{
+	float: right;
+	
+	width: 159px;
+	height: 45px;
+	background: linear-gradient(to right,rgb(56,190,215),rgb(47,200,153));
+	font-size: 18px;
+	line-height: 45px;
+	color: rgb(255,255,255);
+	border-radius: 30px;
+}
+.signleft{
+	width: 114px;
+	float: left;
+	font-size: 14px;
+	line-height: 21px;
+	color: #fff;
+}
+@media screen and (max-width: 380px){
+	.signbtn{
+		width: 132px;
+	}
+}
+@media screen and (max-width:360px) {
+	.signbtn{
+		width: 121px;
+	}
+}@media screen and (max-width:320px) {
+	.signbtn{
+		width: 110px;
+	}
+	.foot_left1{
+		width: 25%;
+	}
+	.foot_right2{
+		width: 75%;
+	}
+}
+.foot_note{
+	position: fixed;
+	bottom: 12%;
+	padding: 4px;
+	background: rgba(0,0,0,0.6);
+	border-radius: 24px;
+	z-index: 1111;right: 10px;
+	font-size: 10px;
+	color: rgb(255,255,255);
+}
+.foot_note img{
+	float: left;
+	vertical-align: middle;
+	border-radius: 50%;
+	overflow: hidden;
+}
+.foot_note view{
+	margin-left: 40px;
+	line-height: 30px;
 }

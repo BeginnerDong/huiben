@@ -8,6 +8,7 @@
 }
 .cmd_top{
 	background: #fff;
+	border-radius:5px
 }
 .cmdimg{
 	float: left;
@@ -31,11 +32,12 @@
 	background: #fff;
 	height: 94px;
 	margin-top: 15px;
+	border-radius:5px
 }
 .cmdbyzsimg{
 	background: url(../../static/images/certificate_icon.png);
 	width: 51px;
-	height: 70px;
+	height: 65px;
 	background-size:100%;
 	display: inline-block;
 	vertical-align: middle;
@@ -54,18 +56,22 @@
 .cmd_dq_k{
 	background: #fff;
 	text-align: center;
-	padding: 0px 15px 58px 15px;
+	height: 200px;
+	padding: 0px 15px 15px 15px;
+	border-radius:5px
 }
 .cmdtitle{
 	font-size: 14px;
 	color: rgb(74,74,74);
 	margin-top: 22px;
 	padding-top: 20px;
+
 }
 .cmdsum{
 	font-size: 40px;
 	color: rgb(54,155,145);
 	margin-top: 10px;
+	height:52px
 }
 .cmdtk{
 	font-size: 12px;
@@ -100,7 +106,7 @@ position: absolute;
 }
 .cmd1{
 	left: 120px;
-	bottom: -34px;
+	bottom: -23px;
 	position: absolute;
 }
 .cmd2{
@@ -111,6 +117,7 @@ position: absolute;
 .cmdlist_k{
 	background: #fff;
 	margin-top: 15px;
+	border-radius:5px
 }
 .cmdlist{
 	padding: 17px;
@@ -152,6 +159,6 @@ position: absolute;
 	border: 1px solid rgb(54,155,145);
 	border-radius: 10px;
 	position: absolute;
-	right: 17px;
-	top: 21px;
+	right: 3px;
+	top:18px;
 }

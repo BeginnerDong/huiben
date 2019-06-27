@@ -34,6 +34,7 @@
 	color: rgb(155,155,155);
 }
 .kid_sex_k,.kid_age_k{
+	display: flex;
 	text-align: left;
 }
 .kid_sex_k{
@@ -47,7 +48,17 @@
 	font-size: 14px;
 	color: rgb(42,42,42);
 	font-weight: 700;
-	margin-right: 30px;
+	width:25%;
+	line-height:25px
+}
+.kid_sex_txt,.kid_age_txt{
+	font-size: 14px;
+	color: rgb(155,155,155);
+	width: 60%;
+    height: 25px;
+    background: #f4f5f7;
+	line-height: 25px;
+	padding-left: 10px;
 }
 .kid_sex_txt input,.kid_age_txt input{
 	font-size: 14px;

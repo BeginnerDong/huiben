@@ -1,12 +1,8 @@
 <template>
 	<view class="xxsc_bg">
 		<view class="xxsc">
-			1.每天读书打卡，即可获得1个聪明豆；聪明豆累计60个，可获得99元奖学金和3本书<br />
-			2.如何打卡：每本书阅读完成后会出现一个“打卡得聪明豆”按钮，点击后既有打卡成功的提示。<br>
-			3.打卡不能中断，如某天打卡中断，之前的聪明豆将归0，重新第一天开始计算。自参加计划起的60天之内重新开始打卡，满60个聪明豆依然可以返还费用且获得书（这时候可能超出了60天，但只要在60天之前开始重新打卡的都算）60天计划结束，累计聪明豆也不能返还。聪明豆不能兑换现金。但所有书本和内容永久可使用。
-			<br/>
-			4.当天重复打卡不会累计聪明豆。
-			5.若不打卡也不影响正常学习，打卡是为了鼓励家长坚持。
+			<view class="content ql-editor" v-html="mainData.content">
+			</view>
 		</view>
 	</view>
 </template>
@@ -16,11 +12,41 @@
 		data() {
 			return {
 				webself: this,
+				mainData:{}
 			}
+		},
+		
+		onLoad(options){
+			const self = this;
+			self.$Utils.loadAll(['getMainData'], self)
+		},
+		
+		methods: {
+			
+			getMainData() {
+				const self = this;
+				const postData = {
+					searchItem: {
+						title: '学习手册'
+					}
+				};
+				const callback = (res) => {
+					if (res.info.data.length > 0) {
+						self.mainData = res.info.data[0]
+					};
+					self.$Utils.finishFunc('getMainData');
+				};
+				self.$apis.articleGet(postData, callback);
+			},
 		}
 	}
+	
+	
 </script>
 
 <style>
 	@import "../../assets/style/xxsc.css";
+	page {
+		background: #f4f5f7;
+	}
 </style>

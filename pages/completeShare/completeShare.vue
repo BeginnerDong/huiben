@@ -1,51 +1,31 @@
 <template>
 	<view class="danhongse_bg">
-		<view class="fx_p">
-			<view class="fx_top">
-				<view class="fx_photo">
-					<img :src="userData.headImgUrl" style="width:100%;border-radius:50%"/>
+		<view class="wc_p">
+			<view class="wc_card">
+				<view class="wc_card_photo">
+					<img :src="mainData.headImgUrl" />
 				</view>
-				<view class="fx_right">
-					<view class="fx_name">
-						{{userData.nickname}}
-					</view>
-					<view class="fx_r_f">
-						<view class="top_jiao">
-							<img src="../../static/images/topjiao.png"/>
-						</view>
-						每天再忙
-						<br/>
-						我依然能抽出时间陪孩子阅读绘本
-					</view>
+				<view class="wc_card_ts">
+					完成了60天幼儿能力提升计划<br />
+					获得了99元奖学金和3本图书
 				</view>
 			</view>
-			<view class="fx_middle">
-				<view class="fx_m_top">
-					我和宝贝一起完成了亲子阅读
-				</view>
-				<view class="clear fx_m_m">
-					<view class="book_fximg">
-						<img :src="mainData.mainImg&&mainData.mainImg[0]?mainData.mainImg[0].url:''" />
+			<view class="wc_card_2 clear">
+				<view class="wc_card_left">
+					<view class="wc_1">
+						和宝贝一共读了
 					</view>
-					<view class="fx_m_r">
-						<view class="fx_bookname">
-							{{mainData.title}}
-						</view>
-						<view class="fx_py">
-							培养了宝贝的
-						</view>
-						<view class="fx_nl">
-							<span>情绪管理</span>
-							<span>色彩与表达</span>
-							<span>想象力</span>
-						</view>
+					<view class="wc_2">
+						50本绘本
 					</view>
 				</view>
-			</view>
-			<view class="fx_m_bg clear">
-				<img class="fx_bgimg" src="../../static/images/good_green.png"/>
-				<view class="fx_cg">
-					超过{{percent}}%的孩子
+				<view class="wc_card_right">
+					<view class="wc_1">
+						坚持亲子阅读
+					</view>
+					<view class="wc_2">
+						60天
+					</view>
 				</view>
 			</view>
 			<view class="fx_hds">
@@ -69,92 +49,48 @@
 	</view>
 </template>
 
-
 <script>
 	export default {
 		data() {
 			return {
 				webself: this,
 				mainData:{},
-				userData:{},
-				show:false,
-				time:'',
-				percent:'',
-				searchItem:{
-					thirdapp_id:2
-				}
+				submitData: {
+					wechat: '',
+					phone: '',
+					address: ''
+				},
+				is_show:false
 			}
 		},
-		
+
 		onLoad(options) {
 			const self = this;
-			self.id = options.id;
-			if(options.user_no){
-				self.searchItem.user_no = options.user_no;
-				self.searchItem.user_type=0
-			}else{
-				self.searchItem.user_no = uni.getStorageSync('user_no')
-			}
-			self.$Utils.loadAll(['getUserData'], self)
+			self.$Utils.loadAll(['getMainData'], self)
 		},
-		
+
 		methods: {
+
 			
-			getUserData() {
+			getMainData() {
 				const self = this;
 				const postData = {};
 				postData.tokenFuncName = 'getProjectToken';
-				postData.searchItem = self.$Utils.cloneForm(self.searchItem);
-				const callback = (res) => {
-					if (res.info.data.length > 0) {
-						self.userData = res.info.data[0];
-					};
-					self.getMainData()
-				};
-				self.$apis.userGet(postData, callback);
-			},
-			
-		
-			getMainData(){
-				const self = this;
-				const postData = {};
 				postData.searchItem = {
-					type:1,
-					on_shelf:1,
-					id:self.id
+					thirdapp_id: self.$AssetsConfig.thirdapp_id,
+					user_no: uni.getStorageSync('user_no')
 				};
-				postData.order = {
-					update_time:'desc'
-				};
-				console.log('postData', postData)
 				const callback = (res) => {
 					if (res.info.data.length > 0) {
-						self.mainData = res.info.data[0]
-					} 
-					self.getRead()
-				};
-				self.$apis.articleGet(postData, callback);
-			},
-			
-			getRead(){
-				const self = this;
-				const postData = {};
-				postData.tokenFuncName ='getProjectToken';
-				postData.data ={
-					art_id:self.id
-				};
-				console.log('postData', postData)
-				const callback = (res) => {
-					if(res.solely_code==100000){
-						self.percent = ((res.info.student_num-1-res.info.read_num)/10)*100;
-						if(self.percent<50){
-							self.percent = 50
+						self.mainData = res.info.data[0];
+						if(self.mainData.info.address==''||self.mainData.info.phone==''||self.mainData.info.wechat==''){
+							self.is_show = true;
 						}
 					};
+					console.log(self.mainData.info.start_time)
 					self.wxJsSdk()
-					
 				};
-				self.$apis.getRead(postData, callback);
+				self.$apis.userGet(postData, callback);
 			},
 			
 			wxJsSdk() {
@@ -196,15 +132,15 @@
 					self.$jweixin.error(function(res) {
 						console.log('error', res)
 					});
-					self.$Utils.finishFunc('getUserData');
+					self.$Utils.finishFunc('getMainData');
 				};
 				self.$apis.WxJssdk(postData, callback);
 			},
 		}
+
 	}
 </script>
 
-
 <style>
-	@import "../../assets/style/fenxiang.css";
+	@import "../../assets/style/gxfinishplan.css";
 </style>

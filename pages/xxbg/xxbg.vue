@@ -8,9 +8,9 @@
 				<view class="xxbg_mes_left">
 					<view class="xxbg_mes">
 						<view class="xxbg_left_t">多元智能阅读课程学习证</view>		
-							<img class="xxbgimg" src=""/>
+							<img class="xxbgimg" :src="userData.headImgUrl"/>
 							<view class="xxbgname">
-								张志明小朋友
+								{{userData.nickname}}
 							</view>
 							<view class="xxbgtime">
 								2019.05.14-2019.09.21
@@ -37,7 +37,7 @@
 				</view>
 			</view>
 		</view>
-		<view class="fxxxbtn">
+		<view class="fxxxbtn" @click="webself.$Router.navigateTo({route:{path:'/pages/report/report'}})">
 			分享学习报告
 		</view>
 	</view>
@@ -47,12 +47,44 @@
 	export default {
 		data() {
 			return {
-				webself: this,
+				userData:{},
+				webself:this
 			}
+		},
+		
+		onLoad(options){
+			const self = this;
+			self.$Utils.loadAll(['getUserData'], self)
+		},
+		
+		methods: {
+			
+			getUserData() {
+				const self = this;
+				const postData = {};
+				postData.tokenFuncName = 'getProjectToken';
+				postData.searchItem = {
+					thirdapp_id: self.$AssetsConfig.thirdapp_id,
+					user_no:uni.getStorageSync('user_no')
+				};
+				const callback = (res) => {
+					if (res.info.data.length > 0) {
+						self.userData = res.info.data[0];
+					
+					};
+					self.$Utils.finishFunc('getUserData');
+				};
+				self.$apis.userGet(postData, callback);
+			},		
+			
 		}
 	}
 </script>
 
+
 <style>
 	@import "../../assets/style/xxbg.css";
+	page {
+		background: #f4f5f7;
+	}
 </style>

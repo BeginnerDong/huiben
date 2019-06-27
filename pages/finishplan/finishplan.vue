@@ -2,7 +2,7 @@
 	<view class="danhongse_bg">
 		<view class="wc_p">
 			<view class="wc_jh">
-				30天幼儿能力提升计划已完成
+				60天幼儿能力提升计划已结束
 			</view>
 			<view class="wc_card">
 				<view class="wc_card_photo">

@@ -30,7 +30,33 @@ export default {
 		};
 		http.HTTP(allParams);
 	},
-
+	
+	clockIn(param, callback) {
+	
+		var allParams = {
+			url: 'Project/Solely/clockIn',
+			type: 'post',
+			data: param,
+			sCallback: function(data) {
+				callback && callback(data);
+			}
+		};
+		http.HTTP(allParams);
+	},
+	
+	getRead(param, callback) {
+	
+		var allParams = {
+			url: 'Project/Solely/getRead',
+			type: 'post',
+			data: param,
+			sCallback: function(data) {
+				callback && callback(data);
+			}
+		};
+		http.HTTP(allParams);
+	},
+	
 	monthFlow(param, callback) {
 
 		var allParams = {
@@ -43,9 +69,9 @@ export default {
 		};
 		http.HTTP(allParams);
 	},
-	
+
 	teamTotal(param, callback) {
-	
+
 		var allParams = {
 			url: 'Project/Solely/teamTotal',
 			type: 'post',
@@ -56,9 +82,9 @@ export default {
 		};
 		http.HTTP(allParams);
 	},
-	
+
 	teamFlow(param, callback) {
-	
+
 		var allParams = {
 			url: 'Project/Solely/teamFlow',
 			type: 'post',
@@ -69,9 +95,9 @@ export default {
 		};
 		http.HTTP(allParams);
 	},
-	
+
 	teamOrder(param, callback) {
-	
+
 		var allParams = {
 			url: 'Project/Solely/teamOrder',
 			type: 'post',
@@ -84,7 +110,7 @@ export default {
 	},
 
 	teamRank(param, callback) {
-	
+
 		var allParams = {
 			url: 'Project/Solely/teamRank',
 			type: 'post',
@@ -95,10 +121,10 @@ export default {
 		};
 		http.HTTP(allParams);
 	},
-	
-	
+
+
 	getTeam(param, callback) {
-	
+
 		var allParams = {
 			url: 'Project/Solely/getTeamv',
 			type: 'post',
@@ -342,6 +368,42 @@ export default {
 		};
 		http.HTTP(allParams);
 	},
+	
+	articleDetailGet(param, callback) {
+		var allParams = {
+			url: 'Common/ArtDetail/get',
+			type: 'post',
+			data: param,
+			sCallback: function(data) {
+				callback && callback(data);
+			}
+		};
+		http.HTTP(allParams);
+	},
+	
+	logGet(param, callback) {
+		var allParams = {
+			url: 'Common/Log/get',
+			type: 'post',
+			data: param,
+			sCallback: function(data) {
+				callback && callback(data);
+			}
+		};
+		http.HTTP(allParams);
+	},
+	
+	logAdd(param, callback) {
+		var allParams = {
+			url: 'Common/Log/add',
+			type: 'post',
+			data: param,
+			sCallback: function(data) {
+				callback && callback(data);
+			}
+		};
+		http.HTTP(allParams);
+	},
 
 	userCouponGet(param, callback) {
 		var allParams = {
@@ -355,9 +417,47 @@ export default {
 		http.HTTP(allParams);
 	},
 
+	couponGet(param, callback) {
+		var allParams = {
+			url: 'Common/Coupon/get',
+			type: 'post',
+			data: param,
+			sCallback: function(data) {
+				callback && callback(data);
+			}
+		};
+		http.HTTP(allParams);
+	},
+
+
+	couponAdd(param, callback) {
+		var allParams = {
+			url: 'Func/Coupon/addCoupon',
+			type: 'post',
+			data: param,
+			sCallback: function(data) {
+				callback && callback(data);
+			}
+		};
+		http.HTTP(allParams);
+	},
+
+
 	orderGet(param, callback) {
 		var allParams = {
 			url: 'Common/Order/get',
+			type: 'post',
+			data: param,
+			sCallback: function(data) {
+				callback && callback(data);
+			}
+		};
+		http.HTTP(allParams);
+	},
+
+	messageGet(param, callback) {
+		var allParams = {
+			url: 'Common/Message/get',
 			type: 'post',
 			data: param,
 			sCallback: function(data) {
@@ -428,7 +528,7 @@ export default {
 		};
 		http.HTTP(allParams);
 	},
-	
+
 	flowLogAdd(param, callback) {
 		var allParams = {
 			url: 'Common/FlowLog/add',

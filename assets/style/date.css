@@ -1,0 +1,153 @@
+.da-h{
+	width: 100%;
+}
+.da-he{
+	width: 100%;
+	height: 150px;
+	background: linear-gradient(to right, rgb(55, 189, 241) -40%, rgb(47, 200, 153) 120%);
+	z-index: 1;
+}
+.da-he .da-le{
+	width: 50%;
+	height: 150px;
+	float: left;
+	text-align: center;
+}
+.da-he .line{
+	width: 1px;
+	height: 50px;
+	background: white;
+	
+}
+.da-he h5{
+	margin-top: 20px;
+	font-size: 15px;
+	font-weight: 100;
+	color: white;
+}
+.da-he label{
+	font-size: 25px;
+	color: white;
+	margin-right: 5px;
+}
+.da-he span{
+	margin-top: 20px;
+	color: white;
+}
+.da-he .da-ri{
+	width: 50%;
+	height: 150px;
+
+	float: left;
+	text-align: center;
+}
+.da-h .da-da{
+	width: 94%;
+	height: 350px;
+	background: white;
+	z-index: 20;
+	position: absolute;
+	top: 14%;
+	left: 3%;
+	border-radius: 10px;
+}
+.da-h .da-da .da-da-he{
+	width: 100%;
+	height: 40px;
+	line-height: 40px;
+	background: #EBFAF5;
+	border-radius: 10px;
+	text-align: center;
+}
+.da-h .da-da .da-da-he .xiao{
+	margin-left: 10px;
+	font-size: 20px;
+	display: inline-block;
+	color: gray;
+	float: left;
+}
+.da-h .da-da .da-da-he .da{
+margin-right: 10px;
+	font-size: 20px;
+	display: inline-block;
+	color: gray;
+	float: right;
+}
+.da-h .da-da .da-mou .mou{
+	width: 90%;
+	height: 20px;
+}
+.da-h .da-da .da-mou ul{
+	list-style: none;
+	margin-top: 10px;
+}
+.da-h .da-da .da-mou .mou li{
+	display: inline-block;
+	width: 14%;
+	color: gray;
+	}
+.da-h .da-da .data-da{
+	width: 90%;
+	height: 170px;
+	margin-right: 10px;
+}
+.da-h .da-da .da-mou .data-da{
+	list-style: none;
+}
+.da-h .da-da .da-mou .data-da li{
+	display: inline-block;
+    margin-top: 10px;
+    width: 9.5%;
+    margin-right: 15px;
+
+}
+.da-h .ka{
+	margin-top: 45px;
+}
+.da-h .ka label{
+	margin-left: 30px;
+	font-size: 10px;
+}
+.da-h .ka radio{
+	width: 70px;
+	height: 70px;
+	border-radius: 50%;
+}
+.da-h .wen{
+	position: absolute;
+	top: 70%;
+	width: 95%;
+	padding: 10px;
+}
+.da-h .wen .data_title{
+  color: black;	
+  font-size: 15px;
+  font-weight: 200;
+}
+.da-h .wen .data_cont{
+		color: grey;
+		margin-top: 10px;
+}
+.origin{
+	color: grey;text-align: center;
+}
+.old{
+	width: 30px;
+	height: 30px;
+	display: inline-block;
+	border-radius:50%;
+	text-align: center;
+	line-height: 30px;
+	background: gainsboro;	
+}
+.add{
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	text-align: center;
+	line-height: 30px;
+	background: rgb(54,155,145);
+	display: inline-block;
+	color: #fff;
+}
+

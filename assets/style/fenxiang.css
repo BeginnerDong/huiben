@@ -99,17 +99,18 @@
 	margin-left: 100px;
 }
 .fx_hds{
-	font-size: 26px;
+	font-size: 24px;
 	color: rgb(54,155,145);
 	text-align: center;
 	padding: 27px 8px;
 }
 .fx_zj{
-	font-size: 16px;
+	font-size: 15px;
 	color: rgb(54,155,145);
 	border:1px solid rgb(54,155,144);
 	text-align: center;
 	padding: 18px 30px;
+	font-weight:700
 }
 .fx_zj_bg{
 	background: #fff;
@@ -133,7 +134,7 @@ margin-top: 36px;
 	margin: 0 auto;
 }
 .fx_sm{
-	font-size: 20px;
+	font-size: 13px;
 	color: rgb(42,42,42);
 	padding: 22px;
 	margin-bottom: 10px;

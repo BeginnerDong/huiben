@@ -9,7 +9,7 @@ export default {
 		function onBridgeReady(param) {
 			WeixinJSBridge.invoke(
 				'getBrandWCPayRequest', {
-					"appId": "wx7db54ed176405e24", //公众号名称，由商户传入     
+					"appId": "wx5a6b34e74e18e46b", //公众号名称，由商户传入     
 					'timeStamp': param.timeStamp,
 					'nonceStr': param.nonceStr,
 					'package': param.package,
@@ -590,9 +590,9 @@ export default {
 
 
 	clearPageIndex(self) {
-		self.data.paginate.currentPage = 1;
-		self.data.isLoadAll = false;
-		self.data.mainData = [];
+		self.paginate.currentPage = 1;
+		self.isLoadAll = false;
+		self.mainData = [];
 
 	},
 

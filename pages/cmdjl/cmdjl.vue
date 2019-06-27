@@ -2,14 +2,14 @@
 	<view class="cmd_bg">
 		<view class="cmd_p">
 			<view class="cmd_top clear">
-				<img class="cmdimg" src="../../static/images/search.png" @click="webself.$Router.redirectTo({route:{path:'/pages/testread/testread'}})"/>
-					<input class="cmd_txt" type="text" placeholder="小黄和小蓝"/>
+				<img class="cmdimg" src="../../static/images/search.png"  />
+				<input class="cmd_txt"  placeholder="小黄和小蓝" v-model="searchTitle" confirm-type="search" type="text" @confirm="search"/>
 			</view>
-			<view class="cmd_byzs">
+			<view class="cmd_byzs" @click="toCertificate">
 				<view class="cmdbyzs_k">
 					<span class="cmdbyzsimg">
 					</span>
-					
+
 					毕业证书
 					<view class="cmdjiantou">></view>
 				</view>
@@ -17,58 +17,36 @@
 			<view class="cmd_dq_k">
 				<view class="cmdtitle">
 					当前聪明豆
-					<view class="cmdgz"  @click="webself.$Router.redirectTo({route:{path:'/pages/cmdgz/cmdgz'}})">聪明豆规则</view>
+					<view class="cmdgz" @click="webself.$Router.navigateTo({route:{path:'/pages/cmdgz/cmdgz'}})">聪明豆规则</view>
 				</view>
-				<view class="cmdsum">2</view>
+				<view class="cmdsum">{{userData&&userData.info?userData.info.score:''}}</view>
 				<view class="cmdtk">
-					距离全额退款并领取3本书还有58个聪明豆
+					距离全额退款并领取3本书还有{{lessScore}}个聪明豆
+				</view>
+				<view class="cmdtk" style="height:15px">
+					<span style="text-decoration:underline;color: rgb(54,155,145);" v-if="userData.hasOrder&&userData.hasOrder.length==0">立即报名</span>
 				</view>
 				<view class="cmdjdt">
-					<view class="cmdsct"></view>
-					<view class="cmd0">0</view>
-					<view class="cmd1"><span class="cmdcion"></span>20</view>
+					<!-- <view class=""></view> -->
+					<view>
+						<progress :percent="percent1" activeColor="#2fc899" active stroke-width="12" />
+					</view>
+					<view class="cmd1" :style="{left:left1}"><span class="cmdcion"></span>{{userData&&userData.info?userData.info.score:''}}</view>
 					<view class="cmd2">60</view>
 				</view>
 			</view>
 			<view class="cmdlist_k">
 				<view class="cmdlist">
 					<view class="cmdlisttitle">
-						聪明豆记录
+						{{userData.hasOrder&&userData.hasOrder.length==0?'其他用户的':''}}聪明豆记录
 					</view>
-					<view class="cmdlistdetail">
+					<view class="cmdlistdetail" v-for="item in mainData">
 						<view class="cmd_bookname">
-							《小蓝和小黄》
+							{{item.trade_info}}
 							<span class="cmd_time">2019/04/25 周一</span>
 							<view class="addcmd">
-							+1
-						</view>
-						</view>
-					</view>
-					<view class="cmdlistdetail">
-						<view class="cmd_bookname">
-							《小蓝和小黄》
-							<span class="cmd_time">2019/04/25 周一</span>
-							<view class="addcmd">
-							+1
-						</view>
-						</view>
-					</view>
-					<view class="cmdlistdetail">
-						<view class="cmd_bookname">
-							《小蓝和小黄》
-							<span class="cmd_time">2019/04/25 周一</span>
-							<view class="addcmd">
-							+1
-						</view>
-						</view>
-					</view>
-					<view class="cmdlistdetail">
-						<view class="cmd_bookname">
-							《小蓝和小黄》
-							<span class="cmd_time">2019/04/25 周一</span>
-							<view class="addcmd">
-							+1
-						</view>
+								{{item.count}}
+							</view>
 						</view>
 					</view>
 				</view>
@@ -82,11 +60,131 @@
 		data() {
 			return {
 				webself: this,
+				userData: {},
+				lessScore:'',
+				mainData:[],
+				searchTitle:'',
+				percent1:'',
+				left1:''
 			}
+		},
+
+
+		onLoad(options) {
+			const self = this;
+			self.paginate = self.$Utils.cloneForm(self.$AssetsConfig.paginate);
+			self.$Utils.loadAll(['getUserData'], self)
+		},
+
+		methods: {
+			
+			toCertificate(){
+				const self = this;
+				if(parseInt(self.userData.score)>=60){
+					self.$Router.navigateTo({route:{path:'/pages/byzs/byzs'}})
+				}else{
+					self.$Router.navigateTo({route:{path:'/pages/xszs/xszs'}})
+				}
+			},
+
+			getUserData() {
+				const self = this;
+				const postData = {};
+				postData.tokenFuncName = 'getProjectToken';
+				postData.searchItem = {
+					thirdapp_id: self.$AssetsConfig.thirdapp_id,
+					user_no:uni.getStorageSync('user_no')
+				};
+				postData.getAfter = {
+					hasOrder: {
+						tableName: 'Order',
+						middleKey: 'user_no',
+						key: 'user_no',
+						condition: '=',
+						searchItem: {
+							status: 1,
+							pay_status: 1
+						}
+					},
+				};
+				const callback = (res) => {
+					if (res.info.data.length > 0) {
+						self.userData = res.info.data[0];
+						self.userData.info.score = parseInt(self.userData.info.score);
+						self.lessScore = 60-self.userData.info.score;
+						self.percent1 = self.userData.info.score/60;
+						self.left1 = uni.upx2px(600*(self.percent1/100)) + 'px';
+					};
+					self.getMainData();
+					
+					console.log('left1',self.left1)
+				};
+				self.$apis.userGet(postData, callback);
+			},
+
+
+			getMainData(isNew) {
+				const self = this;
+				if(isNew){
+					self.$Utils.clearPageIndex(self)
+				};
+				const postData = {};
+				postData.tokenFuncName ='getProjectToken';
+				postData.paginate = self.$Utils.cloneForm(self.paginate);
+				postData.searchItem = {
+					type:3
+				};
+				if(self.userData.hasOrder.length==0){
+					postData.searchItem.user_type = 0,
+					postData.searchItem.user_no = ['not in',uni.getStorageSync('info').user_no]
+				};
+				postData.getAfter = {
+					book:{
+						tableName:'Article',
+						middleKey:'relation_id',
+						key:'id',
+						searchItem:{
+							status:1,
+							type:1
+						},
+						condition:'='
+					},
+					user:{
+						tableName:'User',
+						middleKey:'user_no',
+						key:'user_no',
+						searchItem:{
+							status:1,
+						},
+						condition:'='
+					},
+				}
+				console.log('postData', postData)
+				const callback = (res) => {
+					if (res.info.data.length > 0) {
+						self.mainData.push.apply(self.mainData, res.info.data)
+					} else {
+						self.isLoadALL = true
+					}
+					console.log('self.mainData', self.mainData)
+					self.$Utils.finishFunc('getUserData');
+				};
+				self.$apis.flowLogGet(postData, callback);
+			},
+			
+			search(){
+				const self = this;
+				if(self.searchTitle!=''){
+					self.$Router.navigateTo({route:{path:'/pages/searchsuccess/searchsuccess?title='+self.searchTitle}})
+				}
+			},
 		}
 	}
 </script>
 
 <style>
 	@import "../../assets/style/cmdjl.css";
+	page {
+		background: #f4f5f7;
+	}
 </style>

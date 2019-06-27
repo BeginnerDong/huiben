@@ -53,12 +53,6 @@
 			}
 		},
 		{
-			"path":"pages/openredpack/openredpack",
-			"style":{
-				"navigationBarTitleText":"60天幼儿能力提升计划"
-			}
-		},
-		{
 			"path":"pages/bookdetail/bookdetail",
 			"style":{
 				"navigationBarTitleText":"阅读详情"
@@ -107,9 +101,9 @@
 			}
 		},
 		{
-			"path":"pages/biyezhengshu/biyezhengshu",
+			"path":"pages/user/user",
 			"style":{
-				"navigationBarTitleText":"毕业证书"
+				"navigationBarTitleText":"学业证书"
 			}
 		},
 		{
@@ -165,10 +159,32 @@
 			"style":{
 				"navigationBarTitleText":"学习报告"
 			}
+		},
+		{
+			"path":"pages/my/my",
+			"style":{
+				"navigationBarTitleText":"学业证书"
+			}
+		},
+		{
+			"path":"pages/date/date",
+			"style":{
+				"navigationBarTitleText":"60天科学亲子阅读计划"
+			}
+		},
+		{
+			"path":"pages/report/report",
+			"style":{
+				"navigationBarTitleText":"7天学习报告"
+			}
+		},
+		{
+			"path":"pages/completeShare/completeShare",
+			"style":{
+				"navigationBarTitleText":"完成亲子阅读计划"
+			}
 		}
 		
-
-
 	],
 
 	"globalStyle": {

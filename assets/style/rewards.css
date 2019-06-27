@@ -34,9 +34,10 @@
 	height: 144px;
 }
 .re_bookname{
-	font-size: 19px;
+	font-size: 17px;
 	color: rgb(42,42,42);
 	margin-top: 8px;
+	font-weight: bold;
 }
 .re_yd{
 	text-align: left;

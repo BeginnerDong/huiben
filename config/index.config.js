@@ -2,10 +2,10 @@ const CONFIG = {
 	
         //开发环境配置http://106.12.155.217/project/
         development: {
-                loginTitleTxt: "欢迎使用选购商城", // 登录页标题
-                copyrightTxt: "选购商城v1.0", // 版本信息
-                assetsPath: "http://www.local-scanner.com/", // 静态资源路径
-                baseUrl: "http://www.local-scanner.com/api/public/index.php/api/v1/",
+                loginTitleTxt: "绘本", // 登录页标题
+                copyrightTxt: "绘本v1.0", // 版本信息
+                assetsPath: "https://qinzi.koaladaka.com/", // 静态资源路径
+                baseUrl: "https://qinzi.koaladaka.com/api/public/index.php/api/v1/",
                 tokenKey: "WECHAT_TRADE", // 登录标识
                 testOpenId: "oEjRxwy7jL9PgG0kWeb4VcDTZEas", // 小程序测试openId
                 forcedLogin: false, // touristMode游客模式下APP是否强制用户登录 场景：当用户进入登录页面后无法后退。
@@ -14,10 +14,10 @@ const CONFIG = {
 
         //生产环境配置
         production: {
-                loginTitleTxt: "欢迎使用选购商城", // 登录页标题
-                copyrightTxt: "选购商城v1.0", // 版本信息
-                assetsPath: "http://www.local-scanner.com/wx/", // 静态资源路径
-                baseUrl: "http://www.local-scanner.com/api/public/index.php/api/v1/",
+                loginTitleTxt: "绘本", // 登录页标题
+                copyrightTxt: "绘本v1.0", // 版本信息
+                assetsPath: "https://qinzi.koaladaka.com/wx/", // 静态资源路径
+                baseUrl: "https://qinzi.koaladaka.com/api/public/index.php/api/v1/",
                 tokenKey: "WECHAT_TRADE", // 登录标识
                 testOpenId: "oEjRxwy7jL9PgG0kWeb4VcDTZEas", // 小程序测试openId
                 forcedLogin: false, // touristMode游客模式下APP是否强制用户登录 场景：当用户进入登录页面后无法后退。
