@@ -1,22 +1,13 @@
 .book_kk{
-	width: 100%;
+	width: 100vw;
 	height: 100%;
-	transform: rotate(90deg);
-	transform-origin:50% 50%;
-	
-	top: 146px;
-	left: -146px;
-	height:100vw;
-	width:100vh;
-	
-	
-	
 	overflow:auto;
 	position: relative;
 }
 .pullup,.pulldown{
 	bottom: 0;
-	
+	transform: rotate(90deg);
+	transform-origin:50% 50%;
 	position: absolute;
 	background: #4C4C4C;
 }

@@ -3,29 +3,30 @@
 		<swiper  :style="'height:'+screenHeight+'px'" :indicator-dots="false" :vertical="true" :autoplay="false"
 		 :interval="3000" :duration="500" :circular="false" @change="change">
 			<swiper-item  v-for="(item,index) in mainData" :key="index" :v-if="userData.hasOrder&&userData.hasOrder.length==0?index<8:''">
-				<view class="book_kk" :style="'width:'+screenHeight+'px'">
+				<view class="book_kk" >
 					<img :src="item.mainImg&&item.mainImg[0]?item.mainImg[0].url:''" style="width:100%;height:100%">
-					<view class="pullup" :style="'width:'+screenHeight+'px'" style="display: flex;">
-						<view  style="color: #fff;border-right:1px solid #fff;padding: 10px;" :style="'width:'+screenHeight/2+'px'">
+					<view class="pullup" :style="styleInfo" style="display: flex;">
+						<view  style="color: #fff;border-right:1px solid #fff;padding: 10px;overflow: scroll;" :style="'width:'+screenHeight/2+'px'">
 							<view class="title" style="display: flex;">
 							   <view style="width:4px;height:20px;background: rgb(54,155,145);"></view>
 							   <view style="margin-left: 5px;font-size:15px">解读</view>
 							</view>
-							<view class="content" style="font-size:12px;margin-top: 10px;">相比第一个画面。。。。。撒旦撒旦撒大萨达撒多撒旦撒打算撒旦撒打算多撒旦撒打算奥术大师多
+							<view class="content" style="font-size:12px;margin-top: 10px;width: 85%;margin: 0 auto;">相比第一个画面。。。。。撒旦撒旦撒大萨达撒多撒旦撒打算撒旦撒打算多撒旦撒打算奥术大师多
 							相比第一个画面。。。。。撒旦撒旦撒大萨达撒多撒旦撒打算撒旦撒打算多撒旦撒打算奥术大师多相比第一个画面。。。。。
-							撒旦撒旦撒大萨达撒多撒旦撒打算撒旦撒打算多撒旦撒打算奥术大师多</view>
+							撒旦撒旦撒大萨达撒多撒旦撒打算撒旦撒打算多撒旦撒打算奥术大师多sdaf asdf asdf sadf asdf sadf asdf asdf asdf asdf sadf sadf asdf asdf asdf sad fsadf asdf sadf sadf sdf sdf sdf sadf sd fs</view>
 						</view>
-						<view  style="color: #fff;padding: 10px;" :style="'width:'+screenHeight/2+'px'">
+						<view  style="color: #fff;padding: 10px;overflow: scroll;" :style="'width:'+screenHeight/2+'px'">
 							<view class="title" style="display: flex;">
 							   <view style="width:4px;height:20px;background: rgb(54,155,145);"></view>
-							   <view style="margin-left: 5px;font-size:15px">亲子互动指引</view>
+							   <view style="margin-left: 5px;font-size:15px">亲子互动指引{{pullTop}}</view>
 							</view>
-							<view class="content" style="font-size:12px;margin-top: 10px;">相比第一个画面。。。。。撒旦撒旦撒大萨达撒多撒旦撒打算撒旦撒打算多撒旦撒打算奥术大师多
+							<view class="content" style="font-size:12px;margin-top: 10px;width: 85%;margin: 0 auto;">相比第一个画面。。。。。撒旦撒旦撒大萨达撒多撒旦撒打算撒旦撒打算多撒旦撒打算奥术大师多
 							相比第一个画面。。。。。撒旦撒旦撒大萨达撒多撒旦撒打算撒旦撒打算多撒旦撒打算奥术大师多相比第一个画面。。。。。
 							撒旦撒旦撒大萨达撒多撒旦撒打算撒旦撒打算多撒旦撒打算奥术大师多</view>
 						</view>
 					</view>
-				</view>			
+				</view>	
+				<view style="position:absolute;z-index: 999;transform: rotate(90deg);transform-origin:50% 50%;" :style="'left:'+pullLeft+'px;top:'+pullTop+'px'" @click="isShow"><image style="width:50px;height:18px;" :src="pullUrl"></image></view>
 			</swiper-item>
 			<swiper-item :style="'height:'+screenHeight+'px'" v-if="userData.hasOrder&&userData.hasOrder.length>0">
 				<view class="daka_bg" :style="'width:'+screenHeight+'px'">
@@ -68,6 +69,8 @@
 							</view>
 						</view>
 					</view>
+					
+
 				</view>
 			</swiper-item>
 			<swiper-item :style="'height:'+screenHeight+'px'" v-if="userData.hasOrder&&userData.hasOrder.length==0">
@@ -114,6 +117,7 @@
 				</view>
 			</swiper-item>
 		</swiper>
+		
 	</view>
 </template>
 
@@ -131,19 +135,49 @@
 				currIndex: 0,
 				id: '',
 				allData:[],
-				userData:{}
+				userData:{},
+				screenHeight:0,
+				screenWidth:0,
+				realheight:0,
+				pullTop:0,
+				pullLeft:0,
+				styleInfo:'',
+				OriginStyle:'',
+				pullUrl:'/static/images/pullup.png'
+				
 			}
 		},
 
 		onLoad(options) {
 			const self = this;
-			this.screenHeight = uni.getSystemInfoSync().screenHeight;
+			this.screenHeight = uni.getSystemInfoSync().screenHeight-38;
+			this.screenWidth = uni.getSystemInfoSync().screenWidth;
+			this.realheight = this.screenWidth/3;
+			this.pullTop = this.screenHeight/2 - 11;
+			this.pullLeft = -16;
+			this.styleInfo = 'width:'+this.screenHeight+'px;height:'+this.realheight+'px;top:'+(this.screenHeight/2-this.realheight/2)+'px;left:-'+(this.screenHeight/2-this.realheight/2)+'px';
+			this.OriginStyle = self.$Utils.cloneForm(self.styleInfo) ;
+			console.log('this.styleInfo',this.styleInfo)
 			console.log('this.screenHeight', this.screenHeight)
 			self.id = options.id;
 			self.$Utils.loadAll(['getUserData','getAllData'], self)
 		},
 
 		methods: {
+			
+			
+			isShow(){
+				
+				console.log('isShow')
+				const self = this;
+				if(this.styleInfo==this.OriginStyle){
+					this.styleInfo = 'width:'+this.screenHeight+'px;height:'+this.realheight+'px;top:'+(this.screenHeight/2-this.realheight/2)+'px;left:-'+(this.screenHeight/2+this.realheight)+'px';
+					this.pullUrl = '/static/images/pulldown.png';
+				}else{
+					this.styleInfo = self.$Utils.cloneForm(self.OriginStyle);
+					this.pullUrl = '/static/images/pullup.png';
+				};
+			},
 
 			getUserData() {
 				const self = this;

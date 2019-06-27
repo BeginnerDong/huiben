@@ -4,25 +4,25 @@
 			<view class="td_read_k">
 				<view class="book_intro_img" style="height:150px">
 					<view style="width:35%">
-					<img :src="allData[0]&&allData[0].mainImg&&allData[0].mainImg[0]?allData[0].mainImg[0].url:''">
+					<img :src="todayBook&&todayBook.mainImg&&todayBook.mainImg[0]?todayBook.mainImg[0].url:''">
 					</view>
 				</view>
-				<view class="book_name">{{allData[0]?allData[0].title:''}}</view>
-				<view class="book_copy">{{allData[0]?allData[0].description:''}}</view>
+				<view class="book_name">{{todayBook?todayBook.title:''}}</view>
+				<view class="book_copy">{{todayBook?todayBook.description:''}}</view>
 				<view class="book_type"><span>情绪管理</span></view>
 				<view class="book_intro" style="height:48px">
 					
-					<view class="content ql-editor" style="padding: 0;" v-html="allData[0]?allData[0].content:''">
+					<view class="content ql-editor" style="padding: 0;" v-html="todayBook?todayBook.content:''">
 					</view>
 				</view>
 				<view class="book_tab">
-					<view>“{{allData[0]?allData[0].small_title:''}}”</view>
+					<view>“{{todayBook?todayBook.small_title:''}}”</view>
 				</view>
 				<view class="clear bookbtn">
 					<button class="ayerbtn" style="background: #fff;" 
 					@click="yesterdayOrAll">
 					{{canYesterday?'读昨日书':'看看其他'}}</button>
-					<button class="open_book" @click="webself.$Router.navigateTo({route:{path:'/pages/bookdetail/bookdetail?id='+allData[0].id}})">开始阅读</button>
+					<button class="open_book" @click="webself.$Router.navigateTo({route:{path:'/pages/bookdetail/bookdetail?id='+todayBook.id}})">开始阅读</button>
 				</view>
 			</view>
 			<view style="height: 60px;"></view>
@@ -37,7 +37,7 @@
 						<img class="foot_iocn" src="../../static/images/book_u.png"/>
 						<view style="font-size: 11px;">所有绘本</view>
 					</view>
-					<view class="foot_book_btn" @click="webself.$Router.redirectTo({route:{path:'/pages/game/game?id='+allData[0].id}})">
+					<view class="foot_book_btn" @click="webself.$Router.redirectTo({route:{path:'/pages/game/game?id='+todayBook.id}})">
 						<img class="foot_iocn" src="../../static/images/game_u.png"/>
 						<view style="font-size: 11px;">游戏</view>
 					</view>
@@ -58,7 +58,9 @@
 				allData:[],
 				id:'',
 				week:'',
-				canYesterday:false
+				canYesterday:false,
+				todayBook:'',
+				lastBook:''
 			}
 		},
 
@@ -77,8 +79,8 @@
 			
 			yesterdayOrAll(){
 				const self = this;
-				if(self.canYesterday){
-					self.$Router.navigateTo({route:{path:'/pages/bookdetail/bookdetail?id='+self.id}})
+				if(self.lastBook&&JSON.stringify(self.lastBook)!='{}'){
+					self.$Router.navigateTo({route:{path:'/pages/bookdetail/bookdetail?id='+self.lastBook.id}})
 				}else{
 					self.$Router.navigateTo({route:{path:'/pages/bookintro/bookintro'}})
 				}
@@ -109,13 +111,46 @@
 					on_shelf:1
 				};
 				postData.order = {
-					update_time:'desc'
+					update_time:'asc'
 				};
 				console.log('postData', postData)
 				const callback = (res) => {
 					if (res.info.data.length > 0) {
-						self.allData.push.apply(self.allData,res.info.data)
-					} 
+						console.log('res.info.data',res.info.data)
+						self.allData.push.apply(self.allData,res.info.data);
+						var timeStamp = new Date(new Date().toLocaleDateString()).getTime();
+						var lastBook = uni.getStorageSync('lastBook');
+						var todayBook = uni.getStorageSync('todayBook');
+						if(todayBook&&todayBook.timeStamp!=timeStamp){
+							self.lastBook = todayBook;
+							var todayIndex = -1;
+							for(var i=0;i<self.allData.length;i++){
+								if(self.allData[i].id==todayBook.id){
+									if(i==self.allData.length-1){
+										todayIndex = 0
+									}else{
+										todayIndex = i + 1;
+									};
+								};
+								if(i==todayIndex){
+									self.todayBook = self.allData[i];
+									self.todayBook.timeStamp = timeStamp;
+									break;
+								}
+							};
+							uni.setStorageSync('lastBook',self.lastBook);
+							uni.setStorageSync('todayBook',self.todayBook);
+						}else if(!todayBook){
+							self.todayBook = self.allData[0];
+							self.todayBook.timeStamp = timeStamp;
+							uni.setStorageSync('lastBook',self.lastBook);
+							uni.setStorageSync('todayBook',self.todayBook);
+						}else{
+							self.todayBook = todayBook;
+							self.lastBook = lastBook;
+						};
+					};
+					console.log('todayBook',self.todayBook)
 					self.getMainData()
 				};
 				self.$apis.articleGet(postData, callback);
