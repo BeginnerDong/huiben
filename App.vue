@@ -43,4 +43,5 @@
 	/* @import "/assets/style/quill.css"; */
 	/*每个页面公共css */
 	@import "/assets/style/quill.css";
+	
 </style>

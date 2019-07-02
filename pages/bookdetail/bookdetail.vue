@@ -151,8 +151,8 @@
 
 		onLoad(options) {
 			const self = this;
-			this.screenHeight = uni.getSystemInfoSync().screenHeight-48;
-			this.screenWidth = uni.getSystemInfoSync().screenWidth;
+			this.screenHeight = uni.getSystemInfoSync().windowHeight-48;
+			this.screenWidth = uni.getSystemInfoSync().windowWidth;
 			this.realheight = this.screenWidth/3;
 			this.pullTop = this.screenHeight/2 - 11;
 			this.pullLeft = -16;

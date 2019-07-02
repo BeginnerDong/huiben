@@ -15,11 +15,10 @@
 				</view>
 			</view>
 			<swiper class="swiper-box"  :indicator-dots="false" :autoplay="false" :interval="3000" :duration="500" :circular="true"
-			 @change="change" previous-margin="15px" next-margin="15px">
-				<swiper-item  v-for="(item,index) in mainData" :key="index" @click="item.src?webSelf.$Router.redirectTo({route:{path:item.src}}):''">
+			 @change="change" previous-margin="30px" next-margin="30px">
+				<swiper-item   v-for="(item,index) in mainData" :key="index" @click="item.src?webSelf.$Router.redirectTo({route:{path:item.src}}):''">
 					<view class="swiper-item" >
-					
-							<view class="book_intro_middle" :class="{'active':index===currIndex}">
+							<view class="book_intro_middle" :class="{'active':index===currIndex}" style="margin:auto">
 								<view class="book_intro_img">
 									<view style="width:35%">
 										<img :src="item.mainImg&&item.mainImg[0]?item.mainImg[0].url:''" style="width:100%">
@@ -36,7 +35,6 @@
 									<button :data-id="item.id" @click="webSelf.$Router.navigateTo({route:{path:'/pages/bookdetail/bookdetail?id='+$event.currentTarget.dataset.id}})">开始阅读</button>
 								</view>
 							</view>
-						
 					</view>
 				</swiper-item>
 			</swiper>
@@ -129,11 +127,10 @@
 		height: 930upx;
 	}
 	
-	
-	
 	.swiper-item {
-		width: 87%;
+		width: 90%;
 		height: 930upx;
+		margin: 0 auto;
 	}
 	.active{
 		

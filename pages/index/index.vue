@@ -30,11 +30,13 @@
 			<view class="foot_left" @click="webSelf.$Router.navigateTo({route:{path:'/pages/testread/testread'}})"><span class="book_icon"></span>试读</view>
 			<view class="foot_right" @click="webSelf.$Router.navigateTo({route:{path:'/pages/openredpack/openredpack'}})">立即报名</view>
 		</view>
-
-		<view class="foot_note clear" v-if="mainData.hasCoupon&&mainData.hasCoupon.length>0">
-			<img :src="messageData[0]&&messageData[0].mainImg&&messageData[0].mainImg[0]?messageData[0].mainImg[0].url:''" style="width:30px;height:30px"/>
-			<view>{{messageData[0]?messageData[0].description:''}}</view>
-		</view>
+		<block v-if="mainData.hasCoupon&&mainData.hasCoupon.length>0" v-for="item in messageData">
+			<view class="foot_note clear" :style="item.style" :class="item.class" >
+				<img :src="item&&item.mainImg&&item.mainImg[0]?item.mainImg[0].url:''" style="width:30px;height:30px"/>
+				<view>{{item?item.description:''}}</view>
+			</view>
+		</block>
+		
 		<view style="width:100%;height:120px"></view>
 		<view class="index_foot clear" v-if="mainData.hasCoupon&&mainData.hasCoupon.length>0">
 			<view class="foot_left1" @click="webSelf.$Router.navigateTo({route:{path:'/pages/testread/testread'}})"><span class="book_icon"></span>试读</view>
@@ -150,12 +152,15 @@
 								self.getCouponData()
 							};
 						} else {
-							
-							self.$Router.redirectTo({
+							self.is_show = true;
+							if (self.mainData.hasCoupon.length == 0) {
+								self.getCouponData()
+							};
+							/* self.$Router.redirectTo({
 								route: {
 									path: '/pages/todayread/todayread'
 								}
-							})
+							}) */
 						}
 					};
 					self.$Utils.finishFunc('getMainData');
@@ -199,17 +204,34 @@
 			getMessageData() {
 				const self = this;
 				const postData = {
-					
 					searchItem: {
 						type: 1,
-				
 					}
 				};
 				const callback = (res) => {
 					if(res.solely_code==100000){
 						if (res.info.data.length > 0) {
-							self.messageData.push.apply(self.messageData,res.info.data)
-						}
+							self.messageData.push.apply(self.messageData,res.info.data);
+							for(var i=0;i<self.messageData.length;i++){
+								self.messageData[i].class = 'bdm';
+								if(i>0){
+									self.messageData[i].style = '-webkit-animation-delay: '+ (i*2) +'s;animation-delay: '+ (i*2) +'s';
+								}else{
+									self.messageData[i].style = '';
+								};
+							};
+							console.log('self.messageData',self.messageData)
+						};
+						setInterval(function(){
+							for(var i=0;i<self.messageData.length;i++){
+								self.messageData[i].class = '';
+							};
+						},self.messageData.length*2000+4000)
+						setInterval(function(){
+							for(var i=0;i<self.messageData.length;i++){
+								self.messageData[i].class = 'bdm';
+							};
+						},self.messageData.length*2000+5000)
 					};	
 					self.$Utils.finishFunc('getMessageData');
 				};
@@ -258,4 +280,23 @@
 
 <style>
 	@import "../../assets/style/index.css";
+	.bdm {
+	  -webkit-animation: updanmu 4s linear;
+	  animation: updanmu 4s linear;
+	}
+	@-webkit-keyframes updanmu{
+	  0% {-webkit-transform:translateY(120px);opacity:0}
+	  25% {-webkit-transform:translateY(90px);opacity:1}
+	  50% {-webkit-transform:translateY(60px);opacity:1}
+	  75% {-webkit-transform:translateY(30px);opacity:1}
+	  100% {-webkit-transform:translateY(0);opacity:0}
+	}
+
+	@keyframes updanmu{
+	  0% {transform:translateY(120px);opacity:0}
+	  25% {transform:translateY(90px);opacity:1}
+	  50% {transform:translateY(60px);opacity:1}
+	  75% {transform:translateY(30px);opacity:1}
+	  100% {transform:translateY(0);opacity:0}
+	}
 </style>
