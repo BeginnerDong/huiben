@@ -188,6 +188,7 @@
 	],
 
 	"globalStyle": {
+		"navigationStyle":"custom",
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "60天幼儿能力提升计划",
 		"navigationBarBackgroundColor": "#fff",

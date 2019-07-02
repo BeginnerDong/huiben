@@ -10,7 +10,7 @@
 				报名加入计划查看全部<br />
 				坚持打卡还能退还全部报名费用，并获赠3本图书
 			</view>
-			<view v-if="userData.hasOrder.length==0">
+			<view v-if="userData.hasOrder.length==0" @click="webSelf.$Router.navigateTo({route:{path:'/pages/signup/signup'}})">
 				<button class="gamebtn">立即报名</button>
 			</view>
 		</view>

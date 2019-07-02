@@ -35,9 +35,7 @@
 							培养了宝贝的
 						</view>
 						<view class="fx_nl">
-							<span>情绪管理</span>
-							<span>色彩与表达</span>
-							<span>想象力</span>
+							<span v-for="item in mainData.label_array">{{item}}</span>
 						</view>
 					</view>
 				</view>

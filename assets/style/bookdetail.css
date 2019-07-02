@@ -26,6 +26,11 @@
 	top:0px;
 	right: 0px;
 }
+.avoidOverflow{
+	overflow:hidden;
+	text-overflow:ellipsis;
+	white-space:nowrap;
+}
 
 
 .daka_bg {

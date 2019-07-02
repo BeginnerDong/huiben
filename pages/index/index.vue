@@ -12,7 +12,7 @@
 			<view class="content ql-editor" v-html="articleOneData.content">
 			</view>
 		</view>
-		<view style="width:100%" v-if="num==1">
+		<view style="width:100%" v-if="num==1" @click="notice">
 			<view class="content ql-editor" v-html="articleTwoData.content">
 			</view>
 		</view>
@@ -74,7 +74,12 @@
 		},
 
 		methods: {
-
+			
+			notice(){
+				const self = this;
+				self.$Utils.showToast('购买后可获得', 'none', 2000)
+			},
+			
 			isOpen() {
 				const self = this;
 				self.is_open = true;
@@ -145,6 +150,7 @@
 								self.getCouponData()
 							};
 						} else {
+							
 							self.$Router.redirectTo({
 								route: {
 									path: '/pages/todayread/todayread'

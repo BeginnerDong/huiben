@@ -6,6 +6,12 @@ html,body{
 	height: 100%;
 	font-size:15px
 }
+.avoidOverflow{
+	overflow:hidden;
+	text-overflow:ellipsis;
+	white-space:nowrap;
+}
+
 .clear::after{
 	clear: both;
     height: 0;

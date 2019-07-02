@@ -17,9 +17,7 @@
 				<view class="re_yd">
 					<view class="re_title">培养了宝贝的：</view>
 					<view class="re_tablist">
-						<span>情绪管理</span>
-						<span>色彩与表达</span>
-						<span>想象力</span>
+						<span v-for="item in mainData.label_array">{{item}}</span>
 					</view>
 				</view>
 				<view class="re_jg">
@@ -130,7 +128,7 @@
 				};
 				console.log('postData', postData)
 				const callback = (res) => {
-					/* if(res.info.type==1){
+					if(res.info.type==1){
 						self.show = true
 					}else if(res.info.type==2){
 						self.$Router.redirectTo({route:{path:'/pages/date/date'}})
@@ -140,8 +138,8 @@
 						self.$Router.redirectTo({route:{path:'/pages/gxfinishplan/gxfinishplan'}})
 					}else if(res.info.type==5){
 						self.$Router.redirectTo({route:{path:'/pages/finishplan/finishplan'}})
-					}	 */
-					self.$Router.redirectTo({route:{path:'/pages/gxfinishplan/gxfinishplan'}})
+					}	
+					
 				};
 				self.$apis.clockIn(postData, callback);
 			},

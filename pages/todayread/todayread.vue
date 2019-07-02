@@ -2,14 +2,14 @@
 	<view class="huise_bg">
 		<view class="td_read_kk">
 			<view class="td_read_k">
-				<view class="book_intro_img" style="height:150px">
+				<view class="book_intro_img" style="height:170px">
 					<view style="width:35%">
 					<img :src="todayBook&&todayBook.mainImg&&todayBook.mainImg[0]?todayBook.mainImg[0].url:''">
 					</view>
 				</view>
 				<view class="book_name">{{todayBook?todayBook.title:''}}</view>
 				<view class="book_copy">{{todayBook?todayBook.description:''}}</view>
-				<view class="book_type"><span>情绪管理</span></view>
+				<view class="book_type"><span>{{todayBook&&todayBook.label_array?todayBook.label_array[0]:''}}</span></view>
 				<view class="book_intro" style="height:48px">
 					
 					<view class="content ql-editor" style="padding: 0;" v-html="todayBook?todayBook.content:''">
@@ -18,14 +18,14 @@
 				<view class="book_tab">
 					<view>“{{todayBook?todayBook.small_title:''}}”</view>
 				</view>
-				<view class="clear bookbtn">
-					<button class="ayerbtn" style="background: #fff;" 
+				<view class="clear bookbtn" style="height: 80px;margin-top: 0;">
+					<button class="ayerbtn" style="background: #fff;margin-top: 20px;" 
 					@click="yesterdayOrAll">
 					{{canYesterday?'读昨日书':'看看其他'}}</button>
-					<button class="open_book" @click="webself.$Router.navigateTo({route:{path:'/pages/bookdetail/bookdetail?id='+todayBook.id}})">开始阅读</button>
+					<button class="open_book" style="margin-top: 20px;" @click="webself.$Router.navigateTo({route:{path:'/pages/bookdetail/bookdetail?id='+todayBook.id}})">开始阅读</button>
 				</view>
 			</view>
-			<view style="height: 60px;"></view>
+			
 		</view>
 			<view class="foot_book">
 				<view class="foot_book_kk">
@@ -199,4 +199,7 @@
 
 <style>
 	@import "../../assets/style/todayread.css";
+	page {
+		background: #f4f5f7;
+	}
 </style>

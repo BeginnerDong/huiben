@@ -27,7 +27,7 @@
 								</view>
 								<view class="book_name">{{item.title}}</view>
 								<view class="book_copy">{{item.description}}</view>
-								<view class="book_type"><span>情绪管理</span></view>
+								<view class="book_type"><span>{{item.label_array&&item.label_array[0]?item.label_array[0]:''}}</span></view>
 								<view class="book_intro">
 									<view class="content ql-editor" style="padding: 0;" v-html="item.content">
 									</view>

@@ -116,7 +116,7 @@
 			const postData = {};
 			postData.tokenFuncName = 'getProjectToken';
 			postData.searchItem = {
-				thirdapp_id: self.$AssetsConfig.thirdapp_id,
+				thirdapp_id: 2,
 				user_no:uni.getStorageSync('user_no')
 			};
 			postData.getAfter = {

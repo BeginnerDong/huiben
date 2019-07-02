@@ -1,12 +1,13 @@
 .td_read_kk{
 	text-align: center;
-	padding: 14px 22px;
+
 	height:535px;
-	width:100%
+	width:90%;
+	margin:15px auto
 }
 .td_read_k{
 	background: rgb(255,255,255);
-	padding: 14px 0px;
+	
 	border-radius:8px
 	
 }
@@ -99,5 +100,5 @@
 	text-align: center;
 }
  .foot_book_btn .foot_iocn{
-	width: 28px;height: 22px;
+	width: 28px;height: 28px;
 }

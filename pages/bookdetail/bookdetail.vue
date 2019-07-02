@@ -11,18 +11,19 @@
 							   <view style="width:4px;height:20px;background: rgb(54,155,145);"></view>
 							   <view style="margin-left: 5px;font-size:15px">解读</view>
 							</view>
-							<view class="content" style="font-size:12px;margin-top: 10px;width: 85%;margin: 0 auto;">相比第一个画面。。。。。撒旦撒旦撒大萨达撒多撒旦撒打算撒旦撒打算多撒旦撒打算奥术大师多
-							相比第一个画面。。。。。撒旦撒旦撒大萨达撒多撒旦撒打算撒旦撒打算多撒旦撒打算奥术大师多相比第一个画面。。。。。
-							撒旦撒旦撒大萨达撒多撒旦撒打算撒旦撒打算多撒旦撒打算奥术大师多sdaf asdf asdf sadf asdf sadf asdf asdf asdf asdf sadf sadf asdf asdf asdf sad fsadf asdf sadf sadf sdf sdf sdf sadf sd fs</view>
+							<view class="content" style="font-size:12px;margin-top: 10px;width: 85%;margin: 0 auto;">
+								<view class="content ql-editor" style="padding: 0;" v-html="item.content">
+								</view>
+							</view>
 						</view>
 						<view  style="color: #fff;padding: 10px;overflow: scroll;" :style="'width:'+screenHeight/2+'px'">
 							<view class="title" style="display: flex;">
 							   <view style="width:4px;height:20px;background: rgb(54,155,145);"></view>
-							   <view style="margin-left: 5px;font-size:15px">亲子互动指引{{pullTop}}</view>
+							   <view style="margin-left: 5px;font-size:15px">亲子互动指引</view>
 							</view>
-							<view class="content" style="font-size:12px;margin-top: 10px;width: 85%;margin: 0 auto;">相比第一个画面。。。。。撒旦撒旦撒大萨达撒多撒旦撒打算撒旦撒打算多撒旦撒打算奥术大师多
-							相比第一个画面。。。。。撒旦撒旦撒大萨达撒多撒旦撒打算撒旦撒打算多撒旦撒打算奥术大师多相比第一个画面。。。。。
-							撒旦撒旦撒大萨达撒多撒旦撒打算撒旦撒打算多撒旦撒打算奥术大师多</view>
+							<view class="content" style="font-size:12px;margin-top: 10px;width: 85%;margin: 0 auto;">
+								{{item.description}}
+							</view>
 						</view>
 					</view>
 				</view>	
@@ -52,17 +53,17 @@
 					</view>
 					<view class="ljbm_foot" style="margin-top: 20px;">
 						<view class="clear">
-							<view class="ljbm_book" v-for="item in allData">
+							<view class="ljbm_book" v-for="(item,index) in allData" v-if="index<3" :data-id="item.id" @click="webSelf.$Router.navigateTo({route:{path:'/pages/bookdetail/bookdetail?id='+$event.currentTarget.dataset.id}})">
 								<view class="ljbm_book_k">
 									<view class="ljbm_bookimg">
 										<img :src="item.mainImg&&item.mainImg[0]&&item.mainImg[0].url?item.mainImg[0].url:''" />
 									</view>
 									<view class="ljbm_bookname">
-										<view class="bookname1">
+										<view class="bookname1 avoidOverflow">
 											{{item.title}}
 										</view>
-										<view class="booktab">
-											情绪管理
+										<view class="booktab"  v-for="(c_item,c_index) in item.label_array"  v-if="c_index==0">
+											{{c_item}}
 										</view>
 									</view>
 								</view>
@@ -97,17 +98,17 @@
 					</view>
 					<view class="ljbm_foot">
 						<view class="clear">
-							<view class="ljbm_book" v-for="item in allData">
+							<view class="ljbm_book" v-for="item in allData" v-if="index<3" :data-id="item.id" @click="webSelf.$Router.navigateTo({route:{path:'/pages/bookdetail/bookdetail?id='+$event.currentTarget.dataset.id}})">
 								<view class="ljbm_book_k">
 									<view class="ljbm_bookimg">
 										<img :src="item.mainImg&&item.mainImg[0]&&item.mainImg[0].url?item.mainImg[0].url:''" />
 									</view>
-									<view class="ljbm_bookname">
-										<view class="bookname1">
+									<view class="ljbm_bookname avoidOverflow">
+										<view class="bookname1 avoidOverflow">
 											{{item.title}}
 										</view>
-										<view class="booktab">
-											情绪管理
+										<view class="booktab" v-for="(c_item,c_index) in item.label_array"  v-if="c_index==0">
+											{{c_item}}
 										</view>
 									</view>
 								</view>
@@ -150,7 +151,7 @@
 
 		onLoad(options) {
 			const self = this;
-			this.screenHeight = uni.getSystemInfoSync().screenHeight-38;
+			this.screenHeight = uni.getSystemInfoSync().screenHeight-48;
 			this.screenWidth = uni.getSystemInfoSync().screenWidth;
 			this.realheight = this.screenWidth/3;
 			this.pullTop = this.screenHeight/2 - 11;

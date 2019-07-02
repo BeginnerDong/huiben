@@ -36,14 +36,13 @@
 					<!--儿童行为心理习惯-->
 					<view v-for="item in mainData">
 						<view class="recommend_title"><span>{{item.menu}}</span></view>
-						<view class="recommend_imglist clear" v-for="c_item in item.data">
-							<view class="recommend_img">
+						<view class="recommend_imglist clear">
+							<view class="recommend_img"  v-for="c_item in item.data">
 								<view class="recommend_div" @click="webSelf.$Router.navigateTo({route:{path:'/pages/bookintro/bookintro'}})">
-									<img :src="c_item.mainImg&&c_item.mainImg[0]?c_item.mainImg[0].url:''" />
+									<img :src="c_item.mainImg&&c_item.mainImg[0]?c_item.mainImg[0].url:''" style="width:60px;height:70px"/>
 									<view class="re_img_title">{{c_item.title}}</view>
 								</view>
 							</view>
-							
 							<view class="recommend_img">
 								<view class="recommend_div">
 									<div class="re_update">
@@ -51,7 +50,9 @@
 									</div>
 								</view>
 							</view>
+							
 						</view>
+						
 					</view>
 				</view>
 			</view>
