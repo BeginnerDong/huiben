@@ -94,6 +94,7 @@
 		onLoad(options) {
 			const self = this;
 			self.$Utils.loadAll(['getMainData', 'getArticleOneData', 'getArticleTwoData', 'getMessageData'], self)
+			//self.$Utils.loadAll(['getMainData', 'getArticleOneData', 'getArticleTwoData', 'getMessageData','tokenGet'], self)
 		},
 
 		onReachBottom() {

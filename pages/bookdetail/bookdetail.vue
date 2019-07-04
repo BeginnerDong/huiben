@@ -144,14 +144,15 @@
 				pullLeft:0,
 				styleInfo:'',
 				OriginStyle:'',
-				pullUrl:'/static/images/pullup.png'
+				pullUrl:'/static/images/pulldown.png'
 				
 			}
 		},
 
 		onLoad(options) {
 			const self = this;
-			this.screenHeight = uni.getSystemInfoSync().windowHeight-48;
+			console.log('uni.getSystemInfoSync()',uni.getSystemInfoSync());
+			this.screenHeight = uni.getSystemInfoSync().windowHeight;
 			this.screenWidth = uni.getSystemInfoSync().windowWidth;
 			this.realheight = this.screenWidth/3;
 			this.pullTop = this.screenHeight/2 - 11;
@@ -173,10 +174,10 @@
 				const self = this;
 				if(this.styleInfo==this.OriginStyle){
 					this.styleInfo = 'width:'+this.screenHeight+'px;height:'+this.realheight+'px;top:'+(this.screenHeight/2-this.realheight/2)+'px;left:-'+(this.screenHeight/2+this.realheight)+'px';
-					this.pullUrl = '/static/images/pulldown.png';
+					this.pullUrl = '/static/images/pullup.png';
 				}else{
 					this.styleInfo = self.$Utils.cloneForm(self.OriginStyle);
-					this.pullUrl = '/static/images/pullup.png';
+					this.pullUrl = '/static/images/pulldown.png';
 				};
 			},
 
