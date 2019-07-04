@@ -51,7 +51,7 @@
 			</view>
 			<view class="xsz_middle clear">
 				<view class="xsz_left" @click="webself.$Router.navigateTo({route:{path:'/pages/cmdjl/cmdjl'}})">
-					<view class="xsznum">0</view>
+					<view class="xsznum">{{mainData.info?mainData.info.score:''}}</view>
 					<view class="xsz_jj">
 						聪明豆
 					</view>
@@ -134,6 +134,7 @@
 			const callback = (res) => {
 				if (res.info.data.length > 0) {
 					self.mainData = res.info.data[0];
+					self.mainData.info.score = parseInt(self.mainData.info.score);
 					self.mainData.info.start_time = self.$Utils.timeto(self.mainData.info.start_time*1000,'ymd')
 				};
 				console.log(self.mainData.info.start_time)

@@ -603,6 +603,17 @@ export default {
 		self.data[name][key] = value;
 
 	},
+	
+	getWeek(dateString){  
+		var date;  
+		
+			var dateArray = dateString.split("-");  
+			date = new Date(dateArray[0], parseInt(dateArray[1] - 1), dateArray[2]);  
+		
+		//var weeks = new Array("日", "一", "二", "三", "四", "五", "六");  
+		//return "星期" + weeks[date.getDay()];  
+		return "周" + "日一二三四五六".charAt(date.getDay());  
+	},
 
 	checkComplete(obj) {
 		var pass = true;

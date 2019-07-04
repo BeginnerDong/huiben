@@ -1,5 +1,5 @@
 <template>
-	<view class="huise_bg">
+	<view class="huise_bg" style="margin-top: 5%;">
 		<view class="td_read_kk">
 			<view class="td_read_k">
 				<view class="book_intro_img" style="height:170px">

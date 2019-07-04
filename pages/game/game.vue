@@ -2,8 +2,8 @@
 	<view class="huise_bg">
 		<!-- <view> -->
 		<view class="game_kk">
-			<view class="gameintro_k clear" v-for="item in mainData">
-				<view class="game_img"><img src="../../static/testimg/test3.jpg" /></view>
+			<view class="gameintro_k clear" v-for="item in mainData" :data-id="item.id" @click="webSelf.$Router.navigateTo({route:{path:'/pages/gameDetail/gameDetail?id='+$event.currentTarget.dataset.id}})">
+				<view class="game_img"><img :src="item.mainImg&&item.mainImg[0]?item.mainImg[0].url:''" style="width:100%;height:100%" /></view>
 				<view class="game_intro">《{{item.title}}》游戏</view>
 			</view>
 			<view class="gameintro_k game_yh" v-if="userData.hasOrder.length==0">

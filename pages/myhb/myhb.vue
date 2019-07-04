@@ -4,8 +4,9 @@
 			<view class="hblist clear" @click="showDetail" v-for="item in mainData">
 				<span class="hbimg">
 				</span>
-				<view class="hb_qk" style="margin-top: 0;line-height: 70px;">
+				<view class="hb_qk" style="margin-top: 0">
 					<span class="hb_price">100元</span><br/>
+					<span class="hb_price" style="font-size:15px" v-if="item.use_step==2">已使用</span>
 				</view>
 			</view>
 		</view>
@@ -56,9 +57,9 @@
 			const postData = {};		
 			postData.paginate = self.$Utils.cloneForm(self.paginate);
 			postData.tokenFuncName = 'getProjectToken';
-			postData.searchItem = {
+		/* 	postData.searchItem = {
 				use_step:1
-			};
+			}; */
 			const callback = (res) => {
 				if (res.info.data.length > 0) {
 					self.mainData.push.apply(self.mainData,res.info.data)

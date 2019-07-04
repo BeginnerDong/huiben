@@ -183,6 +183,12 @@
 			"style":{
 				"navigationBarTitleText":"完成亲子阅读计划"
 			}
+		},
+		{
+			"path":"pages/gameDetail/gameDetail",
+			"style":{
+				"navigationBarTitleText":"游戏详情"
+			}
 		}
 		
 	],

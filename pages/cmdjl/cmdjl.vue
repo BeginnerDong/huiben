@@ -40,12 +40,15 @@
 					<view class="cmdlisttitle">
 						{{userData.hasOrder&&userData.hasOrder.length==0?'其他用户的':''}}聪明豆记录
 					</view>
-					<view class="cmdlistdetail" v-for="item in mainData">
-						<view class="cmd_bookname">
-							{{item.trade_info}}
-							<span class="cmd_time">2019/04/25 周一</span>
+					<view class="cmdlistdetail" style="display: flex;" v-for="item in mainData">
+						<view style="margin-right: 5px;" v-if="userData.hasOrder&&userData.hasOrder.length==0">
+							<image :src="item.user?item.user.headImgUrl:''" style="width:40px;height:40px;border-radius:50%"></image>
+						</view>
+						<view class="cmd_bookname" :style="userData.hasOrder&&userData.hasOrder.length==0?'width:83%':'width:100%'">
+							《{{item.book?item.book.title:''}}》
+							<span class="cmd_time">{{item.create_time}} {{item.week}}</span>
 							<view class="addcmd">
-								{{item.count}}
+								+1
 							</view>
 						</view>
 					</view>
@@ -132,22 +135,23 @@
 				postData.tokenFuncName ='getProjectToken';
 				postData.paginate = self.$Utils.cloneForm(self.paginate);
 				postData.searchItem = {
-					type:3
+					
 				};
 				if(self.userData.hasOrder.length==0){
-					postData.searchItem.user_type = 0,
-					postData.searchItem.user_no = ['not in',uni.getStorageSync('info').user_no]
+					postData.searchItem.user_type = 0
+					/* postData.searchItem.user_no = ['not in',uni.getStorageSync('user_no')] */
 				};
 				postData.getAfter = {
 					book:{
 						tableName:'Article',
-						middleKey:'relation_id',
+						middleKey:'order_no',
 						key:'id',
 						searchItem:{
 							status:1,
 							type:1
 						},
-						condition:'='
+						condition:'=',
+						info:['title']
 					},
 					user:{
 						tableName:'User',
@@ -156,20 +160,25 @@
 						searchItem:{
 							status:1,
 						},
-						condition:'='
+						condition:'=',
+						info:['headImgUrl']
 					},
 				}
 				console.log('postData', postData)
 				const callback = (res) => {
 					if (res.info.data.length > 0) {
-						self.mainData.push.apply(self.mainData, res.info.data)
+						self.mainData.push.apply(self.mainData, res.info.data);
+						for (var i = 0; i < self.mainData.length; i++) {
+							self.mainData[i].create_time = self.mainData[i].create_time.substring(0, 10);
+							self.mainData[i].week = self.$Utils.getWeek(self.mainData[i].create_time.substring(0, 10))
+						}
 					} else {
 						self.isLoadALL = true
 					}
 					console.log('self.mainData', self.mainData)
 					self.$Utils.finishFunc('getUserData');
 				};
-				self.$apis.flowLogGet(postData, callback);
+				self.$apis.logGet(postData, callback);
 			},
 			
 			search(){

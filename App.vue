@@ -27,7 +27,7 @@
 			if(params.parent_no){
 				uni.setStorageSync('url_parent_no',params.parent_no)
 			};
-			token.getProjectToken();
+			//token.getProjectToken();
 		},
 		onShow: function() {
 			console.log('App Show')
