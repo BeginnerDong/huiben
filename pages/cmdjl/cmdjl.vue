@@ -140,6 +140,8 @@
 				if(self.userData.hasOrder.length==0){
 					postData.searchItem.user_type = 0
 					/* postData.searchItem.user_no = ['not in',uni.getStorageSync('user_no')] */
+				}else{
+					postData.searchItem.user_no = uni.getStorageSync('user_no')
 				};
 				postData.getAfter = {
 					book:{
