@@ -89,8 +89,8 @@
 
 		onLoad(options) {
 			const self = this;
-			self.$Utils.loadAll(['getMainData', 'getArticleOneData', 'getArticleTwoData', 'getMessageData'], self)
-			//self.$Utils.loadAll(['getMainData', 'getArticleOneData', 'getArticleTwoData', 'getMessageData','tokenGet'], self)
+			/* self.$Utils.loadAll(['getMainData', 'getArticleOneData', 'getArticleTwoData', 'getMessageData'], self) */
+			self.$Utils.loadAll(['getMainData', 'getArticleOneData', 'getArticleTwoData', 'getMessageData','tokenGet'], self)
 		},
 
 		onReachBottom() {
@@ -140,7 +140,7 @@
 				const self = this;
 				const postData = {
 					searchItem: {
-						user_no: 'U70434920059973'
+						user_no: 'U704138396785821'
 					}
 				};
 				console.log('postData', postData)

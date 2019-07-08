@@ -1,7 +1,7 @@
 <template>
 	<view class="myhb_bg">
 		<view class="myhb">
-			<view class="hblist clear" @click="showDetail" v-for="item in mainData">
+			<view class="hblist clear" @click="item.use_step==1?'showDetail':''" v-for="item in mainData">
 				<span class="hbimg">
 				</span>
 				<view class="hb_qk" style="margin-top: 0">

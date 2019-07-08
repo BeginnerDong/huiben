@@ -57,7 +57,7 @@
 				<view class="dakajc">
 					坚持亲子阅读，让孩子赢在起跑线
 				</view>
-				<button class="dakaljfx"  @click="webself.$Router.redirectTo({route:{path:'/pages/fenxiang/fenxiang?id='+self.id}})">立即分享</button>
+				<button class="dakaljfx"  @click="webself.$Router.redirectTo({route:{path:'/pages/fenxiang/fenxiang?id='+id}})">立即分享</button>
 			</view>
 		</view>
 	</view>
@@ -139,7 +139,7 @@
 					}else if(res.info.type==5){
 						self.$Router.redirectTo({route:{path:'/pages/finishplan/finishplan'}})
 					}	
-					
+				
 				};
 				self.$apis.clockIn(postData, callback);
 			},
@@ -154,7 +154,7 @@
 				console.log('postData', postData)
 				const callback = (res) => {
 					if(res.solely_code==100000){
-						self.percent = ((res.info.student_num-1-res.info.read_num)/10)*100;
+						self.percent = ((100/res.info.student_num)*(res.info.student_num-1-res.info.read_num)).toFixed(2);
 						if(self.percent<50){
 							self.percent = 50
 						}

@@ -42,7 +42,7 @@
 								</view>
 							</view>
 							<view class="ljrx" v-if="mainData.hasOrder&&mainData.hasOrder.length==0" 
-							@click="webSelf.$Router.navigateTo({route:{path:'/pages/signup/signup'}})">
+							@click="webself.$Router.navigateTo({route:{path:'/pages/signup/signup'}})">
 								立即入学
 							</view>
 						</view>

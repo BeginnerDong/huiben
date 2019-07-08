@@ -88,7 +88,8 @@
 				postData.tokenFuncName = 'getProjectToken';
 				postData.searchItem = {
 					thirdapp_id: self.$AssetsConfig.thirdapp_id,
-					day_time:['between',self.monthArray]
+					day_time:['between',self.monthArray],
+					user_no:uni.getStorageSync('user_no')
 				};
 				const callback = (res) => {
 					if (res.info.data.length > 0) {

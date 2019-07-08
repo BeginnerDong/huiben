@@ -19,7 +19,10 @@
 						</view>
 						<view class="search_right">
 							<view class="contact_title">{{item.title}}</view>
-							<view class="cont_tab">色彩与表达</view>
+							<view style="width:100%;display: flex;">
+								<view class="cont_tab" style="padding: 0 10px;">{{item.label_array?item.label_array[0]:''}}</view>
+							</view>
+							
 						</view>
 					</view>
 				</view>
@@ -32,10 +35,10 @@
 					<!--儿童行为心理习惯-->
 					<view v-for="item in articleData">
 						<view class="recommend_title"><span>{{item.menu}}</span></view>
-						<view class="recommend_imglist clear" v-for="c_item in item.data">
-							<view class="recommend_img">
-								<view class="recommend_div" @click="webSelf.$Router.redirectTo({route:{path:'/pages/bookintro/bookintro'}})">
-									<img :src="c_item.mainImg&&c_item.mainImg[0]?c_item.mainImg[0].url:''" />
+						<view class="recommend_imglist clear" >
+							<view class="recommend_img" v-for="c_item in item.data">
+								<view class="recommend_div" :data-id="c_item.id" @click="webSelf.$Router.navigateTo({route:{path:'/pages/bookdetail/bookdetail?id='+$event.currentTarget.dataset.id}})">
+									<img :src="c_item.mainImg&&c_item.mainImg[0]?c_item.mainImg[0].url:''" style="width:60px;height:70px"/>
 									<view class="re_img_title">{{c_item.title}}</view>
 								</view>
 							</view>
@@ -72,8 +75,11 @@
 			const self = this;
 			if (options.title) {
 				self.title = options.title,
-				self.searchTitle = options.title
+				self.searchTitle = options.title;
 			};
+			if(options.menu_title){
+				self.menu_title = options.menu_title
+			}
 			self.$Utils.loadAll(['getMainData'], self)
 		},
 
@@ -117,7 +123,12 @@
 				postData.searchItem = {
 					thirdapp_id: self.$AssetsConfig.thirdapp_id,
 					type: 1,
-					title: ['LIKE', ['%' + self.title + '%']]
+				};
+				if(self.title){
+					postData.searchItem.title = ['LIKE', ['%' + self.title + '%']]
+				};
+				if(self.menu_title){
+					postData.searchItem.label_array = ['LIKE', ['%' + self.menu_title + '%']]
 				};
 				console.log('postData', postData)
 				const callback = (res) => {

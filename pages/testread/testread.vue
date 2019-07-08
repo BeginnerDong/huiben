@@ -13,18 +13,7 @@
 				<view class="hot_kk">
 					<view class="hot_title0">热门搜索</view>
 					<view class="hot_tablist">
-						<span class="hot_tab">生活习惯</span>
-						<span class="hot_tab">自理能力</span>
-						<span class="hot_tab">规则意识</span>
-						<span class="hot_tab">安全意识</span>
-						<span class="hot_tab">情绪疏导</span>
-						<span class="hot_tab">亲子关系/安全感</span>
-						<span class="hot_tab">面对挫折</span>
-						<span class="hot_tab">生命教育</span>
-						<span class="hot_tab">好奇心/想象力</span>
-						<span class="hot_tab">科学素养/思维方式</span>
-						<span class="hot_tab">自我意识</span>
-						<span class="hot_tab">如何和他们相处并合作</span>
+						<span class="hot_tab" v-for="item in labelData" @click="searchTwo" :data-title="item.title">{{item.title}}</span>
 					</view>
 				</view>
 
@@ -38,7 +27,7 @@
 						<view class="recommend_title"><span>{{item.menu}}</span></view>
 						<view class="recommend_imglist clear">
 							<view class="recommend_img"  v-for="c_item in item.data">
-								<view class="recommend_div" @click="webSelf.$Router.navigateTo({route:{path:'/pages/bookintro/bookintro'}})">
+								<view class="recommend_div" :data-id="c_item.id" @click="webSelf.$Router.navigateTo({route:{path:'/pages/bookdetail/bookdetail?id='+$event.currentTarget.dataset.id}})">
 									<img :src="c_item.mainImg&&c_item.mainImg[0]?c_item.mainImg[0].url:''" style="width:60px;height:70px"/>
 									<view class="re_img_title">{{c_item.title}}</view>
 								</view>
@@ -67,16 +56,56 @@
 			return{
 				webSelf: this,
 				mainData:[],
+				labelData:[],
+				labelDataTwo:[],
 				searchTitle:''
 			}
 		},
 		
 		onLoad(options) {
 			const self = this;
-			self.$Utils.loadAll(['getMainData'], self)
+			self.$Utils.loadAll(['getMainData','getLabelData'], self)
 		},
 		
 		methods:{
+			
+			getLabelData() {
+				const self = this;
+				const postData = {};
+				postData.searchItem = {
+					thirdapp_id: self.$AssetsConfig.thirdapp_id,
+					parentid:['in',[3,4,5,6]]
+				};
+				console.log('postData', postData)
+				const callback = (res) => {
+					if (res.info.data.length > 0) {
+						for (var i = 0; i < res.info.data.length; i++) {
+							self.labelData.push(res.info.data[i]);
+						};			
+					};		
+	
+					self.$Utils.finishFunc('getLabelData');
+				};
+				self.$apis.labelGet(postData, callback);
+			},
+			
+			/* getLabelDataTwo() {
+				const self = this;
+				const postData = {};
+				postData.searchItem = {
+					thirdapp_id: self.$AssetsConfig.thirdapp_id,
+					parentid:['in',self.labelData]
+				};
+				console.log('postData', postData)
+				const callback = (res) => {
+					if (res.info.data.length > 0) {
+						self.labelDataTwo.push.apply(self.labelDataTwo,res.info.data)				
+					};		
+					console.log('self.labelDataTwo',self.labelDataTwo)
+					self.$Utils.finishFunc('getLabelDataTwo');
+				};
+				self.$apis.labelGet(postData, callback);
+			}, */
 			
 			getMainData() {
 				const self = this;
@@ -117,6 +146,15 @@
 				const self = this;
 				if(self.searchTitle!=''){
 					self.$Router.navigateTo({route:{path:'/pages/searchsuccess/searchsuccess?title='+self.searchTitle}})
+				}
+			},
+			
+			searchTwo(e){
+				const self = this;
+				console.log(e)
+				var menu_title = e.currentTarget.dataset.title;
+				if(menu_title!=''){
+					self.$Router.navigateTo({route:{path:'/pages/searchsuccess/searchsuccess?menu_title='+menu_title}})
 				}
 			},
 		}

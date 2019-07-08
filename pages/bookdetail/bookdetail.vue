@@ -2,7 +2,7 @@
 	<view>
 		<swiper  :style="'height:'+screenHeight+'px'" :indicator-dots="false" :vertical="true" :autoplay="false"
 		 :interval="3000" :duration="500" :circular="false" @change="change">
-			<swiper-item  v-for="(item,index) in mainData" :key="index" :v-if="userData.hasOrder&&userData.hasOrder.length==0?index<8:''">
+			<swiper-item  v-for="(item,index) in mainData"  :v-if="userData.hasOrder&&userData.hasOrder.length==0?index<8:''">
 				<view class="book_kk" >
 					<img :src="item.mainImg&&item.mainImg[0]?item.mainImg[0].url:''" style="width:100%;height:100%">
 					<view class="pullup" :style="styleInfo" style="display: flex;">
@@ -100,7 +100,7 @@
 					</view>
 					<view class="ljbm_foot">
 						<view class="clear">
-							<view class="ljbm_book" v-for="item in allData" v-if="index<3" :data-id="item.id" @click="webSelf.$Router.navigateTo({route:{path:'/pages/bookdetail/bookdetail?id='+$event.currentTarget.dataset.id}})">
+							<view class="ljbm_book" v-for="(item,index) in allData" v-if="index<3" :data-id="item.id" @click="webSelf.$Router.navigateTo({route:{path:'/pages/bookdetail/bookdetail?id='+$event.currentTarget.dataset.id}})">
 								<view class="ljbm_book_k">
 									<view class="ljbm_bookimg">
 										<img :src="item.mainImg&&item.mainImg[0]&&item.mainImg[0].url?item.mainImg[0].url:''" />
@@ -109,7 +109,7 @@
 										<view class="bookname1 avoidOverflow">
 											{{item.title}}
 										</view>
-										<view class="booktab" v-for="(c_item,c_index) in item.label_array"  v-if="c_index==0">
+										<view class="booktab avoidOverflow" v-for="(c_item,c_index) in item.label_array"  v-if="c_index==0">
 											{{c_item}}
 										</view>
 									</view>

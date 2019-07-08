@@ -27,7 +27,7 @@
 	margin-left: 40px;
 }
 .search_list{
-	margin-top: 22px;
+	
 }
 .search_title{
 	margin-left: 18px;
@@ -43,7 +43,8 @@
 	background: rgb(255,255,255);
 	padding: 16px;
 	border-radius: 6px;
-	margin-bottom:16px ;
+	width:100%;
+	display: flex;
 }
 .none_cont{
 	text-align: center;margin-top: 59px;margin-bottom: 40px;color: rgb(42,42,42);font-size: 14px;
@@ -59,8 +60,8 @@
 	height: 100%;
 }
 .search_right{
-	margin-left: 90px;
-	
+	margin-left: 4%;
+	width: 70%;
 }
 .search_right .contact_title{
 	font-size: 14px;
@@ -106,7 +107,7 @@
 .recommend_imglist .recommend_img{
 	width: 33.33%;
 	float: left;
-	margin-top: 22px;
+
 }
 .recommend_imglist .recommend_img .recommend_div{
 	text-align: center;
