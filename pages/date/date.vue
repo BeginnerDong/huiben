@@ -22,7 +22,7 @@
 						<li v-for="item in moudy">{{item}}</li>
 					</ul>
 					<ul class="data-da" style=" padding-inline-start: 29px">
-						<li   v-for="item in dateData" class="origin"  :class="item.hasItem?'add':''">{{item.sDay}}</li>
+						<li   v-for="item in dateData" class="origin"  :class="item.hasItem?'add':(item.isGray?'noadd':'')">{{item.sDay}}</li>
 					</ul>
 				</view>
 				<!-- <view class="ka">
@@ -53,13 +53,16 @@
 				userData:{},
 				dateData:[],
 				moudy:["一","二","三","四","五","六","日"],
-				data:["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31"]
+				data:["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31"],
+				curYear:'',
+				curMonth:'',
+				curYear:''
 			}
 		},
 		
 		onLoad(options){
 			const self = this;
-			self.$Utils.loadAll(['calenderInit','getUserData'], self)
+			self.$Utils.loadAll(['getUserData'], self)
 		},
 		
 		methods: {
@@ -75,8 +78,10 @@
 				const callback = (res) => {
 					if (res.info.data.length > 0) {
 						self.userData = res.info.data[0];
-						self.userData.info.score = parseInt(self.userData.info.score)
+						self.userData.info.score = parseInt(self.userData.info.score);
+	
 					};
+					self.calenderInit();
 					self.$Utils.finishFunc('getUserData');
 				};
 				self.$apis.userGet(postData, callback);
@@ -96,12 +101,20 @@
 						if (res.info.data.length > 0) {
 							for (var o = 0; o < res.info.data.length; o++) {
 								for (var p = 0; p < self.dateData.length; p++) {
+									
+									if(self.dateData[p].timeStamp>self.userData.info.challenge_time&&self.dateData[p].timeStamp+86400<(new Date()).getTime()/1000){
+										self.dateData[p].isGray = true;
+									};
+									
 									if (self.dateData[p].sDay == new Date(res.info.data[o].day_time*1000).getDate()) {
 										console.log('111',new Date(res.info.data[o].day_time))
 										var newValue = {
 											hasItem: 1,
 											log: res.info.data[o],
 											sDay: self.dateData[p].sDay
+										};
+										if(self.dateData[p].isGray){
+											newValue.isGray = true;
 										};
 										self.dateData.splice(p, 1, newValue)
 									};
@@ -148,11 +161,13 @@
 					if (self.todayDay == i + 1) {
 						self.dateData.push({
 							sDay: i + 1,
-							isToday: true
+							isToday: true,
+							timeStamp:new Date(self.curYear, self.curMonth, i + 1).getTime()/1000
 						});
 					} else {
 						self.dateData.push({
-							sDay: i + 1
+							sDay: i + 1,
+							timeStamp:new Date(self.curYear, self.curMonth, i + 1).getTime()/1000
 						});
 					};
 				};
@@ -215,11 +230,22 @@
 </script>
 
 <style>
-@import "../../assets/style/date.css";
+	@import "../../assets/style/date.css";
 	page {
 		background: #f4f5f7;
 	}
 	ul{
 		padding-inline-start: 40px;
+	}
+	.noadd{
+		    width: 30px;
+			height: 30px;
+			-webkit-border-radius: 50%;
+			border-radius: 50%;
+			text-align: center;
+			line-height: 30px;
+			background: gray;
+			display: inline-block;
+			color: #fff;
 	}
 </style>
