@@ -91,7 +91,7 @@
 	height:38%
 }
 .book_name{
-	margin-top: 21px;
+	
 	font-size: 19px;
 	color: rgb(42,42,42);
 	font-weight: bold;
@@ -102,7 +102,7 @@
 	margin-top: 5px;
 }
 .book_type{
-	margin-top: 21px;
+	margin-top: 5px;
 }
 .book_type span{
 	font-size: 10px;
@@ -120,7 +120,7 @@
 	padding: 0 26px;
 }
 .open_book{
-	margin-top: 24px;
+	margin-top: 5px;
 }
 .open_book button{
 	font-size: 14px;

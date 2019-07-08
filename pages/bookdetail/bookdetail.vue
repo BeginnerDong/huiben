@@ -30,7 +30,8 @@
 				<view style="position:absolute;z-index: 999;transform: rotate(90deg);transform-origin:50% 50%;" :style="'left:'+pullLeft+'px;top:'+pullTop+'px'" @click="isShow"><image style="width:50px;height:18px;" :src="pullUrl"></image></view>
 			</swiper-item>
 			<swiper-item :style="'height:'+screenHeight+'px'" v-if="userData.hasOrder&&userData.hasOrder.length>0">
-				<view class="daka_bg" :style="'width:'+screenHeight+'px'">
+			<!-- <swiper-item :style="'height:'+screenHeight+'px'" > -->
+				<view class="daka_bg" :style="'width:'+screenHeight+'px;left:'+(-screenHeight+screenWidth)/2 +'px;top:'+(screenHeight-screenWidth)/2+'px'">
 					<view class="head_dk clear">
 						<button @click="webSelf.$Router.navigateTo({route:{path:'/pages/rewards/rewards?id='+id}})">打卡得聪明豆</button>
 					</view>
@@ -75,10 +76,11 @@
 				</view>
 			</swiper-item>
 			<swiper-item :style="'height:'+screenHeight+'px'" v-if="userData.hasOrder&&userData.hasOrder.length==0">
-				<view class="ljbm_kk" :style="'width:'+screenHeight+'px'">
+				
+				<view class="ljbm_kk" :style="'width:'+screenHeight+'px;height:'+screenWidth+'px;left:'+(-screenHeight+screenWidth)/2 +'px;top:'+(screenHeight-screenWidth)/2+'px'">
 					<view class="ljbm_top clear" style="margin-top: 50px;">
-						<view class="ljbm_top_left">
-							<img :src="mainData&&mainData[8]&&mainData[8].mainImg&&mainData[8].mainImg[0]?mainData[8].mainImg&&mainData[8].mainImg[0].url:''" />
+						<view class="ljbm_top_left" style="text-align: center;">
+							<img  :style="'width:'+screenWidth/2+'px'" :src="mainData&&mainData[8]&&mainData[8].mainImg&&mainData[8].mainImg[0]?mainData[8].mainImg&&mainData[8].mainImg[0].url:''" />
 						</view>
 						<view class="ljbm_top_right">
 							<view class="ljbm_tt">

@@ -156,7 +156,8 @@
 .ljbm_kk{
 	width: 736px;
 	background: #F4F5F7;
-	height: 414px;
+	width: 100%;
+	height: 100%;
 	
     transform: rotate(90deg);
     transform-origin:50% 50%;
@@ -164,7 +165,7 @@
     position:absolute;
     top: 146px;
     left: -146px;
-    height:100vw;
+ 
     width:100vh;
 
 
@@ -177,21 +178,21 @@
 	.ljbm_kk{
 		width: 667px;
 		background: #F4F5F7;
-		height: 375px;
+		height: 100%;
 	}
 }
 @media screen and (max-width:568px) {
 	.ljbm_kk{
 		width: 568px;
 		background: #F4F5F7;
-		height: 375px;
+		height: 100%;
 	}
 }
 @media screen and (max-width:480px) {
 	.ljbm_kk{
 		width: 480px;
 		background: #F4F5F7;
-		height: 375px;
+		height: 100%;
 	}
 }
 .ljbm_top{
@@ -200,6 +201,10 @@
 .ljbm_top_left{
 	width: 50%;
 	float: left;
+	transform: rotate(-90deg);
+    -webkit-transform-origin: 50% 50%;
+    -ms-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
 }
 .ljbm_top_left img{
 	width: 100%;

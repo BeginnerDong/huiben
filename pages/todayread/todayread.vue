@@ -25,6 +25,7 @@
 					<button class="open_book" style="margin-top: 20px;" @click="webself.$Router.navigateTo({route:{path:'/pages/bookdetail/bookdetail?id='+todayBook.id}})">开始阅读</button>
 				</view>
 			</view>
+			<view style="width: 100%;height:60px"></view>
 			
 		</view>
 			<view class="foot_book">
