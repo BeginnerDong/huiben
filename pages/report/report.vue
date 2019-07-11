@@ -1,40 +1,21 @@
 <template>
-	<view class="re">
-		<view class="re-o">
-		<span class='o'>多元智能阅读课程学习证</span>
-		<view class="re-ba">
-			<img class='img' :src="userData.headImgUrl"></img>
-			<h5 class='name'>{{userData.nickname}}</h5>
-		</view>
-		<view class="re-tw">
-			<view class="re-le"> 
-				<h5>已阅读绘本</h5>
-				<h6>23本</h6>
-				<h5>已阅读</h5>
-				<h6>65小时</h6>
+	<view class="report" style="position: relative;">
+		<img src="../../static/images/report_pic.jpg" style="width: 100%;height:100%;"/>
+		<view class="report-name">张志明小朋友</view>
+		<view class="repo">
+			<view class="repo-left">
+				<view class="left-name">已阅读绘本</view>
+				<view class="left-title">23本</view>
+				<view class="left-name">已阅读</view>
+				<view class="left-title">65小时</view>
 			</view>
-			<view class="re-ri">
-				<h5>学习了</h5>
-				<h6>情绪心里 智力开发</h6>
-				<h6>6个语言表达方式</h6>
+			<view class="repo-right">
+				<view class="right-name">学习了</view>
+				<view class="right-title">情绪心理  智力开发</view>
+				<view class="right-title">6个语言表达方式</view>
 			</view>
 		</view>
-		<span class='date'>2019.05.14-2019.09.21</span>
-		</view>
-		<view class="re-bg">
-			<view class="re_zj">
-				12位学前教育专家提供阅读方案，限时免费还有机会获赠3本书
-			</view>
-			<view class="re_xbg">
-			</view>
-		</view>
-		<view class="re_ewm">
-			<img class="re_wechat" src=""/>
-			<view class="re_sm">
-				<h6>参与阅读计划	</h6>
-				<h6>请长按图片识别二维码</h6>
-			</view>
-		</view>
+		<view class="report-data">2019.05.14-2019.09.21</view>
 	</view>
 </template>
 

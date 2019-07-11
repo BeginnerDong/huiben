@@ -6,7 +6,7 @@
 				<view class="search_kk">
 					<div>
 						<view class="search_icon"></view>
-						<input class="search_txt" placeholder="搜索绘本" v-model="searchTitle" confirm-type="search" type="text" @confirm="search"/>
+						<input class="search_txt" style="color: #000000;" placeholder="搜索绘本" v-model="searchTitle" confirm-type="search" type="text" @confirm="search"/>
 					</div>
 				</view>
 				<!--热门搜索标签-->

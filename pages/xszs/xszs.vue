@@ -1,31 +1,30 @@
 <template>
 	<view class="byzs_kk">
 		<view class="byzs_p">
-			<view class="byzs_pk clear">
-				<view class="byzs_left">
+			<view class="byzs_pk clear" style="position: relative;">
+				<img src="../../static/images/certificate.png" style="width: 100%;height:100%;"/>
+				<view class="byzs_left" style="position: absolute;top: 0;left: 0;">
 					<view class="byzs_left_k">
 						<view class="byzs_b">
-							<view class="xsz">
-								学习证
-							</view>
+							
 							<img class="xsz_p" :src="mainData.headImgUrl"/>
 							<view class="ndbb">
 								{{mainData.nickname}}
 							</view>
 							<view class="fx">
-								<span class="fxcion"></span>分享学习证
+								<span class="fxcion" style="margin-right: 5px;"></span>分享学习证
 							</view>
 						</view>
 					</view>
 				</view>
-				<view class="byzs_right">
+				<view class="byzs_right" style="position: absolute;top: 0;right: 0;">
 					<view class="byzs_right_k">
 						<view class="byzs_b">
 							<view class="byxh">
 								学号
 							</view>
 							<view class="xhnumber">
-								{{mainData&&mainData.info?mainData.info.level:''}}
+								{{mainData.info?mainData.info.level:''}}
 							</view>
 							<view class="zx">
 								主修
@@ -45,6 +44,7 @@
 			</view>
 		</view>
 	</view>
+	
 </template>
 
 <script>

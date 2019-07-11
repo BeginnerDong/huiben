@@ -6,7 +6,7 @@
 				<view class="search_kk">
 					<div style="width: 100%;">
 						<view class="search_icon"></view>
-						<input class="search_txt" placeholder="搜索绘本" v-model="searchTitle" confirm-type="search" type="text" @confirm="search"/>
+						<input class="search_txt" style="color: #000000;"  placeholder="搜索绘本" v-model="searchTitle" confirm-type="search" type="text" @confirm="search"/>
 					</div>
 				</view>
 			</view>
@@ -29,28 +29,30 @@
 			</view>
 			<view class="none_cont" v-if="mainData.length==0">找不到相关的内容喔~</view>
 			<!--推荐主题-->
+
 			<view class="recommend__kk" v-if="mainData.length==0">
 				<view class="recommend_title">推荐主题</view>
 				<view class="recommend_type">
 					<!--儿童行为心理习惯-->
 					<view v-for="item in articleData">
 						<view class="recommend_title"><span>{{item.menu}}</span></view>
-						<view class="recommend_imglist clear" >
-							<view class="recommend_img" v-for="c_item in item.data">
+						<view class="recommend_imglist clear">
+							<view class="recommend_img"  v-for="c_item in item.data">
 								<view class="recommend_div" :data-id="c_item.id" @click="webSelf.$Router.navigateTo({route:{path:'/pages/bookdetail/bookdetail?id='+$event.currentTarget.dataset.id}})">
 									<img :src="c_item.mainImg&&c_item.mainImg[0]?c_item.mainImg[0].url:''" style="width:60px;height:70px"/>
 									<view class="re_img_title">{{c_item.title}}</view>
 								</view>
 							</view>
-
 							<view class="recommend_img">
 								<view class="recommend_div">
 									<div class="re_update">
-										持续更新中...
+									持续更新中...
 									</div>
 								</view>
 							</view>
+							
 						</view>
+						
 					</view>
 				</view>
 			</view>

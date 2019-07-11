@@ -10,7 +10,7 @@
 					真实姓名报名信息
 				</view>
 				<view class="sign_yh">
-					坚持全勤打卡，作为奖励，我们降全额返还报名费
+					坚持全勤打卡，作为奖励，我们将全额返还报名费
 				</view>
 				<view class="kid_sex_k clear">
 					<view class="kid_age">
@@ -41,14 +41,14 @@
 				<img v-if="isAdmin" src="../../static/images/check_u1.png" style="vertical-align: middle;margin-right: 10px;"
 				 @click="admin" />
 				<img v-if="!isAdmin" src="../../static/images/check_u.png" style="vertical-align: middle;margin-right: 10px;"
-				 @click="admin" />我同意并愿意遵守<span>《国青阅读服务协议》</span>和<span>《国青阅读隐私政策》</span>
+				 @click="admin" />我同意并愿意遵守<span @click="webSelf.$Router.navigateTo({route:{path:'/pages/xxsc/xxsc?title=早教练习生服务协议'}})">《早教练习生服务协议》</span>和<span @click="webSelf.$Router.navigateTo({route:{path:'/pages/xxsc/xxsc?title=早教练习生隐私政策'}})">《早教练习生隐私政策》</span>
 			</view>
 			<view style="height: 60px;"></view>
 		</view>
 
 		<view class="sign_foot">
 			<view class="sign_foot_left">
-				限时特价￥99<span style="text-decoration:line-through">原价￥199</span>
+				限时特价￥{{mainData.price-couponData.discount}}<span style="text-decoration:line-through">原价￥{{mainData.price}}</span>
 			</view>
 			<view class="sign_foot_right" @click="webSelf.$Utils.stopMultiClick(addOrder)">
 				<button style="border-radius:0">立即报名</button>
@@ -67,6 +67,7 @@
 					passage2: '',
 				},
 				userData:{},
+				couponData:{},
 				mainData: {},
 				orderId: '',
 				ageArray: ['0-3岁', '3-6岁'],

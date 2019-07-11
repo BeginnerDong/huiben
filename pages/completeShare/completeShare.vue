@@ -42,7 +42,7 @@
 			<view class="fx_ewm">
 				<img class="fx_wechat" src=""/>
 				<view class="fx_sm">
-					扫码关注国青阅读公众号，立即加入60天幼儿能力提升计划	
+					扫码关注早教练习生公众号，立即加入60天幼儿能力提升计划	
 				</view>
 			</view>
 		</view>

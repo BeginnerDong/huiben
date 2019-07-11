@@ -18,12 +18,15 @@
 					<span class='da' @click="goNextMonth">></span>
 				</view>
 				<view class="da-mou">
-					<ul class="mou">
-						<li v-for="item in moudy">{{item}}</li>
-					</ul>
-					<ul class="data-da" style=" padding-inline-start: 29px">
-						<li   v-for="item in dateData" class="origin"  :class="item.hasItem?'add':(item.isGray?'noadd':'')">{{item.sDay}}</li>
-					</ul>
+					<view class="mou" style="display: flex;">
+						<view v-for="item in moudy" style="width:14.28%;text-align: center;">{{item}}</view>
+					</view>
+					<view class="data-da" style="display: flex;flex-wrap: wrap">
+						<view  style="width:14.28%;text-align: center;height:45px;display: flex;align-items: center;justify-content: center;"  v-for="item in dateData" >
+							
+							<view class="origin"  :class="item.hasItem?'add':(item.isGray?'noadd':'')">{{item.sDay}}</view>
+						</view>
+					</view>
 				</view>
 				<!-- <view class="ka">
 					<label class="radio" checked="checked"><radio>已打卡</radio></label>
@@ -238,14 +241,14 @@
 		padding-inline-start: 40px;
 	}
 	.noadd{
-		    width: 30px;
-			height: 30px;
+		    width: 80%;
+			height: 80%;
 			-webkit-border-radius: 50%;
 			border-radius: 50%;
 			text-align: center;
-			line-height: 30px;
-			background: gray;
+			line-height: 36px;
+			background: rgb(234,235,238);
 			display: inline-block;
-			color: #fff;
+			
 	}
 </style>

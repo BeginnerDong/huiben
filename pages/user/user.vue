@@ -1,24 +1,23 @@
 <template>
 	<view class="byzs_kk">
 		<view class="byzs_p">
-			<view class="byzs_pk clear">
-				<view class="byzs_left">
+			<view class="byzs_pk clear" style="position: relative;">
+				<img src="../../static/images/certificate.png" style="width: 100%;height:100%;"/>
+				<view class="byzs_left" style="position: absolute;top: 0;left: 0;">
 					<view class="byzs_left_k">
 						<view class="byzs_b">
-							<view class="xsz">
-								学习证
-							</view>
+							
 							<img class="xsz_p" :src="mainData.headImgUrl"/>
 							<view class="ndbb">
 								{{mainData.nickname}}
 							</view>
 							<view class="fx">
-								<span class="fxcion"></span>分享学习证
+								<span class="fxcion" style="margin-right: 5px;"></span>分享学习证
 							</view>
 						</view>
 					</view>
 				</view>
-				<view class="byzs_right">
+				<view class="byzs_right" style="position: absolute;top: 0;right: 0;">
 					<view class="byzs_right_k">
 						<view class="byzs_b">
 							<view class="byxh">
@@ -49,6 +48,7 @@
 					</view>
 				</view>
 			</view>
+			
 			<view class="xsz_middle clear">
 				<view class="xsz_left" @click="webself.$Router.navigateTo({route:{path:'/pages/cmdjl/cmdjl'}})">
 					<view class="xsznum">{{mainData.info?mainData.info.score:''}}</view>
@@ -63,14 +63,19 @@
 					</view>
 				</view>
 			</view>
-			<view class="xsz_foot">
-				<view class="hb_h" @click="webself.$Router.navigateTo({route:{path:'/pages/myhb/myhb'}})">
-					<span class="hbcion"></span><span class="myhb">我的红包</span>
+			<view class="xsz_foot" >
+				<view class="hb_h" @click="webself.$Router.navigateTo({route:{path:'/pages/myhb/myhb'}})" style="display: flex;align-items: center;">
+					<span class="hbcion"></span><span class="myhb" style="width: 49%;">我的红包</span>
 					<view class="hbright">{{couponData.length}}个红包未使用</view>
+					<view class="xxright">
+						<img src="../../static/images/right.png"  style="width:8px;height:12px"/>
+					</view>
 				</view>
-				<view class="hb_h1" @click="webself.$Router.navigateTo({route:{path:'/pages/xxsc/xxsc'}})">
-					<span class="xxcion"></span><span class="myhb">学习手册</span>
-					<view class="xxright">> </view>
+				<view class="hb_h1" @click="webself.$Router.navigateTo({route:{path:'/pages/xxsc/xxsc'}})" style="display: flex;align-items: center;">
+					<span class="xxcion"></span><span class="myhb" style="width: 78%;">学习手册</span>
+					<view class="xxright">
+						<img src="../../static/images/right.png"  style="width:8px;height:12px"/>
+					</view>
 				</view>
 			</view>
 		</view>

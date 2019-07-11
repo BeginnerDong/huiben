@@ -19,48 +19,50 @@
 					</view>
 				</view>
 			</view>
-			<view class="fx_middle">
-				<view class="fx_m_top">
-					我和宝贝一起完成了亲子阅读
-				</view>
-				<view class="clear fx_m_m">
-					<view class="book_fximg">
-						<img :src="mainData.mainImg&&mainData.mainImg[0]?mainData.mainImg[0].url:''" />
+			<view style="box-shadow: 0px 2px 16px 0px rgba(0,0,0,0.07);">
+				<view class="fx_middle">
+					<view class="fx_m_top">
+						我和宝贝一起完成了亲子阅读
 					</view>
-					<view class="fx_m_r">
-						<view class="fx_bookname">
-							{{mainData.title}}
+					<view class="clear fx_m_m">
+						<view class="book_fximg">
+							<img :src="mainData.mainImg&&mainData.mainImg[0]?mainData.mainImg[0].url:''" />
 						</view>
-						<view class="fx_py">
-							培养了宝贝的
+						<view class="fx_m_r">
+							<view class="fx_bookname">
+								{{mainData.title}}
+							</view>
+							<view class="fx_py">
+								培养了宝贝的
+							</view>
+							<view class="fx_nl">
+								<span v-for="item in mainData.label_array">{{item}}</span>
+							</view>
 						</view>
-						<view class="fx_nl">
-							<span v-for="item in mainData.label_array">{{item}}</span>
-						</view>
+					</view>
+				</view>
+				<view class="fx_m_bg clear">
+					<img class="fx_bgimg" src="../../static/images/good_green.png"/>
+					<view class="fx_cg">
+						超过{{percent}}%的孩子
 					</view>
 				</view>
 			</view>
-			<view class="fx_m_bg clear">
-				<img class="fx_bgimg" src="../../static/images/good_green.png"/>
-				<view class="fx_cg">
-					超过{{percent}}%的孩子
-				</view>
-			</view>
-			<view class="fx_hds">
+			<view class="fx_hds" style="font-weight: 700;">
 				互动式的亲子阅读比起讲故事能让孩子智商提高6个点
 			</view>
 			
-			<view class="fx_zj_bg">
-				<view class="fx_zj">
+			<view style="position: relative;">
+				<img src="../../static/images/card1.png" style="width: 100%;height:120px"/>
+				<view style="font-size: 15px;color: rgb(54,155,145);text-align: center;padding: 18px 24px;font-weight: 700;position: absolute;top:15px">
 					12位学前教育专家提供阅读方案，限时免费还有机会获赠3本书
 				</view>
-				<view class="fx_zj_xbg">
-				</view>
+			
 			</view>
 			<view class="fx_ewm">
-				<img class="fx_wechat" src=""/>
+				<img class="fx_wechat" src="../../static/images/qr.jpg"/>
 				<view class="fx_sm">
-					扫码关注国青阅读公众号，立即加入60天幼儿能力提升计划	
+					扫码关注早教练习生公众号，立即加入60天幼儿能力提升计划	
 				</view>
 			</view>
 		</view>
@@ -144,7 +146,7 @@
 				console.log('postData', postData)
 				const callback = (res) => {
 					if(res.solely_code==100000){
-						self.percent = ((res.info.student_num-1-res.info.read_num)/10)*100;
+						self.percent = ((100/res.info.student_num)*(res.info.student_num-1-res.info.read_num)).toFixed(2);
 						if(self.percent<50){
 							self.percent = 50
 						}

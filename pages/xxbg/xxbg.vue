@@ -1,11 +1,9 @@
 <template>
 	<view class="xxbg_bg">
 		<view class="xxbg_k">
-			<view class="xxbg_head">
-				7天学习报告
-			</view>
-			<view class="xxbg_mes_k">
-				<view class="xxbg_mes_left">
+			<view class="xxbg_mes_k" style="position: relative;">
+				<img src="../../static/images/report_web.png" style="width: 100%;height:100%;"/>
+				<view class="xxbg_mes_left" style="position: absolute;top: 76px;left: 0;">
 					<view class="xxbg_mes">
 						<view class="xxbg_left_t">多元智能阅读课程学习证</view>		
 							<img class="xxbgimg" :src="userData.headImgUrl"/>
@@ -17,7 +15,7 @@
 							</view>
 					</view>
 				</view>
-				<view class="xxbg_mes_right">
+				<view class="xxbg_mes_right" style="position: absolute;top: 76px;right: 0;">
 					<view class="xxbg_mes xxbg_mes1">
 						<view class="xxbg_yyd">
 							已阅读绘本
@@ -72,10 +70,29 @@
 						self.userData = res.info.data[0];
 					
 					};
-					self.$Utils.finishFunc('getUserData');
+					self.getReport()
 				};
 				self.$apis.userGet(postData, callback);
 			},		
+			
+			getReport(){
+				const self = this;
+				var end = new Date(new Date().toLocaleDateString()).getTime()/1000;
+				const postData = {};
+				postData.tokenFuncName ='getProjectToken';
+				postData.data ={
+					start:self.userData.info.challenge_time,
+					end:end
+				};
+				console.log('postData', postData)
+				const callback = (res) => {
+					if(res.solely_code==100000){
+						
+					};
+					self.$Utils.finishFunc('getUserData');
+				};
+				self.$apis.getReport(postData, callback);
+			},
 			
 		}
 	}

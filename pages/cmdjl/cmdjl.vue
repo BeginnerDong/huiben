@@ -6,12 +6,15 @@
 				<input class="cmd_txt"  placeholder="小黄和小蓝" v-model="searchTitle" confirm-type="search" type="text" @confirm="search"/>
 			</view>
 			<view class="cmd_byzs" @click="toCertificate">
-				<view class="cmdbyzs_k">
-					<span class="cmdbyzsimg">
-					</span>
-
-					毕业证书
-					<view class="cmdjiantou">></view>
+				<view class="cmdbyzs_k" style="display: flex;">
+					<view class="cmdbyzsimg">
+					</view>
+					<view style="width:70%;line-height: 65px;">毕业证书</view>
+					
+					<view class="cmdjiantou" style="display: flex;align-items: center;height:65px;justify-content: flex-end;width: 10%;">
+    
+						<img src="../../static/images/right.png"  style="width:10px;height:15px"/>
+					</view>
 				</view>
 			</view>
 			<view class="cmd_dq_k">
@@ -20,16 +23,19 @@
 					<view class="cmdgz" @click="webself.$Router.navigateTo({route:{path:'/pages/cmdgz/cmdgz'}})">聪明豆规则</view>
 				</view>
 				<view class="cmdsum">{{userData&&userData.info?userData.info.score:''}}</view>
-				<view class="cmdtk">
+				<view class="cmdtk" v-if="userData.hasOrder&&userData.hasOrder.length>0">
 					距离全额退款并领取3本书还有{{lessScore}}个聪明豆
 				</view>
-				<view class="cmdtk" style="height:15px">
-					<span style="text-decoration:underline;color: rgb(54,155,145);" v-if="userData.hasOrder&&userData.hasOrder.length==0">立即报名</span>
+				<view class="cmdtk" v-if="userData.hasOrder&&userData.hasOrder.length==0">
+					距离获得99元奖学金＋3本书还有60个聪明豆
+				</view>
+				<view class="cmdtk" style="height:15px" v-if="userData.hasOrder&&userData.hasOrder.length==0">
+					<span style="text-decoration:underline;color: rgb(54,155,145);" >立即报名</span>
 				</view>
 				<view class="cmdjdt">
 					<!-- <view class=""></view> -->
 					<view>
-						<progress :percent="percent1" activeColor="#2fc899" active stroke-width="12" />
+						<progress :percent="percent1" activeColor="#2fc899" active stroke-width="12" style='border-radius:100px;overflow:hidden'/>
 					</view>
 					<view class="cmd1" :style="{left:left1}"><span class="cmdcion"></span>{{userData&&userData.info?userData.info.score:''}}</view>
 					<view class="cmd2">60</view>

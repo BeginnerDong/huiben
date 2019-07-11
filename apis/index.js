@@ -57,6 +57,20 @@ export default {
 		http.HTTP(allParams);
 	},
 	
+		
+	getReport(param, callback) {
+	
+		var allParams = {
+			url: 'Project/Solely/getReport',
+			type: 'post',
+			data: param,
+			sCallback: function(data) {
+				callback && callback(data);
+			}
+		};
+		http.HTTP(allParams);
+	},
+	
 	monthFlow(param, callback) {
 
 		var allParams = {

@@ -16,7 +16,7 @@
 					</view>
 				</view>
 				<view class="book_tab">
-					<view style="width:100%;height:100%;overflow:hidden; white-space:nowrap; text-overflow:ellipsis;padding: 0;">“{{todayBook?todayBook.small_title:''}}”</view>
+					<view style="width:100%;height:100%;overflow:hidden; white-space:nowrap; text-overflow:ellipsis;">“{{todayBook?todayBook.small_title:''}}”</view>
 				</view>
 				<view class="clear bookbtn" style="height: 80px;margin-top: 0;">
 					<button class="ayerbtn" style="background: #fff;margin-top: 20px;" 

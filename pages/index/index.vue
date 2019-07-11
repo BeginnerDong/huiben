@@ -40,15 +40,15 @@
 		<view style="background: #f4f5f7;position: fixed;bottom:120rpx;width: 100%;" v-if="is_show_this">
 			<view style="display: flex;width:100%;height:100rpx;line-height: 100rpx;background:#fff;margin-top:2px">
 				<view style="text-align: left;width:100%;margin-left: 10px;color:  #999;">原价</view>
-				<view style="text-align: right;width:100%;margin-right: 10px;color:  #999;">￥199</view>
+				<view style="text-align: right;width:100%;margin-right: 10px;color:  #999;">￥{{productData.price}}</view>
 			</view>
 			<view style="display: flex;width:100%;height:100rpx;line-height: 100rpx;background:#fff;margin-top:2px">
 				<view style="text-align: left;width:100%;margin-left: 10px;color:  #999;">红包折扣</view>
-				<view style="text-align: right;width:100%;margin-right: 10px;color:  #999;">￥100</view>
+				<view style="text-align: right;width:100%;margin-right: 10px;color:  #999;">￥{{couponData.discount}}</view>
 			</view>
 			<view style="display: flex;width:100%;height:100rpx;line-height: 100rpx;background:#fff;margin-top:2px">
 				<view style="text-align: left;width:100%;margin-left: 10px;">仅需支付</view>
-				<view style="text-align: right;width:100%;margin-right: 10px;">￥99</view>
+				<view style="text-align: right;width:100%;margin-right: 10px;">￥{{productData.price-couponData.discount}}</view>
 			</view>
 		</view>
 		<view style="width:100%;height:120px"></view>
@@ -58,8 +58,8 @@
 				<view class="foot_right_k">
 					<view class="signleft">
 						<view>
-							<view>原价￥199</view>
-							<view>红包折扣￥100</view>
+							<view>原价￥{{productData.price}}</view>
+							<view>红包折扣￥{{couponData.discount}}</view>
 						</view>
 					</view>
 					<button class="signbtn" @click="webSelf.$Router.navigateTo({route:{path:'/pages/signup/signup'}})">立即报名</button>
@@ -83,14 +83,16 @@
 				messageData: [],
 				is_show_this:false,
 				left:0,
-				right:0
+				right:0,
+				productData:{},
+				couponData:{},
 			}
 		},
 
 		onLoad(options) {
 			const self = this;
-			/* self.$Utils.loadAll(['getMainData', 'getArticleOneData', 'getArticleTwoData', 'getMessageData'], self) */
-			self.$Utils.loadAll(['getMainData', 'getArticleOneData', 'getArticleTwoData', 'getMessageData','tokenGet'], self)
+			
+			self.$Utils.loadAll(['getMainData', 'getArticleOneData', 'getArticleTwoData', 'getMessageData','getProductData','getCouponData','tokenGet'], self)
 		},
 
 		onReachBottom() {
@@ -134,6 +136,22 @@
 			menuChange(num) {
 				const self = this;
 				self.num = num;
+			},
+			
+			getProductData() {
+				const self = this;
+				const postData = {
+					thirdapp_id: 2
+				};
+				console.log('postData', postData)
+				const callback = (res) => {
+					if (res.info.data.length > 0) {
+						self.productData = res.info.data[0]
+					}
+					console.log('res', res)
+					self.$Utils.finishFunc('getProductData');
+				};
+				self.$apis.productGet(postData, callback);
 			},
 
 			tokenGet() {
@@ -191,9 +209,7 @@
 						self.mainData = res.info.data[0];
 						if (self.mainData.hasOrder.length == 0) {
 							self.is_show = true;
-							if (self.mainData.hasCoupon.length == 0) {
-								self.getCouponData()
-							};
+							
 						} else {
 
 							self.$Router.redirectTo({
@@ -285,6 +301,7 @@
 					if (res.info.data.length > 0) {
 						self.couponData = res.info.data[0]
 					};
+					self.$Utils.finishFunc('getCouponData');
 				};
 				self.$apis.couponGet(postData, callback);
 			},

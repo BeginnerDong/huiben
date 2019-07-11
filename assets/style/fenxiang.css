@@ -88,8 +88,8 @@
 }
 .fx_bgimg{
 	float:left;
-	width: 89px;
-	height: 54px;
+	width: 87px;
+    height: 58px;
 	vertical-align: middle;
 }
 .fx_cg{
@@ -126,7 +126,7 @@
 }
 .fx_ewm{
 text-align: center;	
-margin-top: 36px;
+margin-top: 14px;
 }
 .fx_wechat{
 	width: 132px;
@@ -136,8 +136,8 @@ margin-top: 36px;
 .fx_sm{
 	font-size: 13px;
 	color: rgb(42,42,42);
-	padding: 22px;
-	margin-bottom: 10px;
+	padding: 0 55px;
+	margin-top: 10px;
 }
 @media  screen and (max-width:414px) {
 	.fx_r_f{

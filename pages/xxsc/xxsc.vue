@@ -12,12 +12,16 @@
 		data() {
 			return {
 				webself: this,
-				mainData:{}
+				mainData:{},
+				title:'学习手册'
 			}
 		},
 		
 		onLoad(options){
 			const self = this;
+			if(options.title){
+				self.title = options.title
+			};
 			self.$Utils.loadAll(['getMainData'], self)
 		},
 		
@@ -27,7 +31,7 @@
 				const self = this;
 				const postData = {
 					searchItem: {
-						title: '学习手册'
+						title: self.title
 					}
 				};
 				const callback = (res) => {

@@ -8,20 +8,20 @@
 	position: relative;
 	background: rgb(255,255,255);
 	padding: 8px 0px;
+	    border-radius: 4px;
 }
 .searchiocn_l{
-	position: absolute;
 	width: 14px;
 	height: 14px;
-	display: inline-block;
 	background: url("../../static/images/search.png");
 	background-size:100% ;
-	top: 14px;
-	left: 14px;
+	margin-left: 8px;
 }
 .search_book{
 	float: left;
 	width: 73%;
+	display: flex;
+	align-items: center;
 }
 .all_book{
 	width: 26%;
@@ -35,7 +35,7 @@
 	border-left: 1px solid #dcdcdc;
 }
 .search_txt_b{
-	margin-left: 45px;
+	margin-left: 8px;
 	font-size: 12px;
 	color: rgb(216,216,216);
 }
@@ -57,6 +57,7 @@
 	width: 100%;
 	border-radius: 8px;
 	margin: 0 4%;
+	box-shadow:0px 2px 16px 0px rgba(0,0,0,0.07);
 }
 .book_intro_right{
 	width: 5%;

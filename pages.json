@@ -49,7 +49,7 @@
 		{
 			"path":"pages/join/join",
 			"style":{
-				"navigationBarTitleText":"关注国青阅读"
+				"navigationBarTitleText":"关注早教练习生"
 			}
 		},
 		{
@@ -196,7 +196,7 @@
 	"globalStyle": {
 		"navigationStyle":"custom",
 		"navigationBarTextStyle": "black",
-		"navigationBarTitleText": "60天幼儿能力提升计划",
+		"navigationBarTitleText": "早教练习生",
 		"navigationBarBackgroundColor": "#fff",
 		"backgroundColor": "#F8F8F8"
 	},

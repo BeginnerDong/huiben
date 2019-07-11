@@ -1,17 +1,25 @@
 <template>
 	<view class="myhb_bg">
 		<view class="myhb">
-			<view class="hblist clear" @click="item.use_step==1?'showDetail':''" v-for="item in mainData">
+			<view class="hblist clear" v-for="item in mainData" @click="showDetail" v-if="item.use_step==1">
 				<span class="hbimg">
 				</span>
 				<view class="hb_qk" style="margin-top: 0">
-					<span class="hb_price">100元</span><br/>
+					<span class="hb_price">{{item.discount}}元</span><br/>
+					<span class="hb_price" style="font-size:15px" v-if="item.use_step==2">已使用</span>
+				</view>
+			</view>
+			<view class="hblist clear" v-for="item in mainData" v-if="item.use_step==2">
+				<span class="hbimg">
+				</span>
+				<view class="hb_qk" style="margin-top: 0">
+					<span class="hb_price">{{item.discount}}元</span><br/>
 					<span class="hb_price" style="font-size:15px" v-if="item.use_step==2">已使用</span>
 				</view>
 			</view>
 		</view>
 		<view class="hbdetali_tc" v-if="show">
-			<img src="../../static/images/coupon_bigpic.png" @click="webSelf.$Router.reLaunch({route:{path:'/pages/signup/signup'}})"/>
+			<img src="../../static/images/coupon_bigpic.png" @click="webself.$Router.reLaunch({route:{path:'/pages/signup/signup'}})"/>
 		</view>
 	</view>
 </template>
@@ -46,6 +54,7 @@
 		
 		showDetail(){
 			const self = this;
+			console.log(111)
 			self.show = !self.show;
 		},
 	

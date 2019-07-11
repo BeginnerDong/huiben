@@ -7,12 +7,13 @@
 	bottom: 0;
 }
 .myhb{
-	padding: 15px;
-	margin-top: 45px;
+	width:90%;
+	margin: 20px auto;
+
 }
 .hblist{
 	background: #fff;
-	width: 100%;
+	
 	height: 70px;
 	border-radius: 6px;
 	padding: 9px 11px;

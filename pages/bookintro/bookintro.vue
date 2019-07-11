@@ -6,7 +6,7 @@
 					<view class="sear_kk_0 clear">
 						<view class="search_book">
 							<span class="searchiocn_l"></span>
-							<input class="search_txt_b" value="小黄和小蓝" v-model="searchTitle" confirm-type="search" type="text" @confirm="search"/>
+							<input class="search_txt_b" style="color: #000000;"  value="小黄和小蓝" v-model="searchTitle" confirm-type="search" type="text" @confirm="search"/>
 						</view>
 						<view class="all_book" @click="webSelf.$Router.navigateTo({route:{path:'/pages/testread/testread'}})">
 							<view>全部绘本</view>
@@ -128,7 +128,7 @@
 	}
 	
 	.swiper-item {
-		width: 90%;
+		width: 95%;
 		height: 930upx;
 		margin: 0 auto;
 	}
