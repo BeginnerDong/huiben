@@ -11,7 +11,7 @@
 								{{userData.nickname}}
 							</view>
 							<view class="xxbgtime">
-								2019.05.14-2019.09.21
+								{{reportData.start_time}}-{{reportData.end_time}}
 							</view>
 					</view>
 				</view>
@@ -21,15 +21,17 @@
 							已阅读绘本
 						</view>
 						<view class="xxbgsum">
-							23本
+							{{reportData.book_num}}本
 						</view>
 						<view class="xxbg_yyd">
 							学习了
 						</view>
 						<view class="xxbgsum">
-							<span>情绪心理</span>
-							<span>智力开发</span>
-							<span>6个语言表达方式</span>
+							<span v-for="(item,index) in reportData.study" v-if="index<2" style="margin-right: 5px;">{{item}}</span>
+							
+						</view>
+						<view class="xxbgsum">
+							<span>{{reportData.expression}}个语言表达方式</span>
 						</view>
 					</view>
 				</view>
@@ -46,12 +48,19 @@
 		data() {
 			return {
 				userData:{},
-				webself:this
+				reportData:{},
+				webself:this,
+				start:'',
+				end:''
 			}
 		},
 		
 		onLoad(options){
 			const self = this;
+			if(options.start){
+				self.start = options.start,
+				self.end = options.end
+			}
 			self.$Utils.loadAll(['getUserData'], self)
 		},
 		
@@ -68,7 +77,7 @@
 				const callback = (res) => {
 					if (res.info.data.length > 0) {
 						self.userData = res.info.data[0];
-					
+						
 					};
 					self.getReport()
 				};
@@ -77,17 +86,25 @@
 			
 			getReport(){
 				const self = this;
-				var end = new Date(new Date().toLocaleDateString()).getTime()/1000;
+				
 				const postData = {};
 				postData.tokenFuncName ='getProjectToken';
 				postData.data ={
+					start:self.start,
+					end:self.end
+				};
+				/* postData.data ={
 					start:self.userData.info.challenge_time,
 					end:end
-				};
+				}; */
 				console.log('postData', postData)
 				const callback = (res) => {
 					if(res.solely_code==100000){
-						
+						self.reportData = res.info;
+						console.log(self.reportData)
+						uni.setStorageSync('reportData',self.reportData)
+						self.reportData.start_time = self.$Utils.timeto(self.reportData.start_time*1000,'ymd')
+						self.reportData.end_time = self.$Utils.timeto(self.reportData.end_time*1000,'ymd')
 					};
 					self.$Utils.finishFunc('getUserData');
 				};

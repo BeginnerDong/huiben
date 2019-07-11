@@ -679,9 +679,9 @@ export default {
 		var seperator2 = ":";
 		var date = parseInt(date);
 		
-		
+		console.log(date)
 		var date = new Date(date);
-		
+		console.log(date)
 		var month = date.getMonth() + 1;
 		var strDate = date.getDate();
 		if (month >= 1 && month <= 9) {

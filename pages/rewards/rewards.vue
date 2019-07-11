@@ -133,7 +133,7 @@
 					}else if(res.info.type==2){
 						self.$Router.redirectTo({route:{path:'/pages/date/date'}})
 					}else if(res.info.type==3){
-						self.$Router.redirectTo({route:{path:'/pages/xxbg/xxbg'}})
+						self.$Router.redirectTo({route:{path:'/pages/xxbg/xxbg?start='+res.info.strat+'&end='+res.info.end}})
 					}else if(res.info.type==4){
 						self.$Router.redirectTo({route:{path:'/pages/gxfinishplan/gxfinishplan'}})
 					}else if(res.info.type==5){

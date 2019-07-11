@@ -1,21 +1,24 @@
 <template>
 	<view class="report" style="position: relative;">
 		<img src="../../static/images/report_pic.jpg" style="width: 100%;height:100%;"/>
-		<view class="report-name">张志明小朋友</view>
+		<img :src="userData.headImgUrl" style="position: absolute;top:21%;left:42%;border-radius:50%;width:110rpx;height:110rpx"/>
+		<view class="report-name">{{userData.nickname}}</view>
 		<view class="repo">
 			<view class="repo-left">
 				<view class="left-name">已阅读绘本</view>
-				<view class="left-title">23本</view>
-				<view class="left-name">已阅读</view>
-				<view class="left-title">65小时</view>
+				<view class="left-title">{{reportData.book_num}}本</view>
+			
 			</view>
 			<view class="repo-right">
 				<view class="right-name">学习了</view>
-				<view class="right-title">情绪心理  智力开发</view>
-				<view class="right-title">6个语言表达方式</view>
+				<view class="right-title">
+					<span v-for="(item,index) in reportData.study" v-if="index<2" style="margin-right: 5px;">{{item}}</span>
+				</view>
+				<view class="right-title">{{reportData.expression}}个语言表达方式</view>
 			</view>
 		</view>
-		<view class="report-data">2019.05.14-2019.09.21</view>
+		<view class="report-data">{{reportData.start_time}}-{{reportData.end_time}}</view>
+		<img class="fx_wechat" src="../../static/images/qr.jpg" style="position: absolute;width:100px;height:100px;top:75%;left:37%"/>
 	</view>
 </template>
 
@@ -28,13 +31,18 @@
 				userData:{},
 				show:false,
 				time:'',
-				percent:''
+				percent:'',
+				searchItem:{},
+				reportData:{}
 			}
 		},
 		
 		onLoad(options) {
 			const self = this;
-			self.id = options.id;
+			self.reportData = uni.getStorageSync('reportData');
+			console.log(self.reportData);
+			self.reportData.start_time = self.$Utils.timeto(self.reportData.start_time*1000,'ymd')
+			self.reportData.end_time = self.$Utils.timeto(self.reportData.end_time*1000,'ymd')
 			if(options.user_no){
 				self.searchItem.user_no = options.user_no;
 				self.searchItem.user_type=0
