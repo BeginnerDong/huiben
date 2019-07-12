@@ -80,10 +80,12 @@
 				
 				<view class="ljbm_kk" :style="'width:'+screenHeight+'px;height:'+screenWidth+'px;left:'+(-screenHeight+screenWidth)/2 +'px;top:'+(screenHeight-screenWidth)/2+'px'">
 					<view class="ljbm_top clear" style="margin-top: 50px;">
-						<view class="ljbm_top_left" style="text-align: center;">
+						<view class="ljbm_top_left" style="text-align: center;position: relative;">
 							
-							
-							<img style="position: relative;"  :style="'width:'+screenWidth/2+'px'" :src="mainData&&mainData[8]&&mainData[8].mainImg&&mainData[8].mainImg[0]?mainData[8].mainImg&&mainData[8].mainImg[0].url:''" />
+							<div style="position: absolute;background: rgba(0, 0, 0, 0.3);height: 250px;text-align: center;line-height: 250px;" :style="'width:'+screenWidth/2+'px;left:'+(screenHeight/4-screenWidth/4)+'px'">
+								<img style="position: relative;height: 25px;width: 25px;"  src="../../static/images/lock.png" />
+							</div>
+							<img style="position: relative;height: 250px;"  :style="'width:'+screenWidth/2+'px'" :src="mainData&&mainData[8]&&mainData[8].mainImg&&mainData[8].mainImg[0]?mainData[8].mainImg&&mainData[8].mainImg[0].url:''" />
 						</view>
 						<view class="ljbm_top_right">
 							<view class="ljbm_tt">
