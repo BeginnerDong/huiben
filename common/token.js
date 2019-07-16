@@ -6,11 +6,11 @@ import $Utils from "./utils.js";
 
 class Token {
     g_params={};
-
+		
     constructor(params) {
         this.g_params = params;
     }
-
+	
     verify() { 
         var token = uni.getStorageSync('token');
         if (!token) {
@@ -19,8 +19,9 @@ class Token {
     }
 	
 	getProjectToken(callback,postData) { 
-		//return uni.getStorageSync('user_token');
-	   if((postData&&postData.refreshToken)||!uni.getStorageSync('user_token')){
+		
+		return uni.getStorageSync('user_token');
+	    if((postData&&postData.refreshToken)||!uni.getStorageSync('user_token')){
 	        var params = {
 	            thirdapp_id:2,
 				refreshToken:true
@@ -33,13 +34,13 @@ class Token {
 	    }else{
 	        return uni.getStorageSync('user_token');
 	    }
+		
 	}
 	
 	getWeixinToken(params,callback){
 		
 		var href =  window.location.origin + window.location.pathname;
 		//var href = 'http://test.solelycloud.com/gouxuanweb/'
-	
         var param = $Utils.getHashParameters()[0];
         var hash = $Utils.getHashParameters()[1]; 
 		
@@ -63,17 +64,14 @@ class Token {
             var postData = {
                 thirdapp_id:2,
                 code:param.code,
-            };
-			
+            };	
 			if(param.parent_no){
 				postData.parent_no = param.parent_no
 			};
-			
 			if(param.sub_appid&&param.sub_code){
 				postData.sub_appid = param.sub_appid;
 				postData.sub_code = param.sub_code;
 			};
-			
             var c_callback = (res)=>{
                 console.log('c_callback-res',res)    
                 if(res.token){
@@ -85,13 +83,12 @@ class Token {
                     alert('获取token失败')
                 };
             };  
-          
 			uni.request({
 			    url: config.baseUrl+'/Wxauth',
 			    method:'POST',
 			    data:postData,
 			    success:function(res){
-			        console.log(res)
+
 			        if(res.data&&res.data.solely_code==100000){  
 			            if(c_callback){
 			                c_callback && c_callback(res.data);
@@ -114,7 +111,6 @@ class Token {
 			            });
 						alert(postData.code+'//'+postData.thirdapp_id+'//'+res.data+'//'+res.status)
 			        };
-			        
 			        
 			    }
 			})

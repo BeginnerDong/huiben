@@ -92,8 +92,8 @@
 
 		onLoad(options) {
 			const self = this;
-			
-			self.$Utils.loadAll(['getMainData', 'getArticleOneData', 'getArticleTwoData', 'getMessageData','getProductData'], self)
+			//self.$Utils.loadAll(['getMainData', 'getArticleOneData', 'getArticleTwoData', 'getMessageData','getProductData'], self)
+			self.$Utils.loadAll(['getMainData', 'getArticleOneData', 'getArticleTwoData', 'getMessageData','getProductData','tokenGet'], self)
 		},
 		
 		onShow() {
