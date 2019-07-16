@@ -109,6 +109,11 @@
 			const self = this;
 			self.$Utils.loadAll(['getMainData'], self)
 		},
+		
+		onShow() {
+			const self = this;
+			document.title = '完成亲子阅读计划'	
+		},
 
 		methods: {
 

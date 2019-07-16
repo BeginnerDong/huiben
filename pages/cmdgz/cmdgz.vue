@@ -21,6 +21,11 @@
 			self.$Utils.loadAll(['getMainData'], self)
 		},
 		
+		onShow() {
+			const self = this;
+			document.title = '聪明豆规则'	
+		},
+		
 		methods: {
 			
 			getMainData() {

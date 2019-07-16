@@ -5,8 +5,10 @@
 .report-name{
 	position: absolute;
 	top: 29%;
-	left: 38%;
+	left:0;
 	font-weight: 600;
+	width:100%;
+	text-align: center;
 }
 .repo{
 	width: 100%;
@@ -21,7 +23,7 @@
 }
 .left-name{
 	color: rgb(42,42,42);
-	font-size: 12px;
+
 }
 .left-title{
 	color: rgb(54,155,145);

@@ -65,7 +65,7 @@
         "permission" : {}
     },
     "h5" : {
-        "title" : "绘本",
+        "title" : "早教练习生",
         "devServer" : {
             "https" : false
         },

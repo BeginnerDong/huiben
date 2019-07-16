@@ -48,7 +48,7 @@
 			</view>
 			<view style="display: flex;width:100%;height:100rpx;line-height: 100rpx;background:#fff;margin-top:2px">
 				<view style="text-align: left;width:100%;margin-left: 10px;">仅需支付</view>
-				<view style="text-align: right;width:100%;margin-right: 10px;">￥{{productData.price-couponData.discount}}</view>
+				<view style="text-align: right;width:100%;margin-right: 10px;">￥{{money}}</view>
 			</view>
 		</view>
 		<view style="width:100%;height:120px"></view>
@@ -86,13 +86,20 @@
 				right:0,
 				productData:{},
 				couponData:{},
+				money:0
 			}
 		},
 
 		onLoad(options) {
 			const self = this;
 			
-			self.$Utils.loadAll(['getMainData', 'getArticleOneData', 'getArticleTwoData', 'getMessageData','getProductData','getCouponData','tokenGet'], self)
+			self.$Utils.loadAll(['getMainData', 'getArticleOneData', 'getArticleTwoData', 'getMessageData','getProductData'], self)
+		},
+		
+		onShow() {
+			const self = this;
+			document.title = '60天幼儿能力提升计划'
+			
 		},
 
 		onReachBottom() {
@@ -147,9 +154,11 @@
 				const callback = (res) => {
 					if (res.info.data.length > 0) {
 						self.productData = res.info.data[0]
+						
 					}
 					console.log('res', res)
-					self.$Utils.finishFunc('getProductData');
+					
+					self.getCouponData()
 				};
 				self.$apis.productGet(postData, callback);
 			},
@@ -158,7 +167,7 @@
 				const self = this;
 				const postData = {
 					searchItem: {
-						user_no: 'U704520578073942'
+						user_no: 'U709654952588131'
 					}
 				};
 				console.log('postData', postData)
@@ -300,8 +309,10 @@
 				const callback = (res) => {
 					if (res.info.data.length > 0) {
 						self.couponData = res.info.data[0]
+						
+						self.money  = (self.productData.price - self.couponData.discount).toFixed(2)
 					};
-					self.$Utils.finishFunc('getCouponData');
+					self.$Utils.finishFunc('getProductData');
 				};
 				self.$apis.couponGet(postData, callback);
 			},

@@ -84,6 +84,11 @@
 			self.paginate = self.$Utils.cloneForm(self.$AssetsConfig.paginate);
 			self.$Utils.loadAll(['getUserData'], self)
 		},
+		
+		onShow() {
+			const self = this;
+			document.title = '我的聪明豆'	
+		},
 
 		methods: {
 			
@@ -121,7 +126,7 @@
 						self.userData = res.info.data[0];
 						self.userData.info.score = parseInt(self.userData.info.score);
 						self.lessScore = 60-self.userData.info.score;
-						self.percent1 = self.userData.info.score/60;
+						self.percent1 = self.userData.info.score/60*100;
 						self.left1 = uni.upx2px(600*(self.percent1/100)) + 'px';
 					};
 					self.getMainData();

@@ -63,6 +63,11 @@
 			self.paginate = self.$Utils.cloneForm(self.$AssetsConfig.paginate);
 			self.$Utils.loadAll(['getMainData'], self)
 		},
+		
+		onShow() {
+			const self = this;
+			document.title = '学习证书'	
+		},
 
 		methods: {
 			

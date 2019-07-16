@@ -64,6 +64,11 @@
 			self.$Utils.loadAll(['getUserData'], self)
 		},
 		
+		onShow() {
+			const self = this;
+			document.title = '学习报告'	
+		},
+		
 		methods: {
 			
 			getUserData() {

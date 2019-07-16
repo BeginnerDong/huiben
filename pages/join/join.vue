@@ -29,6 +29,18 @@
 </template>
 
 <script>
+	export default {
+		data() {
+			return {
+				webself: this,
+			}
+		},
+		
+		onShow() {
+			const self = this;
+			document.title = '关注早教练习生'	
+		},
+	}
 </script>
 
 <style>

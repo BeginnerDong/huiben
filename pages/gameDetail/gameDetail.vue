@@ -22,6 +22,11 @@
 			self.$Utils.loadAll(['getMainData'], self)
 		},
 		
+		onShow() {
+			const self = this;
+			document.title = '游戏介绍'	
+		},
+		
 		methods: {
 			
 			getMainData() {

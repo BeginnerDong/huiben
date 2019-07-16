@@ -66,14 +66,14 @@
 			<view class="xsz_foot" >
 				<view class="hb_h" @click="webself.$Router.navigateTo({route:{path:'/pages/myhb/myhb'}})" style="display: flex;align-items: center;">
 					<span class="hbcion"></span><span class="myhb" style="width: 49%;">我的红包</span>
-					<view class="hbright">{{couponData.length}}个红包未使用</view>
-					<view class="xxright">
+					<view class="hbright" style="width:29%;margin-right: 0;">{{couponData.length}}个红包未使用</view>
+					<view class="xxright" style="height:100%;display: flex;align-items: center;">
 						<img src="../../static/images/right.png"  style="width:8px;height:12px"/>
 					</view>
 				</view>
 				<view class="hb_h1" @click="webself.$Router.navigateTo({route:{path:'/pages/xxsc/xxsc'}})" style="display: flex;align-items: center;">
 					<span class="xxcion"></span><span class="myhb" style="width: 78%;">学习手册</span>
-					<view class="xxright">
+					<view class="xxright" style="height:100%;display: flex;align-items: center;">
 						<img src="../../static/images/right.png"  style="width:8px;height:12px"/>
 					</view>
 				</view>
@@ -96,6 +96,12 @@
 	onLoad(options){
 		const self = this;
 		self.$Utils.loadAll(['getMainData','getCouponData'], self)
+	},
+	
+	onShow() {
+		const self = this;
+		document.title = '学业证书'
+		
 	},
 	
 	methods: {

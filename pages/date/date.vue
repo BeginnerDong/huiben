@@ -28,10 +28,20 @@
 						</view>
 					</view>
 				</view>
-				<!-- <view class="ka">
-					<label class="radio" checked="checked"><radio>已打卡</radio></label>
-					<label class="radio" checked="checked"><radio>未打卡</radio></label>
-				</view> -->
+				<view class="ka" style="width: 82%;margin: 0 auto;">
+					<view style="display: flex;align-items: center;">
+						<view style="height:10px;width:10px;border-radius:50%;background: rgb(54,155,145);">
+							
+						</view>
+						<view style="color: black;font-size:8px;margin-left: 5px;">已打卡</view>
+					</view>
+					<view style="display: flex;align-items: center;margin-left: 20px;">
+						<view style="height:10px;width:10px;border-radius:50%;background: rgb(234,235,238);">
+							
+						</view>
+						<view style="color: black;font-size:8px;margin-left: 5px;">未打卡</view>
+					</view>
+				</view>
 		</view>
 		<view class="wen">
 			<view class="">
@@ -66,6 +76,11 @@
 		onLoad(options){
 			const self = this;
 			self.$Utils.loadAll(['getUserData'], self)
+		},
+		
+		onShow() {
+			const self = this;
+			document.title = '60天科学亲子阅读计划'	
 		},
 		
 		methods: {

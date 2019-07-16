@@ -43,7 +43,12 @@
 			return {
 				webself: this,
 			}
-		}
+		},
+		
+		onShow() {
+			const self = this;
+			document.title = '60天科学亲子阅读计划已结束'	
+		},
 	}
 </script>
 

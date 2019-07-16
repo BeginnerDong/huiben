@@ -57,6 +57,11 @@
 			self.$Utils.loadAll(['getUserData'], self)
 		},
 		
+		onShow() {
+			const self = this;
+			document.title = '游戏'	
+		},
+		
 		onReachBottom() {	
 			const self = this;
 			if (!self.isLoadAll&&uni.getStorageSync('canClick')) {

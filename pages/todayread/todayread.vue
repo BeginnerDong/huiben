@@ -22,7 +22,7 @@
 					<button class="ayerbtn" style="background: #fff;margin-top: 20px;" 
 					@click="yesterdayOrAll">
 					{{canYesterday?'读昨日书':'看看其他'}}</button>
-					<button class="open_book" style="margin-top: 20px;" @click="webself.$Router.navigateTo({route:{path:'/pages/bookdetail/bookdetail?id='+todayBook.id}})">开始阅读</button>
+					<button class="open_book" style="margin-top: 20px;"  @click="webself.$Router.navigateTo({route:{path:'/pages/bookdetail/bookdetail?id='+todayBook.id}})">开始阅读</button>
 				</view>
 			</view>
 			<view style="width: 100%;height:60px"></view>
@@ -44,7 +44,7 @@
 					</view>
 				</view>
 			</view>
-				<button style="position: fixed;top:20%" @click="webself.$Router.navigateTo({route:{path:'/pages/user/user'}})">我的</button>
+				
 	</view>
 
 </template>
@@ -75,6 +75,11 @@
 			self.paginate = self.$Utils.cloneForm(self.$AssetsConfig.paginate);
 			self.$Utils.loadAll(['getUserData'], self)
 		},
+		
+		onShow() {
+			const self = this;
+			document.title = '今日阅读'	
+		},
 
 		methods: {
 			
@@ -82,7 +87,7 @@
 				const self = this;
 				if(self.lastBook&&JSON.stringify(self.lastBook)!='{}'){
 					self.$Router.navigateTo({route:{path:'/pages/bookdetail/bookdetail?id='+self.lastBook.id}})
-				}else{
+				}else if(self.canYesterday){
 					self.$Router.navigateTo({route:{path:'/pages/bookintro/bookintro'}})
 				}
 			},

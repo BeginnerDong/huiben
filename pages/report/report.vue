@@ -52,6 +52,11 @@
 			self.$Utils.loadAll(['getUserData'], self)
 		},
 		
+		onShow() {
+			const self = this;
+			document.title = '学习报告'	
+		},
+		
 		methods: {
 			
 			getUserData() {
@@ -86,7 +91,7 @@
 						timestamp: res.timestamp, // 必填，生成签名的时间戳
 						nonceStr: res.nonceStr, // 必填，生成签名的随机串
 						signature: res.signature, // 必填，签名
-						jsApiList: ['openLocation', 'updateAppMessageShareData'] // 必填，需要使用的JS接口列表
+						jsApiList: ['openLocation', 'updateAppMessageShareData','updateTimelineShareData','onMenuShareTimeline','onMenuShareAppMessage']// 必填，需要使用的JS接口列表
 					});
 					self.$jweixin.ready(function() { //需在用户可能点击分享按钮前就先调用		
 						console.log('maindata-ready', self.mainData)

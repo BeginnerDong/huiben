@@ -25,6 +25,11 @@
 			self.$Utils.loadAll(['getMainData'], self)
 		},
 		
+		onShow() {
+			const self = this;
+			document.title = '学习手册'	
+		},
+		
 		methods: {
 			
 			getMainData() {

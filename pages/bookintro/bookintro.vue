@@ -15,7 +15,7 @@
 				</view>
 			</view>
 			<swiper class="swiper-box"  :indicator-dots="false" :autoplay="false" :interval="3000" :duration="500" :circular="true"
-			 @change="change" previous-margin="30px" next-margin="30px">
+			 @change="change" previous-margin="30px" next-margin="30px" current="currIndex">
 				<swiper-item   v-for="(item,index) in mainData" :key="index" @click="item.src?webSelf.$Router.redirectTo({route:{path:item.src}}):''">
 					<view class="swiper-item" style="height: 90%;">
 							<view class="book_intro_middle" :class="{'active':index===currIndex}" style="margin:auto">
@@ -77,7 +77,14 @@
 		onLoad(options) {
 			const self = this;
 			self.$Utils.loadAll(['getMainData'], self)
+			
 		},
+		
+		onShow() {
+			const self = this;
+			document.title = '所有绘本'	
+		},
+		
 		
 		methods:{
 			
@@ -112,6 +119,7 @@
 				console.log(e)
 				const self =  this;
 				self.currIndex = e.detail.current;
+				console.log(self.currIndex)
 			}
 		}
 	}

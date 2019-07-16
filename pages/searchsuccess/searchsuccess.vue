@@ -11,7 +11,7 @@
 				</view>
 			</view>
 			<view class="search_title" v-if="mainData.length>0">搜索结果</view>
-			<view class="search_list" v-if="mainData.length>0" v-for="item in mainData">
+			<view class="search_list" v-if="mainData.length>0" v-for="item in mainData" :data-id="item.id" @click="webSelf.$Router.navigateTo({route:{path:'/pages/bookdetail/bookdetail?id='+$event.currentTarget.dataset.id}})">
 				<view class="search_cont_list">
 					<view class="search_deatil clear">
 						<view class="search_left">
@@ -83,6 +83,11 @@
 				self.menu_title = options.menu_title
 			}
 			self.$Utils.loadAll(['getMainData'], self)
+		},
+		
+		onShow() {
+			const self = this;
+			document.title = '搜索绘本'	
 		},
 
 		methods: {

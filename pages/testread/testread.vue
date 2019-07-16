@@ -27,7 +27,7 @@
 						<view class="recommend_title"><span>{{item.menu}}</span></view>
 						<view class="recommend_imglist clear">
 							<view class="recommend_img"  v-for="c_item in item.data">
-								<view class="recommend_div" :data-id="c_item.id" @click="webSelf.$Router.navigateTo({route:{path:'/pages/bookdetail/bookdetail?id='+$event.currentTarget.dataset.id}})">
+								<view class="recommend_div" :data-id="c_item.id" @click="webSelf.$Router.navigateTo({route:{path:'/pages/bookintro/bookintro?id='+$event.currentTarget.dataset.id}})">
 									<img :src="c_item.mainImg&&c_item.mainImg[0]?c_item.mainImg[0].url:''" style="width:60px;height:70px"/>
 									<view class="re_img_title">{{c_item.title}}</view>
 								</view>
@@ -65,6 +65,11 @@
 		onLoad(options) {
 			const self = this;
 			self.$Utils.loadAll(['getMainData','getLabelData'], self)
+		},
+		
+		onShow() {
+			const self = this;
+			document.title = '搜索绘本'	
 		},
 		
 		methods:{

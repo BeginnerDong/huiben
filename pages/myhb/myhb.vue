@@ -19,7 +19,7 @@
 			</view>
 		</view>
 		<view class="hbdetali_tc" v-if="show">
-			<img src="../../static/images/coupon_bigpic.png" @click="webself.$Router.reLaunch({route:{path:'/pages/signup/signup'}})"/>
+			<img src="../../static/images/coupon_bigpic.png" @click="webself.$Router.reLaunch({route:{path:'/pages/index/index'}})"/>
 		</view>
 	</view>
 </template>
@@ -40,6 +40,11 @@
 		const self = this;
 		self.paginate = self.$Utils.cloneForm(self.$AssetsConfig.paginate);
 		self.$Utils.loadAll(['getMainData'], self)
+	},
+	
+	onShow() {
+		const self = this;
+		document.title = '我的红包'	
 	},
 	
 	onReachBottom() {	

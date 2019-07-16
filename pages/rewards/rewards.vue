@@ -83,6 +83,10 @@
 			self.randomNum = parseInt(Math.floor(Math.random()*(89999))+10001);
 			self.$Utils.loadAll(['getUserData'], self)
 		},
+		onShow() {
+			const self = this;
+			document.title = '打卡'	
+		},
 		
 		methods: {
 			

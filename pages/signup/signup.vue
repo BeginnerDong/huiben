@@ -82,6 +82,11 @@
 			const self = this;
 			self.$Utils.loadAll(['getUserData','getMainData', 'getCouponData'], self)
 		},
+		
+		onShow() {
+			const self = this;
+			document.title = '60天幼儿能力提升计划'	
+		},
 
 		methods: {
 

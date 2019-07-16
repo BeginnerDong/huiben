@@ -2,8 +2,8 @@ const CONFIG = {
 	
         //开发环境配置http://106.12.155.217/project/
         development: {
-                loginTitleTxt: "绘本", // 登录页标题
-                copyrightTxt: "绘本v1.0", // 版本信息
+                loginTitleTxt: "早教练习生", // 登录页标题
+                copyrightTxt: "早教练习生v1.0", // 版本信息
                 assetsPath: "https://qinzi.koaladaka.com/", // 静态资源路径
                 baseUrl: "https://qinzi.koaladaka.com/api/public/index.php/api/v1/",
                 tokenKey: "WECHAT_TRADE", // 登录标识
@@ -14,8 +14,8 @@ const CONFIG = {
 
         //生产环境配置
         production: {
-                loginTitleTxt: "绘本", // 登录页标题
-                copyrightTxt: "绘本v1.0", // 版本信息
+                loginTitleTxt: "早教练习生", // 登录页标题
+                copyrightTxt: "早教练习生v1.0", // 版本信息
                 assetsPath: "https://qinzi.koaladaka.com/wx/", // 静态资源路径
                 baseUrl: "https://qinzi.koaladaka.com/api/public/index.php/api/v1/",
                 tokenKey: "WECHAT_TRADE", // 登录标识
