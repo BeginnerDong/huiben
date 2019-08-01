@@ -8,9 +8,9 @@
 							<view class="xsz">
 								学习证
 							</view>
-							<img class="xsz_p" src=""/>
+							<img class="xsz_p" :src="mainData.headImgUrl"/>
 							<view class="ndbb">
-								张志明小朋友
+								{{mainData.nickname}}
 							</view>
 							<view class="fx">
 								<span class="fxcion"></span>分享学习证

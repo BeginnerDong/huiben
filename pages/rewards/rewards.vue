@@ -141,7 +141,7 @@
 					}else if(res.info.type==4){
 						self.$Router.redirectTo({route:{path:'/pages/gxfinishplan/gxfinishplan'}})
 					}else if(res.info.type==5){
-						self.$Router.redirectTo({route:{path:'/pages/finishplan/finishplan'}})
+						self.$Router.redirectTo({route:{path:'/pages/finishplan/finishplan?id='+self.id}})
 					}	
 				
 				};

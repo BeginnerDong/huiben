@@ -1,40 +1,55 @@
 <template>
 	<view class="danhongse_bg">
 		<view class="wc_p">
-			<view class="wc_card">
-				<view class="wc_card_photo">
-					<img :src="mainData.headImgUrl" />
+			<view class="byzs_pk clear" style="position: relative;">
+				<img src="../../static/images/certificate.png" style="width: 100%;height:100%;"/>
+				<view class="byzs_left" style="position: absolute;top: 0;left: 0;">
+					<view class="byzs_left_k">
+						<view class="byzs_b">
+							
+							<img class="xsz_p" :src="mainData.headImgUrl"/>
+							<view class="ndbb">
+								{{mainData.nickname}}
+							</view>
+							
+						</view>
+					</view>
 				</view>
-				<view class="wc_card_ts">
-					完成了60天幼儿能力提升计划<br />
-					获得了99元奖学金和3本图书
+				<view class="byzs_right" style="position: absolute;top: 0;right: 0;">
+					<view class="byzs_right_k">
+						<view class="byzs_b">
+							<view class="byxh">
+								学号
+							</view>
+							<view class="xhnumber">
+								{{mainData.info?mainData.info.level:''}}
+							</view>
+							<view class="zx">
+								主修
+							</view>
+							<view class="dyznyd">
+								多元智能阅读
+							</view>
+							<view>
+								<view class="zx">
+									入学时间
+								</view>
+								<view class="dyznyd bytime">
+									{{mainData.info.start_time}}
+								</view>
+							</view>
+							
+						</view>
+					</view>
 				</view>
 			</view>
-			<view class="wc_card_2 clear">
-				<view class="wc_card_left">
-					<view class="wc_1">
-						和宝贝一共读了
-					</view>
-					<view class="wc_2">
-						{{reportData.book_num}}本绘本
-					</view>
-				</view>
-				<view class="wc_card_right">
-					<view class="wc_1">
-						坚持亲子阅读
-					</view>
-					<view class="wc_2">
-						60天
-					</view>
-				</view>
-			</view>
-			<view class="fx_hds">
-				互动式的亲子阅读比起讲故事能让孩子智商提高6个点
+			<view class="fx_hds" style="font-size:18px;font-weight: 700;">
+				早教练习生携手国际多元智能阅读协会打造「多元智能亲子阅读法」
 			</view>
 
 			<view class="fx_zj_bg">
 				<view class="fx_zj">
-					12位学前教育专家提供阅读方案，限时免费还有机会获赠3本书
+					限时获取奖学金并获赠3本绘本
 				</view>
 				<view class="fx_zj_xbg">
 				</view>
@@ -84,7 +99,7 @@
 
 		onShow() {
 			const self = this;
-			document.title = '分享'
+			document.title = '学习证'
 		},
 
 		methods: {
@@ -98,6 +113,7 @@
 				const callback = (res) => {
 					if (res.info.data.length > 0) {
 						self.mainData = res.info.data[0];
+						self.mainData.info.start_time = self.$Utils.timeto(self.mainData.info.start_time*1000,'ymd')
 					};
 					
 					self.getReport()
@@ -154,7 +170,7 @@
 						self.$jweixin.updateAppMessageShareData({
 							title: '我和宝贝一起完成了亲子阅读', // 分享标题
 							desc: '12位学前教育专家提供阅读方案，限时免费还有机会获赠3本书', // 分享描述
-							link: 'https://qinzi.koaladaka.com/wx/#?/pages/completeShare/completeShare?user_no=' + uni.getStorageSync(
+							link: 'https://qinzi.koaladaka.com/wx/#?/pages/shareNoEnd/shareNoEnd?user_no=' + uni.getStorageSync(
 								'user_no'),
 							imgUrl: shareImg, // 分享图标
 							success: function() {
@@ -176,5 +192,6 @@
 </script>
 
 <style>
+	@import "../../assets/style/biyezhengshu.css";
 	@import "../../assets/style/gxfinishplan.css";
 </style>

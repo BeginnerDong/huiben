@@ -88,10 +88,11 @@
 		
 		onLoad(options) {
 			const self = this;
-			self.id = options.id;
+			var options = self.$Utils.getHashParameters();
+			self.id = options[0].id;
 			console.log(options)
-			if(options.user_no){
-				self.searchItem.user_no = options.user_no;
+			if(options[0].user_no){
+				self.searchItem.user_no = options[0].user_no;
 				self.searchItem.user_type = 0
 			}else{
 				self.searchItem.user_no = uni.getStorageSync('user_no')
@@ -138,6 +139,7 @@
 						self.mainData = res.info.data[0]
 					} 
 					self.getRead()
+					self.wxJsSdk()
 				};
 				self.$apis.articleGet(postData, callback);
 			},
@@ -157,7 +159,7 @@
 							self.percent = 50
 						}
 					};
-					self.wxJsSdk()
+					
 					
 				};
 				self.$apis.getRead(postData, callback);
@@ -167,7 +169,7 @@
 				const self = this;
 				const postData = {
 					thirdapp_id: 2,
-					url: window.location.href
+					url: location.href.split('#')[0]
 				};
 				const callback = (res) => {
 					console.log('maindata', self.mainData)
@@ -190,8 +192,7 @@
 						self.$jweixin.updateAppMessageShareData({
 							title: '我和宝贝一起完成了亲子阅读', // 分享标题
 							desc: '12位学前教育专家提供阅读方案，限时免费还有机会获赠3本书', // 分享描述
-							link: 'https://qinzi.koaladaka.com/wx/#/pages/fenxiang/fenxiang?user_no=' + uni.getStorageSync(
-								'user_no') + '&id=' + self.mainData.id,
+							link: 'https://qinzi.koaladaka.com/wx/?#/pages/fenxiang/fenxiang?user_no=' + uni.getStorageSync('user_no') + '&id=' + self.mainData.id,
 							imgUrl: shareImg, // 分享图标
 							success: function() {
 								// 设置成功

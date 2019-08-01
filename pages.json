@@ -58,12 +58,7 @@
 				"navigationBarTitleText":"阅读详情"
 			}
 		},
-		{
-			"path":"pages/bookdetail2/bookdetail2",
-			"style":{
-				"navigationBarTitleText":"阅读详情2"
-			}
-		},
+		
 		{
 			"path":"pages/daka/daka",
 			"style":{
@@ -94,12 +89,7 @@
 				"navigationBarTitleText":"完成亲子阅读计划"
 			}
 		},
-		{
-			"path":"pages/ljbm/ljbm",
-			"style":{
-				"navigationBarTitleText":"立即报名"
-			}
-		},
+		
 		{
 			"path":"pages/user/user",
 			"style":{
@@ -130,12 +120,8 @@
 				"navigationBarTitleText":"学习手册"
 			}
 		},
-		{
-			"path":"pages/mycmd/mycmd",
-			"style":{
-				"navigationBarTitleText":"我的聪明豆"
-			}
-		},
+		
+		
 		{
 			"path":"pages/cmdgz/cmdgz",
 			"style":{
@@ -188,6 +174,12 @@
 			"path":"pages/gameDetail/gameDetail",
 			"style":{
 				"navigationBarTitleText":"游戏详情"
+			}
+		},
+		{
+			"path":"pages/shareNoEnd/shareNoEnd",
+			"style":{
+				"navigationBarTitleText":""
 			}
 		}
 		

@@ -20,7 +20,7 @@
 						和宝贝一共读了
 					</view>
 					<view class="wc_2">
-						50本绘本
+						{{reportData.book_num}}本绘本
 					</view>
 				</view>
 				<view class="wc_card_right">
@@ -101,7 +101,8 @@
 					phone: '',
 					address: ''
 				},
-				is_show:false
+				is_show:false,
+				reportData:{}
 			}
 		},
 
@@ -162,10 +163,30 @@
 						}
 					};
 					console.log(self.mainData.info.start_time)
-					self.$Utils.finishFunc('getMainData');
+					self.getReport();
 				};
 				self.$apis.userGet(postData, callback);
-			}
+			},
+			
+			getReport() {
+				const self = this;
+				var end = Date.parse(new Date())/1000;
+				const postData = {};
+				postData.tokenFuncName = 'getProjectToken';
+				postData.data ={
+					start:self.mainData.info.challenge_time,
+					end:end
+				};
+				console.log('postData', postData)
+				const callback = (res) => {
+					if (res.solely_code == 100000) {
+						self.reportData = res.info;
+						
+					};
+					self.$Utils.finishFunc('getMainData');
+				};
+				self.$apis.getReport(postData, callback);
+			},
 		}
 
 	}

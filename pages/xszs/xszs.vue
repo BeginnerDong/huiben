@@ -11,7 +11,10 @@
 							<view class="ndbb">
 								{{mainData.nickname}}
 							</view>
-							<view class="fx">
+							<view class="fx" @click="webself.$Router.navigateTo({route:{path:'/pages/shareNoEnd/shareNoEnd'}})" v-if="mainData.hasOrder&&mainData.hasOrder.length>0&&mainData.info&&mainData.info.finish==0" >
+								<span class="fxcion" style="margin-right: 5px;"></span>分享学习证
+							</view>
+							<view class="fx" @click="webself.$Router.navigateTo({route:{path:'/pages/byzs/byzs'}})" v-if="mainData.hasOrder&&mainData.hasOrder.length>0&&mainData.info&&mainData.info.finish==1" >
 								<span class="fxcion" style="margin-right: 5px;"></span>分享学习证
 							</view>
 						</view>
@@ -32,11 +35,17 @@
 							<view class="dyznyd">
 								多元智能阅读
 							</view>
-							<view class="zx">
-								入学时间
+							<view v-if="mainData.hasOrder&&mainData.hasOrder.length>0">
+								<view class="zx">
+									入学时间
+								</view>
+								<view class="dyznyd bytime">
+									{{mainData.info.start_time}}
+								</view>
 							</view>
-							<view class="dyznyd bytime">
-								{{mainData&&mainData.info?mainData.info.start_time:''}}
+							<view class="ljrx" v-if="mainData.hasOrder&&mainData.hasOrder.length==0" 
+							@click="webself.$Router.navigateTo({route:{path:'/pages/index/index'}})">
+								立即入学
 							</view>
 						</view>
 					</view>
@@ -66,7 +75,7 @@
 		
 		onShow() {
 			const self = this;
-			document.title = '学习证书'	
+			document.title = '学业证书'	
 		},
 
 		methods: {
@@ -80,6 +89,18 @@
 				postData.searchItem = {
 					thirdapp_id: self.$AssetsConfig.thirdapp_id,
 					user_no:uni.getStorageSync('user_no')
+				};
+				postData.getAfter = {
+					hasOrder: {
+						tableName: 'Order',
+						middleKey: 'user_no',
+						key: 'user_no',
+						condition: '=',
+						searchItem: {
+							status: 1,
+							pay_status: 1
+						}
+					},
 				};
 				const callback = (res) => {
 					if (res.info.data.length > 0) {

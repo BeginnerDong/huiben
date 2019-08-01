@@ -57,9 +57,10 @@
 		
 		onLoad(options){
 			const self = this;
-			if(options.start){
-				self.start = options.start,
-				self.end = options.end
+			var options = self.$Utils.getHashParameters();
+			if(options[0].start){
+				self.start = options[0].start,
+				self.end = options[0].end
 			}
 			self.$Utils.loadAll(['getUserData'], self)
 		},

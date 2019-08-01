@@ -11,7 +11,10 @@
 							<view class="ndbb">
 								{{mainData.nickname}}
 							</view>
-							<view class="fx">
+							<view class="fx" @click="webself.$Router.navigateTo({route:{path:'/pages/shareNoEnd/shareNoEnd'}})" v-if="mainData.hasOrder&&mainData.hasOrder.length>0&&mainData.info&&mainData.info.finish==0" >
+								<span class="fxcion" style="margin-right: 5px;"></span>分享学习证
+							</view>
+							<view class="fx" @click="webself.$Router.navigateTo({route:{path:'/pages/byzs/byzs'}})" v-if="mainData.hasOrder&&mainData.hasOrder.length>0&&mainData.info&&mainData.info.finish==1" >
 								<span class="fxcion" style="margin-right: 5px;"></span>分享学习证
 							</view>
 						</view>
@@ -41,7 +44,7 @@
 								</view>
 							</view>
 							<view class="ljrx" v-if="mainData.hasOrder&&mainData.hasOrder.length==0" 
-							@click="webself.$Router.navigateTo({route:{path:'/pages/signup/signup'}})">
+							@click="webself.$Router.navigateTo({route:{path:'/pages/index/index'}})">
 								立即入学
 							</view>
 						</view>
@@ -100,8 +103,7 @@
 	
 	onShow() {
 		const self = this;
-		document.title = '学业证书'
-		
+		document.title = '学业证书'	
 	},
 	
 	methods: {

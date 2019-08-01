@@ -3,8 +3,8 @@
 		<view class="td_read_kk">
 			<view class="td_read_k">
 				<view class="book_intro_img" style="height:170px">
-					<view style="width:35%">
-					<img :src="todayBook&&todayBook.mainImg&&todayBook.mainImg[0]?todayBook.mainImg[0].url:''">
+					<view style="width:42%">
+					<img :src="todayBook&&todayBook.mainImg&&todayBook.mainImg[0]?todayBook.mainImg[0].url:''" style="width: 120px;height: 150px;">
 					</view>
 				</view>
 				<view class="book_name">{{todayBook?todayBook.title:''}}</view>
@@ -86,7 +86,7 @@
 			yesterdayOrAll(){
 				const self = this;
 				if(self.lastBook&&JSON.stringify(self.lastBook)!='{}'){
-					self.$Router.navigateTo({route:{path:'/pages/bookdetail/bookdetail?id='+self.lastBook.id}})
+					self.$Router.navigateTo({route:{path:'/pages/bookintro/bookintro?id='+self.lastBook.id}})
 				}else if(self.canYesterday){
 					self.$Router.navigateTo({route:{path:'/pages/bookintro/bookintro'}})
 				}
@@ -170,6 +170,7 @@
 				postData.tokenFuncName ='getProjectToken';
 				postData.searchItem = {
 					type:1,
+					user_no:uni.getStorageSync('user_no')
 				};
 				postData.getAfter = {
 					book:{

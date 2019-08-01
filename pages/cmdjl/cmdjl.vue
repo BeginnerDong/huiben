@@ -1,15 +1,24 @@
 <template>
 	<view class="cmd_bg">
 		<view class="cmd_p">
-			<view class="cmd_top clear">
+			<!-- <view class="cmd_top clear">
 				<img class="cmdimg" src="../../static/images/search.png"  />
 				<input class="cmd_txt"  placeholder="小黄和小蓝" v-model="searchTitle" confirm-type="search" type="text" @confirm="search"/>
+			</view> -->
+			<view class="search_kk" style="height: 40px;padding: 0;display: flex;">
+				
+				<view style="width: 10%;display: flex;align-items: center;justify-content: center;height: 100%;">
+					<img src="../../static/images/search.png" style="width: 16px;height: 16px;"/>
+				</view>
+				<div style="width: 90%;height: 100%;display: flex;align-items: center;">
+					<input class="search_txt" style="color: #000000;width: 100%;margin-left: 5px;" placeholder="搜索绘本" v-model="searchTitle" confirm-type="search" type="text" @confirm="search"/>
+				</div>
 			</view>
 			<view class="cmd_byzs" @click="toCertificate">
 				<view class="cmdbyzs_k" style="display: flex;">
 					<view class="cmdbyzsimg">
 					</view>
-					<view style="width:70%;line-height: 65px;">毕业证书</view>
+					<view style="width:70%;line-height: 65px;" >学业证书</view>
 					
 					<view class="cmdjiantou" style="display: flex;align-items: center;height:65px;justify-content: flex-end;width: 10%;">
     
@@ -29,7 +38,7 @@
 				<view class="cmdtk" v-if="userData.hasOrder&&userData.hasOrder.length==0">
 					距离获得99元奖学金＋3本书还有60个聪明豆
 				</view>
-				<view class="cmdtk" style="height:15px" v-if="userData.hasOrder&&userData.hasOrder.length==0">
+				<view class="cmdtk" @click="webself.$Router.navigateTo({route:{path:'/pages/index/index'}})" style="height:15px" v-if="userData.hasOrder&&userData.hasOrder.length==0">
 					<span style="text-decoration:underline;color: rgb(54,155,145);" >立即报名</span>
 				</view>
 				<view class="cmdjdt">
@@ -94,7 +103,7 @@
 			
 			toCertificate(){
 				const self = this;
-				if(parseInt(self.userData.score)>=60){
+				if(parseInt(self.userData.info.score)>=60){
 					self.$Router.navigateTo({route:{path:'/pages/byzs/byzs'}})
 				}else{
 					self.$Router.navigateTo({route:{path:'/pages/xszs/xszs'}})

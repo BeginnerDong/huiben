@@ -110,16 +110,16 @@
 					<view class="ljbm_top clear" style="margin-top: 50px;">
 						<view class="ljbm_top_left" style="text-align: center;position: relative;">
 							
-							<div style="position: absolute;background: rgba(0, 0, 0, 0.3);height: 250px;text-align: center;line-height: 250px;" :style="'width:'+screenWidth/2+'px;left:'+(screenHeight/4-screenWidth/4)+'px'">
+							<div style="position: absolute;background: rgba(0, 0, 0, 0.3);height: 250px;text-align: center;line-height: 250px;z-index: 999;" :style="'width:'+screenWidth/2+'px;left:'+(screenHeight/4-screenWidth/4)+'px'">
 								<img style="position: relative;height: 25px;width: 25px;"  src="../../static/images/lock.png" />
 							</div>
-							<img style="position: relative;height: 250px;"  :style="'width:'+screenWidth/2+'px'" :src="mainData&&mainData[9]&&mainData[9].mainImg&&mainData[9].mainImg[0]?mainData[9].mainImg&&mainData[9].mainImg[9].url:''" />
+							<img style="position: relative;height: 250px;"  :style="'width:'+screenWidth/2+'px'" :src="mainData&&mainData[9]&&mainData[9].mainImg&&mainData[9].mainImg[0]?mainData[9].mainImg[0].url:''" />
 						</view>
 						<view class="ljbm_top_right">
 							<view class="ljbm_tt">
 								解锁畅阅60本指引解析，可立即报名：
 							</view>
-							<view class="ljbmbtn" @click="webSelf.$Router.navigateTo({route:{path:'/pages/signup/signup'}})">
+							<view class="ljbmbtn" @click="webSelf.$Router.navigateTo({route:{path:'/pages/index/index'}})">
 								<view class="ljbm_zk">红包折扣￥100<span>👉仅需￥99</span></view>
 								<view class="ljbm_btn" style="border: none;">立即报名</view>
 							</view>

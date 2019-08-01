@@ -48,7 +48,7 @@
 
 		<view class="sign_foot">
 			<view class="sign_foot_left">
-				限时特价￥{{mainData.price-couponData.discount}}<span style="text-decoration:line-through">原价￥{{mainData.price}}</span>
+				限时特价￥{{money}}<span style="text-decoration:line-through">原价￥{{mainData.price}}</span>
 			</view>
 			<view class="sign_foot_right" @click="webSelf.$Utils.stopMultiClick(addOrder)">
 				<button style="border-radius:0">立即报名</button>
@@ -74,13 +74,14 @@
 				genderArray: ['男孩', '女孩'],
 				ageIndex: '',
 				genderIndex: '',
-				isAdmin: false
+				isAdmin: false,
+				money:0
 			}
 		},
 
 		onLoad(options) {
 			const self = this;
-			self.$Utils.loadAll(['getUserData','getMainData', 'getCouponData'], self)
+			self.$Utils.loadAll(['getUserData', 'getCouponData'], self)
 		},
 		
 		onShow() {
@@ -120,7 +121,7 @@
 					if (res.info.data.length > 0) {
 						self.couponData = res.info.data[0]
 					};
-					self.$Utils.finishFunc('getCouponData');
+					self.getMainData()
 				};
 				self.$apis.userCouponGet(postData, callback);
 			},
@@ -148,9 +149,10 @@
 				const callback = (res) => {
 					if (res.info.data.length > 0) {
 						self.mainData = res.info.data[0]
+						self.money  = (self.mainData.price - self.couponData.discount).toFixed(2)
 					}
 					console.log('res', res)
-					self.$Utils.finishFunc('getMainData');
+					self.$Utils.finishFunc('getCouponData');
 				};
 				self.$apis.productGet(postData, callback);
 			},

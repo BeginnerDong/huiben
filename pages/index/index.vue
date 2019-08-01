@@ -17,13 +17,17 @@
 			</view>
 		</view>
 		<view class="redpack_c" ref="redtc" v-if="mainData.hasCoupon&&mainData.hasCoupon.length==0&&!is_open">
-			<view class="redpack_img">
-				<img src="../../static/images/redpack_k.jpg" @click="isOpen" />
+			<view class="redpack_img" style="width: 281px;height: 356px;">
+				<img src="../../static/images/redpack_k.png" @click="isOpen" style="width: 100%;height: 100%;"/>
 			</view>
 		</view>
 		<view class="redpack_c" ref="redtc" v-if="mainData.hasCoupon&&mainData.hasCoupon.length==0&&is_open">
 			<view class="redpack_img" style="width:100%;top:53%">
 				<img src="../../static/images/coupon_open1.png" style="width:100%" @click="webSelf.$Utils.stopMultiClick(couponAdd)" />
+				<view style="position: absolute;top:45%;width: 100%;text-align: center;color: rgb(255,230,49);font-size:14px">
+					<span>有效期：60分钟</span>
+				</view>
+				<view style="position: absolute;top:80%;width: 100%;text-align: center;color: #fff;font-size:14px"><span>已有{{couponCount}}人使用</span></view>
 			</view>
 		</view>
 		<view class="index_foot clear" v-if="mainData.hasCoupon&&mainData.hasCoupon.length==0">
@@ -55,14 +59,19 @@
 		<view class="index_foot clear" v-if="mainData.hasCoupon&&mainData.hasCoupon.length>0">
 			<view class="foot_left1" @click="webSelf.$Router.navigateTo({route:{path:'/pages/testread/testread'}})"><span class="book_icon"></span>试读</view>
 			<view class="foot_right2 clear">
-				<view class="foot_right_k">
-					<view class="signleft">
-						<view>
-							<view>原价￥{{productData.price}}</view>
-							<view>红包折扣￥{{couponData.discount}}</view>
+				<view class="foot_right_k" style="display: flex;">
+					<view style="width:50%;height:100%">
+						<view class="signleft">
+							<view>
+								<view>原价￥{{productData.price}}</view>
+								<view>红包折扣￥{{couponData.discount}}</view>
+							</view>
 						</view>
 					</view>
-					<button class="signbtn" @click="webSelf.$Router.navigateTo({route:{path:'/pages/signup/signup'}})">立即报名</button>
+					<view style="width:50%;height:100%">
+						<button class="signbtn" style="width:100%" @click="webSelf.$Router.navigateTo({route:{path:'/pages/signup/signup'}})">立即报名</button>
+					</view>
+					
 				</view>
 			</view>
 		</view>
@@ -86,14 +95,15 @@
 				right:0,
 				productData:{},
 				couponData:{},
-				money:0
+				money:0,
+				couponCount:0
 			}
 		},
 
 		onLoad(options) {
 			const self = this;
-			//self.$Utils.loadAll(['getMainData', 'getArticleOneData', 'getArticleTwoData', 'getMessageData','getProductData'], self)
-			self.$Utils.loadAll(['getMainData', 'getArticleOneData', 'getArticleTwoData', 'getMessageData','getProductData','tokenGet'], self)
+			self.$Utils.loadAll(['getMainData', 'getArticleOneData', 'getArticleTwoData', 'getMessageData','getProductData'], self)
+			//self.$Utils.loadAll(['getMainData', 'getArticleOneData', 'getArticleTwoData', 'getMessageData','getProductData','tokenGet'], self)
 		},
 		
 		onShow() {
@@ -167,7 +177,7 @@
 				const self = this;
 				const postData = {
 					searchItem: {
-						user_no: 'U709654952588131'
+						user_no: 'U720923586057831'
 					}
 				};
 				console.log('postData', postData)
@@ -311,6 +321,8 @@
 						self.couponData = res.info.data[0]
 						
 						self.money  = (self.productData.price - self.couponData.discount).toFixed(2)
+					
+						self.couponCount = Math.floor(Math.random()*(100000-10000+1)+10000);
 					};
 					self.$Utils.finishFunc('getProductData');
 				};
@@ -348,6 +360,9 @@
 
 <style>
 	@import "../../assets/style/index.css";
+	
+
+
 
 	.bdm {
 		-webkit-animation: updanmu 4s linear;

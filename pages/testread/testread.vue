@@ -3,10 +3,13 @@
 		<view class="">
 			<view class="read_kk">
 				<!--搜索框-->
-				<view class="search_kk">
-					<div>
-						<view class="search_icon"></view>
-						<input class="search_txt" style="color: #000000;" placeholder="搜索绘本" v-model="searchTitle" confirm-type="search" type="text" @confirm="search"/>
+				<view class="search_kk" style="height: 40px;padding: 0;display: flex;">
+					
+					<view style="width: 10%;display: flex;align-items: center;justify-content: center;height: 100%;">
+						<img src="../../static/images/search2.png" style="width: 16px;height: 16px;"/>
+					</view>
+					<div style="width: 90%;height: 100%;display: flex;align-items: center;">
+						<input class="search_txt" style="color: #000000;width: 100%;margin-left: 5px;" placeholder="搜索绘本" v-model="searchTitle" confirm-type="search" type="text" @confirm="search"/>
 					</div>
 				</view>
 				<!--热门搜索标签-->
@@ -28,7 +31,7 @@
 						<view class="recommend_imglist clear">
 							<view class="recommend_img"  v-for="c_item in item.data">
 								<view class="recommend_div" :data-id="c_item.id" @click="webSelf.$Router.navigateTo({route:{path:'/pages/bookintro/bookintro?id='+$event.currentTarget.dataset.id}})">
-									<img :src="c_item.mainImg&&c_item.mainImg[0]?c_item.mainImg[0].url:''" style="width:60px;height:70px"/>
+									<img :src="c_item.mainImg&&c_item.mainImg[0]?c_item.mainImg[0].url:''" style="width:60px;height:75px"/>
 									<view class="re_img_title">{{c_item.title}}</view>
 								</view>
 							</view>
@@ -117,7 +120,8 @@
 				const postData = {};
 				postData.searchItem = {
 					thirdapp_id: self.$AssetsConfig.thirdapp_id,
-					type:1
+					type:1,
+					on_shelf:1
 				};
 				console.log('postData', postData)
 				const callback = (res) => {
