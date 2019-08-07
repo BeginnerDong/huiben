@@ -32,13 +32,13 @@
 					<view class="cmdgz" @click="webself.$Router.navigateTo({route:{path:'/pages/cmdgz/cmdgz'}})">聪明豆规则</view>
 				</view>
 				<view class="cmdsum">{{userData&&userData.info?userData.info.score:''}}</view>
-				<view class="cmdtk" v-if="userData.hasOrder&&userData.hasOrder.length>0">
+				<view class="cmdtk" v-if="userData&&userData.info&&userData.info.switch>0">
 					距离全额退款并领取3本书还有{{lessScore}}个聪明豆
 				</view>
-				<view class="cmdtk" v-if="userData.hasOrder&&userData.hasOrder.length==0">
+				<view class="cmdtk" v-if="userData&&userData.info&&userData.info.switch==0">
 					距离获得99元奖学金＋3本书还有60个聪明豆
 				</view>
-				<view class="cmdtk" @click="webself.$Router.navigateTo({route:{path:'/pages/index/index'}})" style="height:15px" v-if="userData.hasOrder&&userData.hasOrder.length==0">
+				<view class="cmdtk" @click="webself.$Router.navigateTo({route:{path:'/pages/index/index'}})" style="height:15px" v-if="userData&&userData.info&&userData.info.switch==0">
 					<span style="text-decoration:underline;color: rgb(54,155,145);" >立即报名</span>
 				</view>
 				<view class="cmdjdt">
@@ -53,13 +53,13 @@
 			<view class="cmdlist_k">
 				<view class="cmdlist">
 					<view class="cmdlisttitle">
-						{{userData.hasOrder&&userData.hasOrder.length==0?'其他用户的':''}}聪明豆记录
+						{{userData&&userData.info&&userData.info.switch==0?'其他用户的':''}}聪明豆记录
 					</view>
 					<view class="cmdlistdetail" style="display: flex;" v-for="item in mainData">
-						<view style="margin-right: 5px;" v-if="userData.hasOrder&&userData.hasOrder.length==0">
+						<view style="margin-right: 5px;" v-if="userData&&userData.info&&userData.info.switch==0">
 							<image :src="item.user?item.user.headImgUrl:''" style="width:40px;height:40px;border-radius:50%"></image>
 						</view>
-						<view class="cmd_bookname" :style="userData.hasOrder&&userData.hasOrder.length==0?'width:83%':'width:100%'">
+						<view class="cmd_bookname" :style="userData&&userData.info&&userData.info.switch==0?'width:83%':'width:100%'">
 							《{{item.book?item.book.title:''}}》
 							<span class="cmd_time">{{item.create_time}} {{item.week}}</span>
 							<view class="addcmd">

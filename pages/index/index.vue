@@ -226,7 +226,7 @@
 				const callback = (res) => {
 					if (res.info.data.length > 0) {
 						self.mainData = res.info.data[0];
-						if (self.mainData.hasOrder.length == 0) {
+						if (self.mainData.info.switch == 0) {
 							self.is_show = true;
 							
 						} else {

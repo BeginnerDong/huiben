@@ -2,7 +2,7 @@
 	<view>
 		<swiper  :style="'height:'+screenHeight+'px'" :indicator-dots="false" :vertical="true" :autoplay="false"
 		 :interval="3000" :duration="500" :circular="false" @change="change">
-			<swiper-item  v-for="(item,index) in mainData"  v-if="userData.hasOrder&&userData.hasOrder.length==0&&index<9">
+			<swiper-item  v-for="(item,index) in mainData"  v-if="userData&&userData.info&&userData.info.switch==0&&index<9">
 				<view class="book_kk" >
 					<img :src="item.mainImg&&item.mainImg[0]?item.mainImg[0].url:''" style="width:100%;height:100%">
 					<view class="pullup" :style="styleInfo" style="display: flex;">
@@ -30,7 +30,7 @@
 				</view>	
 				<view style="position:absolute;z-index: 999;transform: rotate(90deg);transform-origin:50% 50%;" :style="'left:'+pullLeft+'px;top:'+pullTop+'px'" @click="isShow"><image style="width:50px;height:25px;" :src="pullUrl"></image></view>
 			</swiper-item>
-			<swiper-item  v-for="(item,index) in mainData"  v-if="userData.hasOrder&&userData.hasOrder.length>0">
+			<swiper-item  v-for="(item,index) in mainData"  v-if="userData&&userData.info&&userData.info.switch>0">
 				<view class="book_kk" >
 					<img :src="item.mainImg&&item.mainImg[0]?item.mainImg[0].url:''" style="width:100%;height:100%">
 					<view class="pullup" :style="styleInfo" style="display: flex;">
@@ -58,7 +58,7 @@
 				</view>	
 				<view style="position:absolute;z-index: 999;transform: rotate(90deg);transform-origin:50% 50%;" :style="'left:'+pullLeft+'px;top:'+pullTop+'px'" @click="isShow"><image style="width:50px;height:25px;" :src="pullUrl"></image></view>
 			</swiper-item>
-			<swiper-item :style="'height:'+screenHeight+'px'" v-if="userData.hasOrder&&userData.hasOrder.length>0">
+			<swiper-item :style="'height:'+screenHeight+'px'" v-if="userData&&userData.info&&userData.info.switch>0">
 			<!-- <swiper-item :style="'height:'+screenHeight+'px'" > -->
 				<view class="daka_bg" :style="'width:'+screenHeight+'px;left:'+(-screenHeight+screenWidth)/2 +'px;top:'+(screenHeight-screenWidth)/2+'px'">
 					<view class="head_dk clear">
@@ -104,7 +104,7 @@
 
 				</view>
 			</swiper-item>
-			<swiper-item :style="'height:'+screenHeight+'px'" v-if="userData.hasOrder&&userData.hasOrder.length==0">
+			<swiper-item :style="'height:'+screenHeight+'px'" v-if="userData&&userData.info&&userData.info.switch==0">
 				
 				<view class="ljbm_kk" :style="'width:'+screenHeight+'px;height:'+screenWidth+'px;left:'+(-screenHeight+screenWidth)/2 +'px;top:'+(screenHeight-screenWidth)/2+'px'">
 					<view class="ljbm_top clear" style="margin-top: 50px;">

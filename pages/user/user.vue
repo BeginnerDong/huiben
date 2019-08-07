@@ -11,10 +11,10 @@
 							<view class="ndbb">
 								{{mainData.nickname}}
 							</view>
-							<view class="fx" @click="webself.$Router.navigateTo({route:{path:'/pages/shareNoEnd/shareNoEnd'}})" v-if="mainData.hasOrder&&mainData.hasOrder.length>0&&mainData.info&&mainData.info.finish==0" >
+							<view class="fx" @click="webself.$Router.navigateTo({route:{path:'/pages/shareNoEnd/shareNoEnd'}})" v-if="mainData.info&&mainData.info.switch>0&&mainData.info&&mainData.info.finish==0" >
 								<span class="fxcion" style="margin-right: 5px;"></span>分享学习证
 							</view>
-							<view class="fx" @click="webself.$Router.navigateTo({route:{path:'/pages/byzs/byzs'}})" v-if="mainData.hasOrder&&mainData.hasOrder.length>0&&mainData.info&&mainData.info.finish==1" >
+							<view class="fx" @click="webself.$Router.navigateTo({route:{path:'/pages/byzs/byzs'}})" v-if="mainData.info&&mainData.info.switch>0&&mainData.info&&mainData.info.finish==1" >
 								<span class="fxcion" style="margin-right: 5px;"></span>分享学习证
 							</view>
 						</view>
@@ -35,7 +35,7 @@
 							<view class="dyznyd">
 								多元智能阅读
 							</view>
-							<view v-if="mainData.hasOrder&&mainData.hasOrder.length>0">
+							<view v-if="mainData.info&&mainData.info.switch>0">
 								<view class="zx">
 									入学时间
 								</view>
@@ -43,7 +43,7 @@
 									{{mainData.info.start_time}}
 								</view>
 							</view>
-							<view class="ljrx" v-if="mainData.hasOrder&&mainData.hasOrder.length==0" 
+							<view class="ljrx" v-if="mainData.info&&mainData.info.switch==0" 
 							@click="webself.$Router.navigateTo({route:{path:'/pages/index/index'}})">
 								立即入学
 							</view>

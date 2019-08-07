@@ -150,18 +150,14 @@
 					});
 					self.$jweixin.ready(function() { //需在用户可能点击分享按钮前就先调用		
 
-						if (self.mainData.mainImg[0]) {
-							var shareImg = self.mainData.mainImg[0].url;
-						} else {
-							var shareImg = 'empty';
-						};
+						
 						console.log('shareImg', shareImg)
 						self.$jweixin.updateAppMessageShareData({
 							title: '我和宝贝一起完成了亲子阅读', // 分享标题
 							desc: '12位学前教育专家提供阅读方案，限时免费还有机会获赠3本书', // 分享描述
 							link: 'https://qinzi.koaladaka.com/wx/#?/pages/byzs/byzs?user_no=' + uni.getStorageSync(
 								'user_no'),
-							imgUrl: shareImg, // 分享图标
+							imgUrl: '', // 分享图标
 							success: function() {
 								// 设置成功
 								console.log('updateAppMessageShareData-ok')

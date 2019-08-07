@@ -6,11 +6,11 @@
 				<view class="game_img"><img :src="item.mainImg&&item.mainImg[0]?item.mainImg[0].url:''" style="width:100%;height:100%" /></view>
 				<view class="game_intro">《{{item.title}}》游戏</view>
 			</view>
-			<view class="gameintro_k game_yh" v-if="userData.hasOrder&&userData.hasOrder.length==0">
+			<view class="gameintro_k game_yh" v-if="userData&&userData.info&&userData.info.switch==0">
 				报名加入计划查看全部<br />
 				坚持打卡还能退还全部报名费用，并获赠3本图书
 			</view>
-			<view v-if="userData.hasOrder&&userData.hasOrder.length==0" @click="webSelf.$Router.navigateTo({route:{path:'/pages/index/index'}})">
+			<view v-if="userData&&userData.info&&userData.info.switch==0" @click="webSelf.$Router.navigateTo({route:{path:'/pages/index/index'}})">
 				<button class="gamebtn">立即报名</button>
 			</view>
 		</view>
