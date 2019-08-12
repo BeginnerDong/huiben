@@ -15,10 +15,10 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	height:38%
+	height:38%;
+
 }
 .book_intro_img img{
-
 	width:100%
 }
 .book_name{
@@ -51,6 +51,7 @@
 	text-align:justify;
 	padding: 0 26px;
 	margin-bottom: 18px;
+	overflow: auto;
 }
 .book_tab{
 	width: 100%;

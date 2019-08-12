@@ -1,10 +1,11 @@
 <template>
-	<view class="huise_bg" style="margin-top: 5%;">
+	<view class="huise_bg" style="margin-top: 5%;"  >
 		<view class="td_read_kk">
-			<view class="td_read_k">
+			<view class="td_read_k" >
+				<view style="width: 100%;height:30upx;"></view>
 				<view class="book_intro_img" style="height:170px">
 					<view style="width:42%">
-					<img :src="todayBook&&todayBook.mainImg&&todayBook.mainImg[0]?todayBook.mainImg[0].url:''" style="width: 120px;height: 150px;">
+					<img :src="todayBook&&todayBook.mainImg&&todayBook.mainImg[0]?todayBook.mainImg[0].url:''" style="width: 100%;height: 150px;">
 					</view>
 				</view>
 				<view class="book_name">{{todayBook?todayBook.title:''}}</view>
@@ -68,6 +69,7 @@
 
 		onLoad(options) {
 			const self = this;
+			this.screenHeight = document.body.clientHeight;
 			self.week = new Date().getDay();  
 			if(self.week==2||self.week==4||self.week==6){
 				self.canYesterday = true

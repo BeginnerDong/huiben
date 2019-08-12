@@ -1,12 +1,14 @@
 <template>
-	<view class="huise_bg clear">
+	<view class="huise_bg clear" :style="'height:'+screenHeight+'px'">
 		<view style="width: 100%;">
 			<view class="book_search_kk">
 				<view class="search_kk" style="height:40px">
 					<view class="sear_kk_0 clear" style="display: flex;padding: 0;height: 100%;">
 						<view class="search_book">
-							<span class="searchiocn_l"></span>
-							<input class="search_txt_b" style="color: #000000;width:80%"   v-model="searchTitle" confirm-type="search" type="text" @confirm="search"/>
+							<span class="searchiocn_l" @click="search"></span>
+					
+								<input class="search_txt_b" style="color: #000000;width:80%"   v-model="searchTitle" confirm-type="search" type="text" @confirm="search"/>
+						
 						</view>
 						<view class="all_book" style="display: flex;align-items: center;" @click="webSelf.$Router.navigateTo({route:{path:'/pages/testread/testread'}})">
 							<view style="width: 100%;">全部绘本</view>
@@ -20,8 +22,8 @@
 					<view class="swiper-item" style="height: 90%;">
 							<view class="book_intro_middle" :class="{'active':index===currIndex}" style="margin:auto">
 								<view class="book_intro_img">
-									<view style="width:42%">
-										<img :src="item.mainImg&&item.mainImg[0]?item.mainImg[0].url:''" style="width:120px;height: 150px;">
+									<view style="width:50%">
+										<img :src="item.mainImg&&item.mainImg[0]?item.mainImg[0].url:''" style="width:100%;height: 150px;">
 									</view>
 								</view>
 								<view class="book_name">{{item.title}}</view>
@@ -70,17 +72,21 @@
 				webSelf: this,
 				mainData:[],
 				searchTitle:'',
-				currIndex:0
+				currIndex:0,
+				screenHeight:0
 			}
 		},
 		
 		onLoad(options) {
 			const self = this;
+			this.screenHeight = document.body.clientHeight;
 			if(options.id){
 				self.id = options.id;
-			}
+			};
 			
-			self.$Utils.loadAll(['getMainData'], self)
+			self.$Utils.loadAll(['getMainData'], self);
+			
+
 			
 		},
 		
@@ -143,12 +149,12 @@
 	}
 	.swiper-box {
 		width: 100%;
-		height: 930upx;
+		height: 80%;
 	}
 	
 	.swiper-item {
 		width: 95%;
-		height: 930upx;
+		height: 95%;
 		margin: 0 auto;
 	}
 	.active{

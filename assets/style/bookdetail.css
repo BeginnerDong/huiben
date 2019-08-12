@@ -1,7 +1,7 @@
 .book_kk{
 	width: 100vw;
 	height: 100%;
-	overflow:auto;
+	overflow:hidden;
 	position: relative;
 }
 .pullup,.pulldown{
@@ -169,7 +169,7 @@
 
 
 
-    overflow:auto;
+    overflow:hidden;
 }
 
 

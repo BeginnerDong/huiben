@@ -5,11 +5,13 @@
 				<!--搜索框-->
 				<view class="search_kk" style="height: 40px;padding: 0;display: flex;">
 					
-					<view style="width: 10%;display: flex;align-items: center;justify-content: center;height: 100%;">
+					<view style="width: 10%;display: flex;align-items: center;justify-content: center;height: 100%;" @click="search()">
 						<img src="../../static/images/search2.png" style="width: 16px;height: 16px;"/>
 					</view>
 					<div style="width: 90%;height: 100%;display: flex;align-items: center;">
-						<input class="search_txt" style="color: #000000;width: 100%;margin-left: 5px;" placeholder="搜索绘本" v-model="searchTitle" confirm-type="search" type="text" @confirm="search"/>
+						<form action="#"> 
+							<input class="search_txt" style="color: #000000;width: 100%;margin-left: 5px;" placeholder="搜索绘本" v-model="searchTitle" confirm-type="search" type="text" @confirm="search"/>
+						</form>
 					</div>
 				</view>
 			</view>
@@ -85,7 +87,11 @@
 			if(options.menu_title){
 				self.menu_title = options.menu_title
 			}
-			self.$Utils.loadAll(['getMainData'], self)
+			self.$Utils.loadAll(['getMainData'], self);
+			var oForm =  document.getElementsByTagName("form")[0];
+			oForm.onsubmit = function(){
+				self.search();
+			};
 		},
 		
 		onShow() {

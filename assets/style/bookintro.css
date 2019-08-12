@@ -55,6 +55,7 @@
 }
 .book_intro_middle{
 	width: 100%;
+	height: 100%;
 	border-radius: 8px;
 	margin: 0 4%;
 	box-shadow:0px 2px 16px 0px rgba(0,0,0,0.07);
@@ -89,7 +90,8 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	height:38%
+	height:38%;
+	margin-top: 5%;
 }
 .book_name{
 	
@@ -119,9 +121,11 @@
 	margin-top: 21px;
 	text-align:justify;
 	padding: 0 26px;
+	height: 25%;
+    overflow: auto;
 }
 .open_book{
-	margin-top: 5px;
+	margin-top: 5%;
 }
 .open_book button{
 	font-size: 14px;
