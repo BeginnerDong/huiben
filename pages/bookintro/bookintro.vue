@@ -22,7 +22,7 @@
 					<view class="swiper-item" style="height: 90%;">
 							<view class="book_intro_middle" :class="{'active':index===currIndex}" style="margin:auto">
 								<view class="book_intro_img">
-									<view style="width:50%">
+									<view style="width:40%">
 										<img :src="item.mainImg&&item.mainImg[0]?item.mainImg[0].url:''" style="width:100%;height: 150px;">
 									</view>
 								</view>

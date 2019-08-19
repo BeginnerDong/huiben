@@ -37,7 +37,7 @@
 				</view>
 			</view>
 		</view>
-		<view class="fxxxbtn" @click="webself.$Router.navigateTo({route:{path:'/pages/report/report'}})">
+		<view class="fxxxbtn" @click="webself.$Router.navigateTo({route:{path:'/pages/report/report?start_time='+start+'&end_time='+end}})">
 			分享学习报告
 		</view>
 	</view>
@@ -108,7 +108,7 @@
 					if(res.solely_code==100000){
 						self.reportData = res.info;
 						console.log(self.reportData)
-						uni.setStorageSync('reportData',self.reportData)
+						
 						self.reportData.start_time = self.$Utils.timeto(self.reportData.start_time*1000,'ymd')
 						self.reportData.end_time = self.$Utils.timeto(self.reportData.end_time*1000,'ymd')
 					};

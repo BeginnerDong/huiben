@@ -64,7 +64,8 @@
 					thirdapp_id: 2,
 				},
 				is_show: false,
-				reportData:{}
+				reportData:{},
+				shareUrl:''
 			}
 		},
 
@@ -75,9 +76,11 @@
 			console.log(options)
 			if(options[0].user_no){
 				self.searchItem.user_no = options[0].user_no;
-				self.searchItem.user_type = 0
+				self.searchItem.user_type = 0;
+				self.shareUrl = 'https://qinzi.koaladaka.com/wx/#?/pages/completeShare/completeShare?user_no=' + options[0].user_no
 			}else{
-				self.searchItem.user_no = uni.getStorageSync('user_no')
+				self.searchItem.user_no = uni.getStorageSync('user_no');
+				self.shareUrl = 'https://qinzi.koaladaka.com/wx/#?/pages/completeShare/completeShare?user_no=' + uni.getStorageSync('user_no')
 			}
 			self.$Utils.loadAll(['getMainData'], self)
 		},
@@ -154,8 +157,7 @@
 						self.$jweixin.updateAppMessageShareData({
 							title: '我和宝贝一起完成了亲子阅读', // 分享标题
 							desc: '12位学前教育专家提供阅读方案，限时免费还有机会获赠3本书', // 分享描述
-							link: 'https://qinzi.koaladaka.com/wx/#?/pages/completeShare/completeShare?user_no=' + uni.getStorageSync(
-								'user_no'),
+							link: self.shareUrl,
 							imgUrl: shareImg, // 分享图标
 							success: function() {
 								// 设置成功

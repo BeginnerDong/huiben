@@ -35,7 +35,7 @@
 									入学时间
 								</view>
 								<view class="dyznyd bytime">
-									{{mainData.info.start_time}}
+									{{mainData.info?mainData.info.start_time:''}}
 								</view>
 							</view>
 							
@@ -86,13 +86,15 @@
 		onLoad(options) {
 			const self = this;
 			var options = self.$Utils.getHashParameters();
-			self.id = options[0].id;
+			
 			console.log(options)
 			if(options[0].user_no){
 				self.searchItem.user_no = options[0].user_no;
-				self.searchItem.user_type = 0
+				self.searchItem.user_type = 0;
+				self.shareUrl = 'https://qinzi.koaladaka.com/wx/#/pages/shareNoEnd/shareNoEnd?user_no=' + options[0].user_no
 			}else{
-				self.searchItem.user_no = uni.getStorageSync('user_no')
+				self.searchItem.user_no = uni.getStorageSync('user_no');
+				self.shareUrl = 'https://qinzi.koaladaka.com/wx/#/pages/shareNoEnd/shareNoEnd?user_no=' + uni.getStorageSync('user_no')
 			}
 			self.$Utils.loadAll(['getMainData'], self)
 		},
@@ -161,18 +163,12 @@
 					});
 					self.$jweixin.ready(function() { //需在用户可能点击分享按钮前就先调用		
 
-						if (self.mainData.mainImg[0]) {
-							var shareImg = self.mainData.mainImg[0].url;
-						} else {
-							var shareImg = 'empty';
-						};
-						console.log('shareImg', shareImg)
+					
 						self.$jweixin.updateAppMessageShareData({
-							title: '我和宝贝一起完成了亲子阅读', // 分享标题
-							desc: '12位学前教育专家提供阅读方案，限时免费还有机会获赠3本书', // 分享描述
-							link: 'https://qinzi.koaladaka.com/wx/#?/pages/shareNoEnd/shareNoEnd?user_no=' + uni.getStorageSync(
-								'user_no'),
-							imgUrl: shareImg, // 分享图标
+							title: self.mainData.nickname+'的学习证', // 分享标题
+							desc: '研修课程：多元智能阅读', // 分享描述
+							link: self.shareUrl,
+							imgUrl: 'empty', // 分享图标
 							success: function() {
 								// 设置成功
 								console.log('updateAppMessageShareData-ok')

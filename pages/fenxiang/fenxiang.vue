@@ -82,21 +82,27 @@
 				percent:'',
 				searchItem:{
 					thirdapp_id:2
-				}
+				},
+				shareUrl:''
 			}
 		},
 		
 		onLoad(options) {
 			const self = this;
+		
+			
 			var options = self.$Utils.getHashParameters();
 			self.id = options[0].id;
 			console.log(options)
 			if(options[0].user_no){
 				self.searchItem.user_no = options[0].user_no;
-				self.searchItem.user_type = 0
+				self.searchItem.user_type = 0;
+				self.shareUrl = 'https://qinzi.koaladaka.com/wx/#/pages/fenxiang/fenxiang?user_no=' + options[0].user_no + '&id=' + self.id
 			}else{
-				self.searchItem.user_no = uni.getStorageSync('user_no')
-			}
+				self.searchItem.user_no = uni.getStorageSync('user_no');
+				self.shareUrl = 'https://qinzi.koaladaka.com/wx/#/pages/fenxiang/fenxiang?user_no=' + uni.getStorageSync('user_no') + '&id=' + self.id
+			};
+			
 			self.$Utils.loadAll(['getUserData'], self)
 		},
 		
@@ -109,6 +115,7 @@
 			
 			getUserData() {
 				const self = this;
+				
 				const postData = {};
 				postData.tokenFuncName = 'getProjectToken';
 				postData.searchItem = self.$Utils.cloneForm(self.searchItem);
@@ -124,22 +131,21 @@
 		
 			getMainData(){
 				const self = this;
+				
 				const postData = {};
 				postData.searchItem = {
 					type:1,
 					on_shelf:1,
 					id:self.id
 				};
-				postData.order = {
-					update_time:'desc'
-				};
+	
 				console.log('postData', postData)
 				const callback = (res) => {
 					if (res.info.data.length > 0) {
 						self.mainData = res.info.data[0]
 					} 
 					self.getRead()
-					self.wxJsSdk()
+					
 				};
 				self.$apis.articleGet(postData, callback);
 			},
@@ -160,13 +166,14 @@
 						}
 					};
 					
-					
+					self.wxJsSdk()
 				};
 				self.$apis.getRead(postData, callback);
 			},
 			
 			wxJsSdk() {
 				const self = this;
+				
 				const postData = {
 					thirdapp_id: 2,
 					url: location.href.split('#')[0]
@@ -174,7 +181,7 @@
 				const callback = (res) => {
 					console.log('maindata', self.mainData)
 					self.$jweixin.config({
-						debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+						debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
 						appId: res.appId, // 必填，公众号的唯一标识
 						timestamp: res.timestamp, // 必填，生成签名的时间戳
 						nonceStr: res.nonceStr, // 必填，生成签名的随机串
@@ -190,12 +197,13 @@
 						};
 						console.log('shareImg', shareImg)
 						self.$jweixin.updateAppMessageShareData({
-							title: '我和宝贝一起完成了亲子阅读', // 分享标题
-							desc: '12位学前教育专家提供阅读方案，限时免费还有机会获赠3本书', // 分享描述
-							link: 'https://qinzi.koaladaka.com/wx/?#/pages/fenxiang/fenxiang?user_no=' + uni.getStorageSync('user_no') + '&id=' + self.mainData.id,
+							title: self.userData.nickname+'和宝贝一起阅读了'+self.mainData.title, // 分享标题
+							desc:  '12位学前教育专家提供阅读方案，限时免费还有机会获赠3本书', // 分享描述
+							link: self.shareUrl,
 							imgUrl: shareImg, // 分享图标
 							success: function() {
 								// 设置成功
+								
 								console.log('updateAppMessageShareData-ok')
 							}
 						})

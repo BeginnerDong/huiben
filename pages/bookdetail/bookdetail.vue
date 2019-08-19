@@ -246,7 +246,7 @@
 				if(mainImg[0]&&mainImg[0].url){
 					
 					wx.previewImage({
-						current: 'mainImg[0].url', // 当前显示图片的http链接
+						current: mainImg[0].url, // 当前显示图片的http链接
 						urls: [mainImg[0].url] // 需要预览的图片http链接列表
 					});
 
@@ -265,6 +265,10 @@
 						}
 					}); */
 				}
+			},
+			
+			test(){
+				window.location.href = 'https://qinzi.koaladaka.com/wx/#/pages/completeShare/completeShare'
 			},
 			
 			init(){

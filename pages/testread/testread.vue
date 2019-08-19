@@ -128,9 +128,14 @@
 					if (res.info.data.length > 0) {
 						for (var i = 0; i < res.info.data.length; i++) {
 							if(self.mainData.length>0){
-								if(res.info.data[i].label[res.info.data[i].menu_id].title==self.mainData[self.mainData.length-1].menu){
-									self.mainData[self.mainData.length-1].data.push(res.info.data[i]);
-								}else{
+								var hasone = false;
+								for(var j =0;j<self.mainData.length;j++){
+									if(res.info.data[i].label[res.info.data[i].menu_id].title==self.mainData[j].menu){
+										self.mainData[j].data.push(res.info.data[i]);
+										hasone = true;
+									};
+								};
+								if(!hasone){
 									self.mainData.push({
 										menu: res.info.data[i].label[res.info.data[i].menu_id].title,
 										data:[res.info.data[i]]

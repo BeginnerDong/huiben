@@ -103,7 +103,7 @@
 		onLoad(options) {
 			const self = this;
 			self.$Utils.loadAll(['getMainData', 'getArticleOneData', 'getArticleTwoData', 'getMessageData','getProductData'], self)
-			//self.$Utils.loadAll(['getMainData', 'getArticleOneData', 'getArticleTwoData', 'getMessageData','getProductData','tokenGet'], self)
+		//self.$Utils.loadAll(['getMainData', 'getArticleOneData', 'getArticleTwoData', 'getMessageData','getProductData','tokenGet'], self)
 		},
 		
 		onShow() {
@@ -177,7 +177,7 @@
 				const self = this;
 				const postData = {
 					searchItem: {
-						user_no: 'U720923586057831'
+						user_no: 'U813040037021282'
 					}
 				};
 				console.log('postData', postData)

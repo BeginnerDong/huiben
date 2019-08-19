@@ -33,25 +33,31 @@
 				time: '',
 				percent: '',
 				searchItem: {},
-				reportData: {}
+				reportData: {},
+				shareUrl:''
 			}
 		},
 
 		onLoad(options) {
 			const self = this;
-			self.reportData = uni.getStorageSync('reportData');
+			
 			console.log(self.reportData);
-			self.reportData.start_time = self.$Utils.timeto(self.reportData.start_time * 1000, 'ymd')
-			self.reportData.end_time = self.$Utils.timeto(self.reportData.end_time * 1000, 'ymd')
+			
 			var options = self.$Utils.getHashParameters();
+			console.log(options)
+			self.start = options[0].start_time;
+			self.end = options[0].end_time;
 			console.log(options)
 			if (options[0].user_no) {
 				self.searchItem.user_no = options[0].user_no;
-				self.searchItem.user_type = 0
+				self.searchItem.user_type = 0;
+				self.shareUrl = 'https://qinzi.koaladaka.com/wx/#/pages/report/report?user_no=' + options[0].user_no+'&start_time='+self.start+'&end_time='+self.end
 			} else {
-				self.searchItem.user_no = uni.getStorageSync('user_no')
+				self.searchItem.user_no = uni.getStorageSync('user_no');
+				self.shareUrl = 'https://qinzi.koaladaka.com/wx/#/pages/report/report?user_no=' + uni.getStorageSync('user_no')+'&start_time='+self.start+'&end_time='+self.end
 			}
 			self.$Utils.loadAll(['getUserData'], self)
+			console.log(self.shareUrl)
 		},
 
 		onShow() {
@@ -70,13 +76,38 @@
 					if (res.info.data.length > 0) {
 						self.userData = res.info.data[0];
 					};
-					self.wxJsSdk()
+					self.getReport()
 				};
 				self.$apis.comUserGet(postData, callback);
 			},
 
 
-
+			getReport(){
+				const self = this;
+				
+				const postData = {};
+				postData.tokenFuncName ='getProjectToken';
+				postData.data ={
+					start:self.start,
+					end:self.end
+				};
+				/* postData.data ={
+					start:self.userData.info.challenge_time,
+					end:end
+				}; */
+				console.log('postData', postData)
+				const callback = (res) => {
+					if(res.solely_code==100000){
+						self.reportData = res.info;
+						console.log(self.reportData)
+						
+						self.reportData.start_time = self.$Utils.timeto(self.reportData.start_time*1000,'ymd')
+						self.reportData.end_time = self.$Utils.timeto(self.reportData.end_time*1000,'ymd')
+					};
+					self.wxJsSdk();
+				};
+				self.$apis.getReport(postData, callback);
+			},
 
 
 
@@ -101,11 +132,10 @@
 					self.$jweixin.ready(function() { //需在用户可能点击分享按钮前就先调用		
 						
 						self.$jweixin.updateAppMessageShareData({
-							title: '我和宝贝一起完成了亲子阅读', // 分享标题
-							desc: '12位学前教育专家提供阅读方案，限时免费还有机会获赠3本书', // 分享描述
-							link: 'https://qinzi.koaladaka.com/wx/#/pages/report/report?user_no=' + uni.getStorageSync(
-								'user_no'),
-							imgUrl: '', // 分享图标
+							title: self.userData.nickname+'一周学习报告', // 分享标题
+							desc: '学习课程：多元智能阅读', // 分享描述
+							link: self.shareUrl,
+							imgUrl:'empty', // 分享图标
 							success: function() {
 								// 设置成功
 								console.log('updateAppMessageShareData-ok')

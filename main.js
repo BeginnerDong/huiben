@@ -33,9 +33,10 @@ $Router.beforeEach((navType, to) => {
 		return;
 	}; */
 	console.log('url',$Utils.objParseUrlAndParam(to.route.path, to.query))
-	uni[navType]({
+	/* uni[navType]({
 		url: $Utils.objParseUrlAndParam(to.route.path, to.query)
-	})
+	}) */
+	window.location.href = 'https://qinzi.koaladaka.com/wx/?#'+to.route.path;
 	
 	
 

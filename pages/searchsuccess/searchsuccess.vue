@@ -9,9 +9,9 @@
 						<img src="../../static/images/search2.png" style="width: 16px;height: 16px;"/>
 					</view>
 					<div style="width: 90%;height: 100%;display: flex;align-items: center;">
-						<form action="#"> 
+						
 							<input class="search_txt" style="color: #000000;width: 100%;margin-left: 5px;" placeholder="搜索绘本" v-model="searchTitle" confirm-type="search" type="text" @confirm="search"/>
-						</form>
+						
 					</div>
 				</view>
 			</view>
@@ -88,10 +88,10 @@
 				self.menu_title = options.menu_title
 			}
 			self.$Utils.loadAll(['getMainData'], self);
-			var oForm =  document.getElementsByTagName("form")[0];
+			/* var oForm =  document.getElementsByTagName("form")[0];
 			oForm.onsubmit = function(){
 				self.search();
-			};
+			}; */
 		},
 		
 		onShow() {
