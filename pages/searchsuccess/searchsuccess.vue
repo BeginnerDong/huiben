@@ -112,19 +112,24 @@
 				const callback = (res) => {
 					if (res.info.data.length > 0) {
 						for (var i = 0; i < res.info.data.length; i++) {
-							if (self.articleData.length > 0) {
-								if (res.info.data[i].label[res.info.data[i].menu_id].title == self.articleData[self.articleData.length - 1].menu) {
-									self.articleData[self.articleData.length - 1].data.push(res.info.data[i]);
-								} else {
-									self.articleData.push({
+							if(self.mainData.length>0){
+								var hasone = false;
+								for(var j =0;j<self.mainData.length;j++){
+									if(res.info.data[i].label[res.info.data[i].menu_id].title==self.mainData[j].menu){
+										self.mainData[j].data.push(res.info.data[i]);
+										hasone = true;
+									};
+								};
+								if(!hasone){
+									self.mainData.push({
 										menu: res.info.data[i].label[res.info.data[i].menu_id].title,
-										data: [res.info.data[i]]
+										data:[res.info.data[i]]
 									});
 								};
-							} else {
-								self.articleData.push({
+							}else{
+								self.mainData.push({
 									menu: res.info.data[i].label[res.info.data[i].menu_id].title,
-									data: [res.info.data[i]]
+									data:[res.info.data[i]]
 								})
 							};
 						};

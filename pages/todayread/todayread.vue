@@ -89,7 +89,7 @@
 				const self = this;
 				if(self.lastBook&&JSON.stringify(self.lastBook)!='{}'){
 					self.$Router.navigateTo({route:{path:'/pages/bookintro/bookintro?id='+self.lastBook.id}})
-				}else if(self.canYesterday){
+				}else{
 					self.$Router.navigateTo({route:{path:'/pages/bookintro/bookintro'}})
 				}
 			},

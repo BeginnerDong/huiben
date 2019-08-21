@@ -1,10 +1,9 @@
 <template>
-	<view id='test' @scroll='scrollChange()'>
-			<view id="page">
+	<view>
 
-		<!-- <swiper  :style="'height:'+screenHeight+'px'" :indicator-dots="false" :vertical="true" :autoplay="false"
-		 :interval="3000" :duration="500" :circular="false" @change="change"> -->
-			<view :style="'height:'+screenHeight+'px'"  v-for="(item,index) in mainData"  v-if="userData&&userData.info&&userData.info.switch==0&&index<9">
+		<swiper  :style="'height:'+screenHeight+'px'" :indicator-dots="false" :vertical="true" :autoplay="false"
+				 :interval="3000" :duration="500" :circular="false" @change="change">
+			<swiper-item  v-for="(item,index) in mainData"  v-if="userData&&userData.info&&userData.info.switch==0&&index<9">
 				<view class="book_kk" >
 					<img @click="preview(item.mainImg)" :src="item.mainImg&&item.mainImg[0]?item.mainImg[0].url:''" style="width:100%;height:100%">
 					<view class="pullup" :style="styleInfo" style="display: flex;">
@@ -31,8 +30,9 @@
 					</view>
 					<view style="position:absolute;z-index: 999;transform: rotate(90deg);transform-origin:50% 50%;" :style="'left:'+pullLeft+'px;top:'+pullTop+'px'" @click="isShow"><image style="width:50px;height:25px;" :src="pullUrl"></image></view>
 				</view>	
-			</view>
-			<view :style="'height:'+screenHeight+'px'"  v-for="(item,index) in mainData"  v-if="userData&&userData.info&&userData.info.switch>0">
+			</swiper-item>
+			<swiper-item  v-for="(item,index) in mainData"  v-if="userData&&userData.info&&userData.info.switch>0">
+			
 				<view class="book_kk" >
 					<img @click="preview(item.mainImg)" :src="item.mainImg&&item.mainImg[0]?item.mainImg[0].url:''" style="width:100%;height:100%">
 					<view class="pullup" :style="styleInfo" style="display: flex;">
@@ -60,9 +60,9 @@
 					<view style="position:absolute;z-index: 999;transform: rotate(90deg);transform-origin:50% 50%;" :style="'left:'+pullLeft+'px;top:'+pullTop+'px'" @click="isShow"><image style="width:50px;height:25px;" :src="pullUrl"></image></view>
 				</view>	
 				
-			</view>
-			</view>
-			<view style="position: relative;" :style="'height:'+screenHeight+'px'" v-if="userData&&userData.info&&userData.info.switch>0">
+			</swiper-item>
+			
+			<swiper-item style="position: relative;" :style="'height:'+screenHeight+'px'" v-if="userData&&userData.info&&userData.info.switch>0">
 			<!-- <view :style="'height:'+screenHeight+'px'" > -->
 				<view class="daka_bg" style="overflow: auto;" :style="'width:'+screenHeight+'px;left:'+(-screenHeight+screenWidth)/2 +'px;top:'+(screenHeight-screenWidth)/2+'px'">
 					<view class="head_dk clear">
@@ -107,8 +107,8 @@
 					
 
 				</view>
-			</view>
-			<view style="position: relative;" :style="'height:'+screenHeight+'px'" v-if="userData&&userData.info&&userData.info.switch==0">
+			</swiper-item>
+			<swiper-item style="position: relative;" :style="'height:'+screenHeight+'px'" v-if="userData&&userData.info&&userData.info.switch==0">
 				
 				<view class="ljbm_kk" style="overflow: auto;" :style="'width:'+screenHeight+'px;height:'+screenWidth+'px;left:'+(-screenHeight+screenWidth)/2 +'px;top:'+(screenHeight-screenWidth)/2+'px'">
 					<view class="ljbm_top clear" style="margin-top: 50px;">
@@ -155,8 +155,8 @@
 						</view>
 					</view>
 				</view>
-			</view>
-		<!-- </swiper> -->
+			</swiper-item>
+		</swiper>
 		
 	</view>
 </template>

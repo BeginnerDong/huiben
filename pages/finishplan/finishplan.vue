@@ -31,8 +31,28 @@
 				</view>
 			</view>
 			<view class="ljfxbtn">
-				<button @click="webself.$Router.redirectTo({route:{path:'/pages/fenxiang/fenxiang?id='+id}})">立即分享</button>
+				<button v-if="isMe" @click="goShare">立即分享</button>
 			</view>
+			<view v-if="!isMe">
+				<view class="fx_hds">
+					互动式的亲子阅读比起讲故事能让孩子智商提高6个点
+				</view>
+				
+				<view class="fx_zj_bg">
+					<view class="fx_zj">
+						12位学前教育专家提供阅读方案，限时免费还有机会获赠3本书
+					</view>
+					<view class="fx_zj_xbg">
+					</view>
+				</view>
+				<view class="fx_ewm">
+					<img class="fx_wechat" src="../../static/images/qr.jpg" />
+					<view class="fx_sm">
+						扫码关注早教练习生公众号，立即加入60天幼儿能力提升计划
+					</view>
+				</view>
+			</view>
+			
 		</view>
 	</view>
 </template>
@@ -45,19 +65,27 @@
 				searchItem:{},
 				userData:{},
 				reportData:{},
-				id:''
+				id:'',
+				shareUrl:'',
+				isMe:true
 			}
 		},
 		
+		
+		
 		onLoad(options) {
 			const self = this;
-			self.id = options.id;
+			var options = self.$Utils.getHashParameters();
+			
 			console.log(options)
-			if(options.user_no){
-				self.searchItem.user_no = options.user_no;
-				self.searchItem.user_type = 0
+			if(options[0].user_no){
+				self.searchItem.user_no = options[0].user_no;
+				self.searchItem.user_type = 0;
+				self.isMe = false;
+				self.shareUrl = 'https://qinzi.koaladaka.com/wx/#/pages/finishplan/finishplan?user_no=' + options[0].user_no
 			}else{
-				self.searchItem.user_no = uni.getStorageSync('user_no')
+				self.searchItem.user_no = uni.getStorageSync('user_no');
+				self.shareUrl = 'https://qinzi.koaladaka.com/wx/#/pages/finishplan/finishplan?user_no=' +uni.getStorageSync('user_no')
 			}
 			self.$Utils.loadAll(['getUserData'], self)
 		},
@@ -68,6 +96,11 @@
 		},
 		
 		methods: {
+			
+			goShare(){
+				const self = this;
+				self.isMe = false
+			},
 			
 			getUserData() {
 				const self = this;
@@ -133,18 +166,12 @@
 						jsApiList: ['openLocation', 'updateAppMessageShareData','updateTimelineShareData','onMenuShareTimeline','onMenuShareAppMessage'] // 必填，需要使用的JS接口列表
 					});
 					self.$jweixin.ready(function() { //需在用户可能点击分享按钮前就先调用		
-						console.log('maindata-ready', self.mainData)
-						if (self.mainData.mainImg[0]) {
-							var shareImg = self.mainData.mainImg[0].url;
-						} else {
-							var shareImg = 'empty';
-						};
-						console.log('shareImg', shareImg)
+						
 						self.$jweixin.updateAppMessageShareData({
 							title: '我和宝贝一起完成了亲子阅读', // 分享标题
 							desc: '12位学前教育专家提供阅读方案，限时免费还有机会获赠3本书', // 分享描述
-							link: 'https://qinzi.koaladaka.com/wx/#/pages/fenxiang/fenxiang?user_no=' + uni.getStorageSync('user_no') + '&id=' + self.mainData.id,
-							imgUrl: shareImg, // 分享图标
+							link: self.shareUrl,
+							imgUrl: '', // 分享图标
 							success: function() {
 								// 设置成功
 								console.log('updateAppMessageShareData-ok')
@@ -164,4 +191,5 @@
 
 <style>
 	@import "../../assets/style/finishplan.css";
+	@import "../../assets/style/gxfinishplan.css";
 </style>

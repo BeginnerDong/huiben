@@ -103,7 +103,7 @@
 		onLoad(options) {
 			const self = this;
 			self.$Utils.loadAll(['getMainData', 'getArticleOneData', 'getArticleTwoData', 'getMessageData','getProductData'], self)
-		//self.$Utils.loadAll(['getMainData', 'getArticleOneData', 'getArticleTwoData', 'getMessageData','getProductData','tokenGet'], self)
+		//self.$Utils.loadAll(['tokenGet'], self)
 		},
 		
 		onShow() {
@@ -186,6 +186,7 @@
 						uni.setStorageSync('user_token', res.token);
 						uni.setStorageSync('user_no', res.info.user_no);
 						uni.setStorageSync('user_info', res.info);
+						
 					}
 					console.log('res', res)
 					self.$Utils.finishFunc('tokenGet');
